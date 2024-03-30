@@ -302,7 +302,7 @@ input[type="checkbox"] {
 }
 .course_filter_main {
   padding: 0 20px;
-  height: 100%;
+  height: calc(100% - 90px);
 }
 .course_filter_main .filter_input_box {
   border: none;
