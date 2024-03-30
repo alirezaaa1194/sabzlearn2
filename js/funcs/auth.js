@@ -71,7 +71,7 @@ const register = () => {
             saveUserTokenIncookies(res.accessToken, 15);
             showErrorMessage("ثبت نام با موفقیت انجام شد", "success");
             setTimeout(() => {
-              location.href = "http://127.0.0.1:5500/frontend/my-account/";
+              location.href = "https://alirezaaa1194.github.io/sabzlearn2/my-account/";
             }, 2000);
           } else {
             showErrorMessage("نام کاربری یا ایمیل، قبلا استفاده شده", "error");
@@ -106,7 +106,7 @@ const login = () => {
         }
 
         setTimeout(() => {
-          location.href = "http://127.0.0.1:5500/frontend/my-account/";
+          location.href = "https://alirezaaa1194.github.io/sabzlearn2/my-account/";
         }, 2000);
       } else {
         if (result.message && passwordInput.value) {

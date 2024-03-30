@@ -30,7 +30,7 @@ function getDataFromDataBase() {
       tBodyTable.insertAdjacentHTML(
         "beforeend",
         "<tr><td>" +
-          user.id +
+          user._id +
           "</td><td>" +
           user.name +
           "</td><td>" +

@@ -29,9 +29,6 @@ save_info_btn.addEventListener("click", () => {
   updateUser().then((res) => {
     if (res.status === 200) {
       showErrorMessage("اطلاعات با موفقیت تغییر یافت", "success");
-      setTimeout(() => {
-        location.href = "../loginBy_email.html";
-      }, 2000);
     } else if (res.status === 400) {
       showErrorMessage("لطفا رمز عبور را واردکنید", "error");
     } else {

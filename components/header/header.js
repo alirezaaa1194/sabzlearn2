@@ -1032,7 +1032,7 @@ class Header extends HTMLElement {
   }
 
   searchBoxHandler(input) {
-    location.href = `http://127.0.0.1:5500/frontend/courses.html?s=${input.value}`;
+    location.href = `https://alirezaaa1194.github.io/sabzlearn2/courses.html?s=${input.value}`;
   }
   checkMenuItem(href) {
     if (href && location.search.includes(href)) {

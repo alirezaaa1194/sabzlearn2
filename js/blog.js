@@ -81,7 +81,7 @@ function blogGenerator(blogInfo) {
   // articles_category_list
 
   blogLink_breadcrumb.innerHTML = blogInfo.title;
-  blogLink_breadcrumb.href = `http://127.0.0.1:5500/frontend/blog.html?bName=${blogInfo.shortName}`;
+  blogLink_breadcrumb.href = `https://alirezaaa1194.github.io/sabzlearn2/blog.html?bName=${blogInfo.shortName}`;
 
   blog_title_label.innerHTML = blogInfo.title;
   document.title = `${blogInfo.title} - سبزلرن`;
@@ -102,7 +102,7 @@ function blogGenerator(blogInfo) {
       latest_articles_list.insertAdjacentHTML(
         "beforeend",
         `
-      <li><a href="http://127.0.0.1:5500/frontend/blog.html?bName=${blog.shortName}">${blog.title}</a></li>
+      <li><a href="https://alirezaaa1194.github.io/sabzlearn2/blog.html?bName=${blog.shortName}">${blog.title}</a></li>
       `
       );
     });
@@ -114,7 +114,7 @@ function blogGenerator(blogInfo) {
       articles_category_list.insertAdjacentHTML(
         "beforeend",
         `
-      <li><i class="fa-solid fa-play"></i><a href="http://127.0.0.1:5500/frontend/blog.html?bName=${blog.shortName}">${blog.title}</a></li>
+      <li><i class="fa-solid fa-play"></i><a href="https://alirezaaa1194.github.io/sabzlearn2/blog.html?bName=${blog.shortName}">${blog.title}</a></li>
       `
       );
     });

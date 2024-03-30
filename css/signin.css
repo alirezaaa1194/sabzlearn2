@@ -154,22 +154,31 @@ button:hover {
   }
 }
 @media screen and (max-width: 768px) {
+  .Logo{
+    width: 80px !important;
+  }
+  .logo-title{
+    font-size: 2rem !important;
+  }
   .container {
     justify-content: flex-start;
   }
   .form {
-    width: 80%;
+    width: 85%;
     gap: 10px;
   }
-  .input-box input{
-    font-size: .9rem;
+  .input-box input {
+    font-size: 0.9rem;
   }
-  .input-box i{
+  .input-box i {
     font-size: 1rem;
   }
   button {
     width: 100%;
     font-family: IranSans;
     padding: 9px 20px;
+  }
+  .term_condition_box {
+    width: 85%;
   }
 }

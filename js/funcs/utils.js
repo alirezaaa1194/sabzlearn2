@@ -22,12 +22,12 @@ export const logOut = (userToken) => {
 
 export const redirectToLoginPage = () => {
   if (!isUserLogedIn()) {
-    location.href = "http://127.0.0.1:5500/frontend/loginBy_email.html";
+    location.href = "https://alirezaaa1194.github.io/sabzlearn2/loginBy_email.html";
   }
 };
 export const redirectToPannel = () => {
   if (isUserLogedIn()) {
-    location.href = "http://127.0.0.1:5500/frontend/my-account/";
+    location.href = "https://alirezaaa1194.github.io/sabzlearn2/my-account/";
   }
 };
 

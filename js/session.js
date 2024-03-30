@@ -75,10 +75,10 @@ getCourseByName("cName").then((data) => {
 function sessionContentGenerator(course) {
   // start breadcrumb
   breadcrumb_category_name.innerHTML = course.categoryID.title;
-  breadcrumb_category_name.href = `http://127.0.0.1:5500/frontend/course_category.html?cat=${course.categoryID.name}&catName=${course.categoryID.title}`;
+  breadcrumb_category_name.href = `https://alirezaaa1194.github.io/sabzlearn2/course_category.html?cat=${course.categoryID.name}&catName=${course.categoryID.title}`;
 
   breadcrumb_course_name.innerHTML = course.name;
-  breadcrumb_course_name.href = `http://127.0.0.1:5500/frontend/course.html?name=${course.shortName}`;
+  breadcrumb_course_name.href = `https://alirezaaa1194.github.io/sabzlearn2/course.html?name=${course.shortName}`;
   // finish breadcrumb
   course_name_label.innerHTML = course.name;
   accordion_item_body.innerHTML = "";

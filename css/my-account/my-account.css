@@ -76,7 +76,7 @@
   font-weight: bold;
 }
 .last_seen_courses_box a {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   background-color: var(--Hover-blue-color);
   color: var(--blueColor);
   text-decoration: none;

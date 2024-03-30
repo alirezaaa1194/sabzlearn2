@@ -181,11 +181,17 @@ button:hover {
   }
 }
 @media screen and (max-width: 768px) {
+  .Logo{
+    width: 80px !important;
+  }
+  .logo-title{
+    font-size: 2rem !important;
+  }
   .container {
     justify-content: flex-start;
   }
   .form {
-    width: 80%;
+    width: 85%;
     gap: 10px;
   }
   .input-box input {

@@ -272,10 +272,10 @@ function courseContentGenerator(course, isRegister) {
   });
   // console.log(course);
   breadcrumb_category_name.innerHTML = course.categoryID.title;
-  breadcrumb_category_name.href = `http://127.0.0.1:5500/frontend/course_category.html?cat=${course.categoryID.name}&catName=${course.categoryID.title}`;
+  breadcrumb_category_name.href = `https://alirezaaa1194.github.io/sabzlearn2/course_category.html?cat=${course.categoryID.name}&catName=${course.categoryID.title}`;
   document.title = `${course.name} - سبزلرن`;
   breadcrumb_course_name.innerHTML = course.name;
-  breadcrumb_course_name.href = `http://127.0.0.1:5500/frontend/course.html?name=${course.shortName}`;
+  breadcrumb_course_name.href = `https://alirezaaa1194.github.io/sabzlearn2/course.html?name=${course.shortName}`;
 
   course_name_label.innerHTML = course.name;
   summary_course_description.innerHTML = course.description;
