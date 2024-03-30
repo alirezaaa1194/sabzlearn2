@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دوره ها - سبزلرن</title>
+    <link rel="stylesheet" href="vendor/FontAwesome/FontAwesome.min.css" />
+    <link rel="stylesheet" href="vendor/swiperSlider/swiper.css" />
+    <link rel="stylesheet" href="vendor/BootStrap/Bootstrap5.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="../main/css/main.css" />
+    <link rel="icon" href="../../images/favicon.png" sizes="192x192" />
+  </head>
+
+  <body>
+    <!-- <div class="modal">
+        <h1>ویرایش دوره</h1>
+        <div class="modal_content">
+            <input type="text" placeholder="نام دوره">
+        </div>
+    </div> -->
+    <div id="content">
+      <div id="sidebar" class="col-2">
+        <div class="sidebar-header">
+          <div class="sidebar-logo">
+            <a href="#"><img src="img/logo.png" alt="Logo" /></a>
+          </div>
+
+          <div class="sidebar-menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu">
+          <ul>
+            <li>
+              <a href="../main/index.html"><span>صفحه اصلی</span></a>
+            </li>
+            <li class="active-menu">
+              <a href="../Products/index.html"><span>دوره ها</span></a>
+            </li>
+            <li>
+              <a href="../sessions/index.html"><span>جلسات</span></a>
+            </li>
+            <li>
+              <a href="../comments/index.html"><span>کامنت ها</span></a>
+            </li>
+            <li>
+              <a href="../tickets/index.html"><span>تیکت ها</span></a>
+            </li>
+            <li>
+              <a href="../Menus/index.html"><span>منو ها</span></a>
+            </li>
+            <li>
+              <a href="../Blogs/index.html"><span>مقاله ها</span></a>
+            </li>
+            <li>
+              <a href="../categories/index.html"><span>دسته‌بندی‌ ها</span></a>
+            </li>
+            <li>
+              <a href="../campaign/index.html"><span>جشنواره ها</span></a>
+            </li>
+            <li>
+              <a href="../Users/index.html"><span>کاربران</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="home" class="col-10">
+        <div class="container-fluid">
+          <div class="container">
+            <div class="home-header">
+              <div class="home-right">
+                <div class="home-searchbar">
+                  <input
+                    type="text"
+                    class="search-bar"
+                    placeholder="جستجو..."
+                  />
+                </div>
+                <div class="home-notification">
+                  <button type="button" class="notification_btn">
+                    <i class="far fa-bell"></i>
+                  </button>
+                </div>
+                <div
+                  class="home-notification-modal"
+                  style="left: 32px; top: 30px"
+                >
+                  <ul class="home-notification-modal-list">
+                    <li class="home-notification-modal-item">
+                      <span class="home-notification-modal-text">پیغام ها</span>
+                      <label class="switch">
+                        <input type="checkbox" checked />
+                        <span class="slider round"></span>
+                      </label>
+                    </li>
+                    <li class="home-notification-modal-item">
+                      <span class="home-notification-modal-text">پیغام ها</span>
+                      <label class="switch">
+                        <input type="checkbox" checked />
+                        <span class="slider round"></span>
+                      </label>
+                    </li>
+                    <li class="home-notification-modal-item">
+                      <span class="home-notification-modal-text">پیغام ها</span>
+                      <label class="switch">
+                        <input type="checkbox" checked />
+                        <span class="slider round"></span>
+                      </label>
+                    </li>
+                    <li class="home-notification-modal-item">
+                      <span class="home-notification-modal-text">پیغام ها</span>
+                      <label class="switch">
+                        <input type="checkbox" checked />
+                        <span class="slider round"></span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+                <div class="mode">
+                  <ul class="mode-list">
+                    <div class="mode-list-item mode-red"></div>
+                    <div class="mode-list-item mode-blue"></div>
+                    <div class="mode-list-item mode-dark"></div>
+                    <div class="mode-list-item mode-light"></div>
+                  </ul>
+                </div>
+              </div>
+              <div class="home-left">
+                <div class="home-profile">
+                  <div class="home-profile-image">
+                    <a href="#">
+                      <img src="../../images/user.png" alt="" />
+                    </a>
+                  </div>
+                  <div class="home-profile-name">
+                    <a href="#" id="admin-name" class="admin-name-label"
+                      >احسان خورمهر</a
+                    >
+                    <ul class="dropDown_info">
+                      <li>
+                        <a href="../EditAdmin/index.html"
+                          ><span>ویرایش مدیر</span></a
+                        >
+                      </li>
+                      <li>
+                        <a href="#" class="logout_btn"><span>خروج</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="home-profile-icon">
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid" id="home-content">
+          <div class="container">
+            <div class="home-title">
+              <span>افزودن دوره جدید</span>
+            </div>
+            <form class="form">
+              <div class="col-6">
+                <div class="name input">
+                  <label class="input-title">نام دوره</label>
+                  <input
+                    type="text"
+                    isValid="false"
+                    class="courseName_input"
+                    placeholder="لطفا نام دوره را وارد کنید..."
+                  />
+                  <span class="error-message text-danger"></span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="price input">
+                  <label class="input-title">قیمت دوره</label>
+                  <input
+                    type="text"
+                    isValid="false"
+                    class="coursePrice_input"
+                    placeholder="لطفا قیمت دوره را وارد کنید..."
+                  />
+                  <span class="error-message text-danger"></span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="number input">
+                  <label class="input-title">نام کوتاه دوره</label>
+                  <input
+                    type="text"
+                    isValid="false"
+                    class="courseShortName_input"
+                    placeholder="لطفا تعداد دوره را وارد کنید..."
+                  />
+                  <span class="error-message text-danger"></span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="number input">
+                  <label class="input-title">پشتیبانی دوره</label>
+                  <input
+                    type="text"
+                    isValid="false"
+                    class="courseSatusElem"
+                    placeholder="لطفا نحوه پشتیبانی را وارد کنید"
+                  />
+                  <span class="error-message text-danger"></span>
+                </div>
+              </div>
+              <div class="col-12">
+                <div
+                  class="number input"
+                  style="display: flex; flex-direction: column"
+                >
+                  <label class="input-title">توضیحات دوره</label>
+                  <textarea class="courseDescription_input" rows="7"></textarea>
+                  <span class="error-message text-danger"></span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="number input">
+                  <label class="input-title">دسته‌بندی دوره</label>
+                  <select class="category-list courseCategory_input">
+                    <option value="-1">
+                      دسته بندی مورد نظر را انتخاب کنید
+                    </option>
+                  </select>
+                  <span class="error-message text-danger"></span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="file">
+                  <label class="input-title">عکس دوره</label>
+                  <input type="file" id="file" class="courseCover_input" />
+                </div>
+              </div>
+              <!-- <div class="col-12">
+                <div class="bottom-form">
+                  <div class="condition">
+                    <label class="input-title">موجودی</label>
+                    <div class="radios">
+                      <div class="available">
+                        <label>
+                          <span>موجود</span>
+                          <input
+                            type="radio"
+                            value="avalibe"
+                            name="condition"
+                            checked
+                          />
+                        </label>
+                      </div>
+                      <div class="unavailable">
+                        <label>
+                          <span>ناموجود</span>
+                          <input
+                            type="radio"
+                            value="unavailable"
+                            name="condition"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div> -->
+              <div class="col-6">
+                <div class="presell">
+                  <label class="input-title">وضعیت دوره</label>
+                  <div class="radios">
+                    <div class="presell-true">
+                      <label>
+                        <span>پیش فروش</span>
+                        <input
+                          type="radio"
+                          value="presell"
+                          name="presell"
+                          class="presell_input"
+                          checked
+                        />
+                      </label>
+                    </div>
+                    <div class="presell-false">
+                      <label>
+                        <span>در حال برگزاری</span>
+                        <input
+                          type="radio"
+                          value="onperforming"
+                          name="presell"
+                          class="startCourseStatus_input"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 d-flex justify-content-end">
+                <div class="submit-btn">
+                  <input
+                    type="submit"
+                    value="افزودن"
+                    class="outline-0 border-0 bg-info p-2 text-light"
+                  />
+                </div>
+              </div>
+            </form>
+
+            <div class="home-content-products">
+              <div class="home-content-products-title">
+                <span>لیست <span class="signup">دوره ها</span></span>
+              </div>
+              <div class="home-content-products-table">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>شناسه</th>
+                      <th>نام دوره</th>
+                      <th>قیمت</th>
+                      <th>شرکت کننده</th>
+                      <th>پشتیبانی</th>
+                      <th>دسته بندی</th>
+                      <th>امتیاز</th>
+                      <th>وضعیت</th>
+                      <th>ویرایش</th>
+                      <th>حذف</th>
+                    </tr>
+                  </thead>
+                  <tbody class="courses_container">
+                    <tr>
+                      <td id="id">323</td>
+                      <td id="name">
+                        <a
+                          href="file:///D:/Project/Admin_Panel/Product/index.html?id=${id}"
+                          >لپ تاپ</a
+                        >
+                      </td>
+                      <td id="condition">موجود</td>
+                      <td id="price">100000</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          id="edit-btn"
+                        >
+                          ویرایش
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          id="delete-btn"
+                        >
+                          حذف
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="delete-modal">
+        <i class="far fa-trash-alt delete-modal-icon"></i>
+        <span class="delete-modal-title">از پاک کردن کاربر مطمئنی؟</span>
+        <div class="delete-modal-btns">
+          <button class="delete-modal-btn-no">خیر</button>
+          <button class="delete-modal-btn-yes">بله</button>
+        </div>
+      </div>
+      <div id="overlay"></div>
+    </div>
+    <script src="vendor/FontAwesome/FontAwesome.min.js"></script>
+    <script src="vendor/swiperSlider/swiper.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/script.js"></script>
+    <script src="./js/courses.js" type="module"></script>
+    <script src="../shared.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

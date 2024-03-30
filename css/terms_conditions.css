@@ -1,0 +1,64 @@
+@import "css\ modules/fonts.css";
+@import "css\ modules/header.css";
+@import "css\ modules/footer.css";
+@import "css\ modules/reset.css";
+
+main {
+  padding: 28px 50px 90px 50px;
+}
+
+.container {
+  background-color: rgb(var(--Warning-bg-color));
+  border-radius: 1rem;
+  border: 1px solid var(--borderColor);
+  color: var(--TextLightColor);
+  padding: 20px !important;
+}
+
+.container_header {
+  width: 100%;
+  border-bottom: 1px solid var(--borderColor);
+  padding-bottom: 20px;
+}
+.container_header h1 {
+  color: var(--TextLightColor);
+  font-family: CasaBelanca;
+  font-size: 2.2rem;
+}
+.container_main {
+  padding: 60px 0px 40px 0px;
+}
+.container_main p {
+  font-size: 1.12rem;
+}
+.container_main strong {
+  font-weight: bold;
+}
+.container_main h1,
+.container_main h2 {
+  font-size: 1.8rem !important;
+}
+.container_main h3 {
+  font-size: 1.6rem;
+}
+.container_main a {
+  display: inline-block;
+  color: rgb(78 129 251);
+  text-decoration: underline;
+}
+.container_main ul,
+.container_main ol {
+  margin: 20px 20px;
+  padding: 0;
+}
+.container_main li {
+  font-size: 1.1rem !important;
+  margin: 7px 0;
+}
+.container_main ul li::marker {
+  color: rgb(78 129 251);
+}
+.container_main img {
+  width: 100%;
+  border-radius: 1.5rem;
+}

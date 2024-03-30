@@ -1,0 +1,107 @@
+footer {
+  font-family: IranSans;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 50px 0 50px;
+  border-top: 1px solid var(--borderColor);
+  background-color: var(--lightColor);
+}
+footer .section {
+  display: flex;
+  padding: 20px 0;
+}
+.aboutus {
+  width: 30%;
+}
+.footerLinks {
+  width: 70%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.footerLinks ul {
+  padding: 0;
+  list-style: none;
+}
+footer h3 {
+  margin: 13px 0;
+  color: var(--TextLightColor);
+}
+footer p {
+  color: var(--SecondTextLightColor);
+  font-size: 17px;
+}
+.footerLinks ul a {
+  text-decoration: none;
+  color: var(--SecondTextLightColor);
+  font-size: 17px;
+  display: inline-block;
+  margin: 4px 0;
+}
+.footerLinks ul a:hover {
+  color: var(--hoverGreenColor);
+}
+.footerLinks ul a i {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 32px;
+  margin: 5px 0px 5px 12px;
+  color: #fff;
+}
+.footerLinks ul a i.fa-telegram {
+  background-color: var(--blueColor);
+}
+.footerLinks ul a i.fa-instagram {
+  background: linear-gradient(to bottom left, #502ed6, #cd2f6a, #ffe354);
+}
+.copy-Right-Box {
+  width: 100%;
+  border-top: 1px solid var(--borderColor);
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.copy-Right-Box p {
+  font-size: 1rem;
+  text-align: center;
+}
+.Linkbox3 a {
+  direction: ltr;
+}
+
+@media screen and (max-width: 1000px) {
+  footer {
+    padding: 70px 25px 0px 25px;
+  }
+  footer .section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .aboutus {
+    width: 100%;
+    text-align: center;
+  }
+  .footerLinks {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  footer p {
+    font-size: 15px;
+  }
+  .footerLinks div {
+    width: 50%;
+  }
+  .copy-Right-Box {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  footer {
+    width: 100%;
+  }
+}

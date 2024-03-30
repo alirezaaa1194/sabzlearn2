@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
+    <meta name="theme-color" content="#2ED573" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/loginBy_email.css" />
+    <link
+      rel="icon"
+      href="https://sabzlearn.ir/wp-content/uploads/2023/08/cropped-sabz-fav-192x192.png"
+      sizes="192x192"
+    />
+    <title>ورود با ایمیل | سبزلرن</title>
+  </head>
+  <message-box></message-box>
+  <body dir="rtl">
+    <div class="container">
+      <div class="messageBox">
+        <p class="ErrorMessage">Lorem ipsum dolor sit amet consectetur.</p>
+        <span></span>
+      </div>
+      <div class="logo-box">
+        <img
+          src="	https://sabzlearn.ir/wp-content/themes/sabzlearn-theme/images/logo.webp"
+          alt="Logo"
+          class="Logo"
+        />
+        <h1 class="logo-title">سبزلرن</h1>
+      </div>
+      <div class="form">
+        <div class="form_header">
+          <h2 class="form-title">ورود</h2>
+          <p class="form-question">
+            حساب کاربری ندارید؟
+            <a href="signin.html" class="">ثبت نام</a>
+          </p>
+        </div>
+
+        <div class="input-box">
+          <input type="email" class="email-input" placeholder="آدرس ایمیل" name="email" />
+          <i class="fa fa-envelope"></i>
+        </div>
+        <div class="input-box">
+          <input type="password" class="password-input" placeholder="رمز عبور" name="password" />
+          <i class="f fa fa-lock"></i>
+        </div>
+        <button class="login-btn">تایید</button>
+        <div class="login_other_way_box">
+          <div class="dont_forget_me_box">
+            <input type="checkbox" id="dont_forget_me_input" />
+            <label for="dont_forget_me_input" class="dont_forget_me_label">
+              <span class="label_cursor"></span>
+              <span>مرا فراموش مکن</span>
+            </label>
+          </div>
+          <a href="">فراموشی رمز عبور</a>
+        </div>
+      </div>
+    </div>
+    <script src="js/darkmode.js"></script>
+    <script src="js/server/login.js" type="module"></script>
+  </body>
+</html>

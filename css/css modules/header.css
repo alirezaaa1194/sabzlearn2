@@ -1,0 +1,691 @@
+.AlertBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  height: 100px;
+  background-image: url("https://sabzlearn.ir/wp-content/themes/sabzlearn-theme/images/section-pattern.png");
+  font-family: IranSans;
+  border-bottom: 1px solid var(--borderColor);
+}
+.alert-info {
+  display: flex;
+  align-items: center;
+}
+.AlertBanner p {
+  font-size: 17px;
+  color: white;
+  margin: 6px 0;
+}
+.AlertBanner h3 {
+  color: white;
+  font-weight: bold;
+  margin: 6px 0;
+}
+.AlertBanner i {
+  font-style: normal !important;
+  font-weight: bold;
+  border: 3px solid white;
+  width: 33px;
+  height: 33px;
+  text-align: center;
+  line-height: 29px;
+  border-radius: 10px;
+  margin-left: 17px;
+  font-size: 18px;
+  color: white;
+}
+.AlertBanner button {
+  font-family: IranSans;
+  background-color: white;
+  color: var(--alertsBgColor);
+  border: 1px solid white;
+  padding: 6px 13px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 16px;
+  font-family: IranSans;
+  background-color: var(--lightColor);
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.Navbar {
+  display: flex;
+}
+.LogoBox {
+  padding-left: 20px;
+  border-left: 1px solid var(--borderColor);
+}
+
+.LogoBox1 a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.LogoBox img {
+  width: 100px;
+}
+.NavigationBar {
+  display: flex;
+  align-items: center;
+  padding: 0 15px 0 0;
+}
+.NavigationBar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.NavItem {
+  position: relative !important;
+}
+.NavigationBar ul li {
+  margin: 0 15px;
+}
+.NavigationBar ul li a {
+  text-decoration: none;
+  color: var(--TextLightColor);
+  font-size: 17px;
+  position: relative !important;
+}
+.NavigationBar ul li a i{
+  font-size: 14px;
+
+}
+.NavigationBar ul li a:hover {
+  color: rgb(46 213 115);
+}
+.SubMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  list-style: none;
+}
+
+.NavigationBar ul li a.NavItem:hover ~ .SubMenu {
+  visibility: visible;
+  opacity: 1;
+}
+.SubMenu {
+  list-style: none;
+  background-color: var(--secondDynamicCoor);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+  /* padding: 10px 10px 10px 100px; */
+  padding: 10px;
+  width: 270px;
+  display: flex;
+  flex-direction: column-reverse !important;
+  visibility: hidden;
+  position: absolute;
+  z-index: 3;
+  border-radius: 1rem;
+  opacity: 0;
+  margin-top: 15px;
+}
+.SubMenu:hover {
+  visibility: visible;
+  opacity: 1;
+}
+.SubMenu li {
+  padding: 6px;
+  width: 90% !important;
+}
+.SubMenu li a.NavItem {
+  display: none;
+}
+.SubMenu a {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  color: var(--TextLightColor);
+}
+.SiteSetting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.SiteSetting button {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  font-size: 23px;
+  color: var(--SecondTextLightColor) !important;
+  border: none;
+  background-color: var(--primaryLightColor);
+}
+.SearchBox {
+  position: relative;
+  /* padding: 15px !important; */
+  width: auto;
+  height: 55px;
+  position: relative;
+  /* background-color: var(--primaryLightColor); */
+  border-radius: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 10px;
+}
+.SearchBox input {
+  width: 70%;
+  height: 100% !important;
+  padding: 10px 20px;
+  color: gray;
+  background-color: var(--primaryLightColor);
+  border: 1px solid var(--borderColor) !important;
+  font-family: IranSans;
+  outline: none;
+  border-radius: 50px;
+  font-size: 19px;
+}
+.SearchBox input::placeholder {
+  color: var(--SecondTextLightColor);
+}
+.SearchBox input:focus {
+  width: 90%;
+  border: 1px solid var(--hoverBorderColor) !important;
+  color: var(--TextLightColor);
+}
+.SearchBox button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px !important;
+  height: 50px;
+  cursor: pointer;
+  position: absolute;
+  left: 1px;
+}
+.SearchBox i {
+  border-radius: 50px;
+  color: var(--SecondTextLightColor) !important;
+}
+.UserAccountBtn {
+  display: none;
+  margin-left: 0 !important;
+  z-index: 100;
+}
+
+.UserAccountBtn.active {
+  display: block;
+}
+
+.Account-Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 50px;
+  position: relative;
+  width: 160px;
+  height: 50px;
+}
+.Account-Btn.hidden {
+  display: none;
+}
+.Account-Btn a.sign-in-Btn {
+  width: 70%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 50px;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  background-color: rgb(78 129 251);
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  color: #fff;
+}
+.Account-Btn a.login-Btn {
+  display: inline-block;
+  /* padding: 12px 28px; */
+  padding: 0 0px 0 100px;
+  width: 100%;
+  border-radius: 50px;
+  background-color: rgba(78, 129, 251, 40%);
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  color: #fff;
+}
+.Account-Btn a.sign-in-Btn:hover {
+  background-color: rgb(63 108 216);
+}
+.Account-Btn a.login-Btn:hover {
+  background-color: rgb(78 129 251 / 0.6);
+}
+.UserAccountBtn:hover,
+.SwitchTeheme:hover {
+  cursor: pointer;
+  background-color: var(--hoverColor);
+  border: 1px solid var(--hoverBorderColor) !important;
+}
+
+.Responsive-login-btn {
+  display: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 25px;
+  text-align: center;
+  line-height: 55px;
+  color: var(--SecondTextLightColor) !important;
+  border: 1px solid var(--borderColor);
+  /* border: none; */
+  background-color: var(--primaryLightColor);
+}
+.SwitchTeheme,
+.UserAccountBtn {
+  margin: 0 10px;
+  border: 1px solid var(--borderColor) !important;
+}
+.SwitchTeheme i {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.LogoBox2 {
+  display: none;
+}
+.responsiveNavbar {
+  display: none;
+  position: relative;
+}
+.OpenBtn,
+.closeBtn {
+  font-size: 27px;
+  background: none;
+  border: none;
+  color: var(--SecondTextLightColor);
+  cursor: pointer;
+}
+.navbar2 {
+  position: fixed;
+  z-index: 999;
+  width: 60%;
+  max-width: 350px;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: var(--secondDynamicCoor);
+  right: -100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+.navbar2::-webkit-scrollbar {
+  display: none;
+}
+.navHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid var(--hoverBorderColor);
+}
+.websiteTitle {
+  font-size: 30px;
+  font-family: CasaBelanca;
+  margin: 0 10px;
+  color: var(--SecondTextLightColor);
+}
+.navHeader img {
+  width: 30%;
+}
+.navBody {
+  width: 100%;
+  height: fit-content;
+  background-color: var(--secondDynamicCoor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--hoverBorderColor);
+}
+.navBody .searchBox2 {
+  position: relative;
+  width: 90%;
+  border-radius: 6px;
+}
+.navBody .searchBox2 i {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  text-align: center;
+  line-height: 40px;
+  height: 80%;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background-color: var(--primaryLightColor);
+  color: var(--SecondTextLightColor);
+  cursor: pointer;
+}
+.navBody .searchBox2 input {
+  color: gray;
+  width: 100% !important;
+  background-color: var(--primaryLightColor);
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  border: 1px solid var(--primaryLightColor);
+  font-family: IranSans;
+  font-size: 18px;
+}
+.navBody .searchBox2 input::placeholder {
+  color: var(--SecondTextLightColor);
+}
+.navBody .searchBox2 input:focus {
+  border: 1px solid gray;
+  color: var(--TextLightColor);
+}
+.themeTitle {
+  margin-right: 8px;
+  color: var(--SecondTextLightColor);
+}
+.cover {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 101;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+}
+.menubar {
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: var(--secondDynamicCoor);
+  list-style: none;
+  padding: 20px 0;
+}
+.menubar li {
+  position: relative;
+  width: 100%;
+  padding: 3px 10px;
+}
+.menubar li a.menuLink {
+  text-decoration: none;
+  color: var(--SecondTextLightColor);
+  font-family: IranSans;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.menubar li a:hover,
+.menubar li a.active {
+  color: var(--activeMenuItem2Hover);
+}
+.menubar li a i {
+  font-size: 20px;
+  margin: 0 6px;
+}
+
+.menubar li a.active i {
+  transform: rotate(180deg);
+}
+
+.responsiveSubmenu {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+.menubar li a.active ~ .responsiveSubmenu {
+  height: fit-content;
+  opacity: 1;
+}
+.responsiveMenuItem a {
+  text-decoration: none;
+  color: var(--SecondTextLightColor);
+  font-size: 0.9rem;
+  font-family: IranSans;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.responsiveMenuItem a:hover {
+  color: var(--hoverGreenColor) !important;
+}
+.responsiveMenuItem a::before {
+  content: "";
+  width: 0px;
+  height: 5px;
+  background-color: var(--hoverGreenColor);
+  border-radius: 20px;
+  transition: 0.3s !important;
+  margin: 0 0 0 10px;
+}
+.responsiveMenuItem a:hover::before {
+  width: 20px;
+}
+.SwitchThemeBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+}
+.SwitchThemeBar button {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  color: var(--SecondTextLightColor);
+  background-color: var(--secondDynamicCoor);
+
+  border: 1px solid var(--hoverBorderColor) !important;
+  outline: none;
+  font-size: 22px;
+  margin: 10px 0;
+}
+.SwitchThemeBar button:hover {
+  background-color: var(--hoverColor);
+}
+.dropDownAccountCover {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(3px);
+  visibility: hidden;
+  opacity: 0;
+}
+.userInfoCard {
+  position: absolute;
+  left: 0%;
+  top: 120%;
+  display: flex;
+  flex-direction: column;
+  font-family: IranSans;
+  background-color: var(--secondDynamicCoor);
+  border-radius: 1rem;
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 100;
+}
+.userInfoCard i {
+  font-size: 1rem;
+  margin-left: 10px;
+}
+.CardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid var(--primaryLightColor);
+}
+.CardHeader i {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--primaryLightColor);
+  text-align: center;
+  line-height: 45px;
+  color: var(--TextLightColor);
+  border: 1px solid var(--primaryLightColor) !important;
+  font-size: 22px;
+  margin: 10px;
+}
+.CardHeader .info .userName {
+  color: var(--TextLightColor);
+}
+.CardHeader .info .cartBox {
+  color: var(--blueColor);
+  font-size: 12px;
+  margin: 7px 0;
+}
+.CardBody {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--primaryLightColor) !important;
+}
+.CardBody ul {
+  list-style: none;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+}
+.CardBody ul li {
+  width: 100%;
+}
+.CardBody ul li a,
+.CardFooter button {
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  padding: 0 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: IranSans;
+  color: var(--cardTextColor) !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.CardBody ul li a:hover,
+.CardFooter button:hover {
+  background-color: var(--FerechexHoverColor) !important;
+}
+.CardFooter {
+  padding: 10px 0 0 0;
+}
+.CardFooter button {
+  font-size: 17px !important;
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: none;
+  color: var(--cardTextColor);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 1000px) {
+  .NavigationBar {
+    display: none;
+  }
+  .SearchBox,
+  .SwitchTeheme {
+    display: none;
+  }
+  .SwitchTeheme2 {
+    display: inline-block;
+  }
+  .LogoBox1 {
+    display: none;
+  }
+
+  nav {
+    justify-content: space-between;
+  }
+  .LogoBox2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  .LogoBox2 a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .LogoBox2 a img {
+    width: 85px;
+  }
+  .SiteSetting {
+    position: relative;
+  }
+  header {
+    justify-content: space-between;
+  }
+  .responsiveNavbar {
+    width: 53px;
+    height: 53px;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .UserAccountBtn {
+    margin: 0;
+  }
+  .Account-Btn {
+    width: fit-content;
+  }
+  .Responsive-login-btn {
+    display: block;
+  }
+  .login-Btn,
+  .sign-in-Btn {
+    display: none !important;
+  }
+  .AlertBanner {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .AlertBanner {
+    display: flex;
+  }
+}
+@media screen and (min-width: 1440px) {
+  header {
+    width: 100%;
+  }
+  .AlertBanner {
+    width: 100%;
+  }
+}

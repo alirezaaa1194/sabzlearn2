@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="theme-color" content="#2ED573" />
+    <link rel="icon" href="images/favicon.png" sizes="192x192" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/blog.css" />
+    <title></title>
+  </head>
+  <body>
+    <!-- start header -->
+    <site-header></site-header>
+    <!-- finish header -->
+    <message-box></message-box>
+    <!-- start main -->
+    <main>
+      <!-- start bradcrumb -->
+
+      <div class="breadcrumb">
+        <ul>
+          <li>
+            <a href="index.html"><i class="fa fa-home"></i></a>
+          </li>
+          <li><a href="blog_category.html">وبلاگ</a></li>
+          <li><a href="" class="blogLink_breadcrumb"></a></li>
+        </ul>
+      </div>
+      <!-- finish bradcrumb -->
+
+      <!-- start blog info section -->
+      <div class="container">
+        <div class="right_blogInfo_section">
+          <div class="blog_content">
+            <div class="blog_title">
+              <h1 class="blog_title_label"></h1>
+            </div>
+            <div class="blog_body">
+              <div class="blog_info_box">
+                <div class="blog_info">
+                  <i class="fa fa-user"></i>
+                  <span class="blogCreator_name"></span>
+                </div>
+                <div class="blog_info">
+                  <i class="fa fa-calendar"></i>
+                  <span class="blogCreated_date"></span>
+                </div>
+              </div>
+              <div class="blog_desc">
+                <img
+                  src=""
+                  class="blogCover"
+                  alt="تصویر شاخص بلاگ"
+                />
+                <div class="blog_items">
+                  <!-- get data from js -->
+                </div>
+              </div>
+            </div>
+            <div class="more_btn_box">
+              <button class="more_btn">
+                مشاهده بیشتر <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <aside class="left_blogInfo_section">
+          <!-- start short link -->
+          <div class="short_link_container aside_container">
+            <div class="short_link_container_header aside_container_header">
+              <span class="title_label"></span>
+              <h3 class="container_title">لینک کوتاه:</h3>
+            </div>
+            <div class="short_link_container_main aside_container_main">
+              <div class="short_link_box">
+                <button class="copy_link_btn">
+                  <i class="fa fa-copy"></i>
+                </button>
+                <p class="short_link_text"></p>
+              </div>
+            </div>
+          </div>
+          <!-- end short link -->
+          <!-- start latest articles -->
+          <div class="latest_articles_container aside_container">
+            <div
+              class="latest_articles_container_header aside_container_header"
+            >
+              <span class="title_label"></span>
+              <h3 class="container_title">جدیدترین نوشته ها:</h3>
+            </div>
+            <div class="latest_articles_container_main aside_container_main">
+              <ul class="latest_articles_list"><!-- get data from js --></ul>
+            </div>
+          </div>
+          <!-- end latest articles -->
+          <!-- start articles categories-->
+          <div class="articles_category_container aside_container">
+            <div
+              class="articles_category_container_header aside_container_header"
+            >
+              <span class="title_label"></span>
+              <h3 class="container_title">دسته بندی ها</h3>
+            </div>
+            <div class="articles_category_container_main aside_container_main">
+              <ul class="articles_category_list">
+                <!-- get data from js -->
+              </ul>
+            </div>
+          </div>
+          <!-- finish articles categories -->
+        </aside>
+      </div>
+      <!-- start blog info section -->
+    </main>
+    <!-- finish main -->
+    <!-- start footer -->
+    <site-footer></site-footer>
+    <!-- finish footer -->
+    <script src="./js/header.js" type="module"></script>
+    <script src="./js/blog.js" type="module"></script>
+    <script src="js/exit.js" type="module"></script>
+  </body>
+</html>

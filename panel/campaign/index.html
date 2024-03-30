@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>جشنواره ها - سبزلرن</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="vendor/swiperSlider/swiper.css" />
+    <link rel="stylesheet" href="vendor/BootStrap/Bootstrap5.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="../main/css/main.css" />
+    <link rel="icon" href="../../images/favicon.png" sizes="192x192" />
+  </head>
+
+  <body>
+    <div id="content">
+      <div id="sidebar" class="col-2">
+        <div class="sidebar-header">
+          <div class="sidebar-logo">
+            <a href="#"><img src="img/logo.png" alt="Logo" /></a>
+          </div>
+
+          <div class="sidebar-menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+        <div class="sidebar-menu">
+          <ul>
+            <li>
+              <a href="../main/index.html"><span>صفحه اصلی</span></a>
+            </li>
+            <li>
+              <a href="../Products/index.html"><span>دوره ها</span></a>
+            </li>
+            <li>
+              <a href="../sessions/index.html"><span>جلسات</span></a>
+            </li>
+            <li>
+              <a href="../comments/index.html"><span>کامنت ها</span></a>
+            </li>
+            <li>
+              <a href="../tickets/index.html"><span>تیکت ها</span></a>
+            </li>
+            <li>
+              <a href="../Menus/index.html"><span>منو ها</span></a>
+            </li>
+            <li>
+              <a href="../Blogs/index.html"><span>مقاله ها</span></a>
+            </li>
+            <li>
+              <a href="../categories/index.html"><span>دسته‌بندی‌ ها</span></a>
+            </li>
+            <li class="active-menu">
+              <a href="../campaign/index.html"><span>جشنواره ها</span></a>
+            </li>
+            <li>
+              <a href="../Users/index.html"><span>کاربران</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="home" class="col-10">
+        <div class="container-fluid">
+          <div class="container">
+            <div class="home-header">
+              <div class="home-right">
+                <div class="home-searchbar">
+                  <input
+                    type="text"
+                    class="search-bar"
+                    placeholder="جستجو..."
+                  />
+                </div>
+                <div class="home-notification">
+                  <button type="button" class="notification_btn">
+                    <i class="far fa-bell"></i>
+                  </button>
+                </div>
+                <div class="home-notification-modal">
+                  <ul class="home-notification-modal-list">
+                    <li class="home-notification-modal-item">
+                      <span class="home-notification-modal-text">پیغام ها</span>
+                      <label class="switch">
+                        <input type="checkbox" checked />
+                        <span class="slider round"></span>
+                      </label>
+                    </li>
+                    <li class="home-notification-modal-item">
+                      <span class="home-notification-modal-text">پیغام ها</span>
+                      <label class="switch">
+                        <input type="checkbox" checked />
+                        <span class="slider round"></span>
+                      </label>
+                    </li>
+                    <li class="home-notification-modal-item">
+                      <span class="home-notification-modal-text">پیغام ها</span>
+                      <label class="switch">
+                        <input type="checkbox" checked />
+                        <span class="slider round"></span>
+                      </label>
+                    </li>
+                    <li class="home-notification-modal-item">
+                      <span class="home-notification-modal-text">پیغام ها</span>
+                      <label class="switch">
+                        <input type="checkbox" checked />
+                        <span class="slider round"></span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+                <div class="mode">
+                  <ul class="mode-list">
+                    <div class="mode-list-item mode-red"></div>
+                    <div class="mode-list-item mode-blue"></div>
+                    <div class="mode-list-item mode-dark"></div>
+                    <div class="mode-list-item mode-light"></div>
+                  </ul>
+                </div>
+              </div>
+              <div class="home-left">
+                <div class="home-profile">
+                  <div class="home-profile-image">
+                    <a href="#">
+                      <img src="../../images/user.png" alt="" />
+                    </a>
+                  </div>
+                  <div class="home-profile-name">
+                    <a href="#" id="admin-name" class="admin-name-label"
+                      >احسان خورمهر</a
+                    >
+                    <ul class="dropDown_info">
+                      <li>
+                        <a href="../EditAdmin/index.html"
+                          ><span>ویرایش مدیر</span></a
+                        >
+                      </li>
+                      <li>
+                        <a href="#" class="logout_btn"><span>خروج</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="home-profile-icon">
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid" id="home-content">
+          <div class="container">
+            <div class="home-title">
+              <span>برگزاری کمپین جدید</span>
+            </div>
+            <form class="form">
+              <div class="col-6">
+                <div class="name input">
+                  <label class="input-title">درصد تخفیف کمپین</label>
+                  <input
+                    type="text"
+                    id="campaign-percent-input"
+                    placeholder="لطفا درصد تخفیف را وارد کنید..."
+                  />
+                  <span class="error-message text-danger"></span>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="submit-btn">
+                  <input
+                    type="submit"
+                    id="campaign-percent-btn"
+                    value="برگزاری کمپین"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="container-fluid" id="home-content">
+          <div class="container">
+            <div class="home-content-latset-users">
+              <div class="home-content-users-title">
+                <span>لیست <span class="signup">جشنواره ها</span></span>
+              </div>
+              <div class="home-content-users-table">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>شناسه</th>
+                      <th>شناسه</th>
+                      <th>مقدار</th>
+                      <th>حذف</th>
+                    </tr>
+                  </thead>
+                  <tbody class="campaigns_container">
+                    <tr>
+                      <td>34223</td>
+                      <td>علی سعیدی</td>
+                      <td>
+                        <button type="button" class="btn btn-danger delete-btn">
+                          حذف
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="vendor/swiperSlider/swiper.js"></script>
+    <script src="./js/campain.js" type="module"></script>
+    <script src="../shared.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.25s;
+  scroll-behavior: smooth;
+  font-family: IRANSans;
+}
+:root {
+  --primaryLightColor: rgb(243 244 246);
+  --TextLightColor: rgb(63 63 70);
+  --SecondTextLightColor: rgb(100 116 139);
+  --hoverColor: rgb(229 231 235);
+  --hoverGreenColor: rgb(46 213 115);
+  --borderColor: rgb(243 244 246);
+  --lightColor: #fff;
+  --secondDynamicCoor: #fff;
+  --textSecondColor: black;
+  --hoverBorderColor: rgb(243 244 246);
+  --cardTextColor: rgb(100 116 139);
+  --activeMenuItem2Hover: #000;
+  --mainColor: rgb(243 244 246);
+  --blueColor: rgb(78 129 251);
+  --FerechexHoverColor: rgb(243 244 246);
+  --Warning-bg-color: 255, 255, 255;
+  --Hover-blue-color: rgb(14 165 233 / 0.1);
+  --category-color: rgb(78 129 251);
+  --category-bg-color: rgb(14 165 233 / 0.1);
+  --bannerRedColor: rgb(239 68 68);
+  --comment_background: rgb(243 244 246);
+  --reply_background: rgb(229 231 235);
+  --textarea_background: rgb(243 244 246);
+  --session_accordion_body_bg: rgb(40 41 61);
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--Warning-bg-color)) !important;
+  border-radius: 0 !important;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--SecondTextLightColor);
+  border-radius: 2px;
+}
+body {
+  background-color: var(--primaryLightColor);
+  direction: rtl;
+}
+img {
+  user-select: none;
+}
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent !important;
+  text-decoration: none;
+}
+
+main {
+  width: 100%;
+  background-color: var(--primaryLightColor);
+}
+
+header,
+main,
+footer {
+  max-width: 1400px;
+}
+
+.dropDownAccountCover,
+.filter_dropDown_cover {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+@media screen and (max-width: 1000px) {
+  main {
+    padding: 20px 15px 90px 15px !important;
+  }
+  .container {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  section {
+    padding: 0 !important;
+  }
+  .dropDownAccountCover,
+  .filter_dropDown_cover {
+    backdrop-filter: none !important;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@media screen and (min-width: 1440px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  main {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  main {
+    padding: 30px 50px 50px 50px !important;
+  }
+}

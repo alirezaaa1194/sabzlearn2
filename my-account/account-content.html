@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="theme-color" content="#2ED573" />
+    <link rel="icon" href="../images/favicon.png" sizes="192x192" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/my-account/index.css" />
+    <link rel="stylesheet" href="../css/my-account/account-content.css" />
+    <title>جزئیات حساب - پنل کاربری - سبزلرن</title>
+  </head>
+  <body>
+    <message-box></message-box>
+    <div class="cover"></div>
+    <div class="dropDownAccountCover"></div>
+    <div class="notificationDropDownCover"></div>
+
+    <div class="container">
+      <aside class="menu_bar">
+        <div class="aside_header">
+          <a href="../index.html">
+            <img
+              src="	https://sabzlearn.ir/wp-content/themes/sabzlearn-theme/images/logo.webp"
+              alt=""
+              class="logo"
+            />
+            <span>سبزلرن</span>
+          </a>
+          <button class="close_menu_bar">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="aside_body">
+          <ul>
+            <li>
+              <a href="index.html"
+                ><i class="fa-solid fa-house fa-fw"></i> پیشخوان</a
+              >
+            </li>
+            <li>
+              <a href="my-courses.html"
+                ><i class="fa-solid fa-folder"></i> دوره های من</a
+              >
+            </li>
+            <li>
+              <a href="tickets.html"
+                ><i class="fa-solid fa-ticket"></i> تیکت ها</a
+              >
+            </li>
+            <li>
+              <a href="account-content.html" class="active"
+                ><i class="fa-regular fa-user"></i> جزئیات حساب</a
+              >
+            </li>
+            <li>
+              <button class="exit-Btn">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> خروج
+              </button>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <section class="main_section">
+        <header class="header">
+          <div class="rightHand">
+            <button class="open_aside_btn">
+              <i class="fa-solid fa-bars"></i
+              ><span class="page_name">جزئیات حساب</span>
+            </button>
+            <h2 class="welcom_text1"><span class="welcom_text"></span> عزیز؛ خوش اومدی 🙌</h2>
+          </div>
+          <div class="leftHand">
+            <div class="siteSetting">
+              <button class="notification_btn">
+                <i class="fa-regular fa-bell"></i>
+              </button>
+              <button class="SwitchTeheme">
+                <i class="fa-solid fa-moon"></i>
+              </button>
+              <button class="UserAccountBtn">
+                <i class="fa fa-user"></i>
+              </button>
+            </div>
+
+            <div class="userInfoCard">
+              <div class="CardHeader">
+                <i class="fa fa-user"></i>
+                <div class="info">
+                  <h4 class="userName">علیرضا نوری</h4>
+                  <h4 class="cartBox">موجودی: 0 تومان</h4>
+                </div>
+              </div>
+              <div class="CardBody">
+                <ul>
+                  <li>
+                    <a href="index.html"><i class="fa fa-home"></i> پیشخوان</a>
+                  </li>
+                  <li>
+                    <a href="my-courses.html"><i class="fa fa-folder"></i> دوره های من</a>
+                  </li>
+                  <li>
+                    <a href="account-content.html"><i class="fa-regular fa-user"></i>جزئیات حساب</a>
+                  </li>
+                  <li>
+                    <a href="tickets.html"
+                      ><i class="fa fa-ticket"></i> تیکت های پشتیبانی</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="CardFooter">
+                <button class="exit-Btn">
+                  <i class="fa fa-external-link"></i> خروج
+                </button>
+              </div>
+            </div>
+            <div class="notification_dropdown">
+              <div class="notification_header">
+                <h4>اعلان ها</h4>
+              </div>
+              <div class="notification_body">
+                <p>اعلان جدیدی وجود ندارد.</p>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="main">
+          <h4 class="welcome_title"><span class="welcom_text"></span> عزیز؛ خوش اومدی🙌</h4>
+          <section class="account_content">
+            <input type="file" class="file_input" id="file_input" />
+            <div class="account_content_container">
+              <div class="account_content_container_header">
+                <span>جزئیات حساب کاربری</span>
+              </div>
+              <div class="change_profile_box">
+                <img src="../images/user.png" class="user_profile" alt="" />
+                <label for="file_input" class="file_input_label">
+                  <i class="fa-solid fa-rotate"></i>
+                </label>
+              </div>
+              <div class="change_account_content_input_container">
+                <div class="input_box mobile_input_box">
+                  <label for="phone_number_input">شماره موبایل</label>
+                  <input
+                    type="text"
+                    class="phone_number_input disible"
+                    disabled
+                    id="phone_number_input"
+                  />
+                </div>
+                <span class="second_col"></span>
+                <div class="input_box">
+                  <label for="firstName_input">نام</label>
+                  <input
+                    type="text"
+                    class="firstName_input"
+                    id="firstName_input"
+                  />
+                </div>
+                <div class="input_box">
+                  <label for="userName_input">نام کاربری</label>
+                  <input
+                    type="text"
+                    class="userName_input disible"
+                    disabled
+                    id="userName_input"
+                  />
+                </div>
+                <div class="input_box">
+                  <label for="email_input">ایمیل</label>
+                  <input type="text" class="email_input" id="email_input" />
+                </div>
+              </div>
+              <button class="save_info_btn">ثبت اطلاعات</button>
+            </div>
+            <div class="account_password_container">
+              <div class="account_password_container_header">
+                <span>تغییر رمز عبور</span>
+              </div>
+              <div class="account_password_container_body">
+                <div class="input_box">
+                  <label for="old_password">رمز عبور فعلی</label>
+                  <input
+                    type="password"
+                    class="old_password"
+                    id="old_password"
+                    placeholder="رمز فعلی را وارد کنید"
+                  />
+                  <a href="">رمز عبور را فراموش کرده اید؟</a>
+                </div>
+                <div class="input_box">
+                  <label for="new_password">رمز عبور جدید</label>
+                  <input
+                    type="password"
+                    class="new_password"
+                    id="new_password"
+                    placeholder="رمز جدید را وارد کنید"
+                  />
+                </div>
+                <button class="change_password_btn">تغییر رمز</button>
+              </div>
+            </div>
+          </section>
+        </main>
+      </section>
+    </div>
+    <script src="../js/my-account/index.js" type="module"></script>
+    <script src="../js/my-account/account-content.js" type="module"></script>
+    <script src="../js/exit.js" type="module"></script>
+  </body>
+</html>

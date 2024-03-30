@@ -1,0 +1,184 @@
+.account_content {
+  display: flex;
+  gap: 30px;
+  min-height: 100vh;
+  margin-top: 20px;
+}
+
+.account_content_container {
+  width: 67%;
+  background-color: var(--session_accordion_body_bg);
+  min-height: 100%;
+  border-radius: 1rem;
+  padding: 15px 30px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.account_password_container {
+  width: 33%;
+  background-color: var(--session_accordion_body_bg);
+  min-height: 100%;
+  padding: 15px 30px 30px 30px;
+  border-radius: 1rem;
+}
+.account_content_container_header,
+.account_password_container_header {
+  padding: 0px 0 15px 0;
+  border-bottom: 1px solid var(--SecondTextLightColor);
+}
+.account_content_container_header span,
+.account_password_container_header span {
+  color: var(--TextLightColor);
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.account_password_container_body {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 25px;
+}
+.change_profile_box {
+  position: relative;
+}
+.change_profile_box img {
+  width: 175px;
+  height: 175px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+.file_input_label {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--blueColor);
+  color: #fff;
+  border: 4px solid var(--session_accordion_body_bg);
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.file_input_label:hover {
+  background-color: rgb(37 99 235);
+}
+
+.change_account_content_input_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  column-gap: 20px;
+  row-gap: 30px;
+}
+.second_col {
+  display: block;
+}
+.input_box {
+  min-width: 40%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mobile_input_box {
+  min-width: 100%;
+}
+.file_input {
+  display: none;
+}
+.input_box label {
+  color: var(--TextLightColor);
+  font-size: 1rem;
+}
+.input_box input {
+  padding: 13px;
+  font-size: 0.9rem;
+  color: var(--TextLightColor);
+  outline: none;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: var(--comment_background);
+}
+.input_box input.disible {
+  background-color: var(--cancel_btn);
+  cursor: not-allowed;
+}
+
+.save_info_btn,
+.change_password_btn {
+  padding: 8px 16px;
+  border-radius: 0.75rem;
+  color: var(--TextLightColor);
+  background-color: rgb(46 213 115);
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  align-self: flex-end;
+}
+.save_info_btn:hover,
+.change_password_btn:hover {
+  background-color: rgb(34 197 94);
+}
+
+.account_password_container .input_box input {
+  font-size: 0.95rem;
+}
+.account_password_container .input_box a {
+  color: var(--SecondTextLightColor);
+  font-size: 0.9rem;
+}
+.account_password_container .input_box input::placeholder {
+  color: var(--SecondTextLightColor);
+}
+@media screen and (max-width: 1000px) {
+  .account_content {
+    flex-wrap: wrap;
+  }
+  .account_content_container {
+    width: 100%;
+  }
+  .second_col {
+    display: none;
+  }
+  .change_profile_box img {
+    width: 128px;
+    height: 128px;
+  }
+  .change_profile_btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+    bottom: 0;
+    right: 0;
+  }
+  .input_box label {
+    font-size: 1rem;
+  }
+  .input_box input {
+    padding: 10px;
+  }
+  .save_info_btn {
+    width: 100%;
+  }
+  .account_password_container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .second_col {
+    display: block;
+  }
+  .change_account_content_input_container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .save_info_btn {
+    width: fit-content;
+  }
+}

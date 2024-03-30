@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="theme-color" content="#2ED573" />
+    <link rel="icon" href="../images/favicon.png" sizes="192x192" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/my-account/index.css" />
+    <link rel="stylesheet" href="../css/my-account/my-courses.css" />
+    <title>دوره های خریداری شده - پنل کاربری - سبزلرن</title>
+  </head>
+  <body>
+    <div class="cover"></div>
+    <div class="dropDownAccountCover"></div>
+    <div class="notificationDropDownCover"></div>
+
+    <div class="container">
+      <aside class="menu_bar">
+        <div class="aside_header">
+          <a href="../index.html">
+            <img
+              src="	https://sabzlearn.ir/wp-content/themes/sabzlearn-theme/images/logo.webp"
+              alt=""
+              class="logo"
+            />
+            <span>سبزلرن</span>
+          </a>
+          <button class="close_menu_bar">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="aside_body">
+          <ul>
+            <li>
+              <a href="index.html" class=""
+                ><i class="fa-solid fa-house fa-fw"></i> پیشخوان</a
+              >
+            </li>
+            <li>
+              <a href="my-courses.html" class="active"
+                ><i class="fa-solid fa-folder"></i> دوره های من</a
+              >
+            </li>
+            <li>
+              <a href="tickets.html"
+                ><i class="fa-solid fa-ticket"></i> تیکت ها</a
+              >
+            </li>
+            <li>
+              <a href="account-content.html"
+                ><i class="fa-regular fa-user"></i> جزئیات حساب</a
+              >
+            </li>
+            <li>
+              <button class="exit-Btn">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> خروج
+              </button>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <section class="main_section">
+        <header class="header">
+          <div class="rightHand">
+            <button class="open_aside_btn">
+              <i class="fa-solid fa-bars"></i
+              ><span class="page_name">دوره های من</span>
+            </button>
+            <h2 class="welcom_text1"><span class="welcom_text"></span> عزیز؛ خوش اومدی 🙌</h2>
+          </div>
+          <div class="leftHand">
+            <div class="siteSetting">
+              <button class="notification_btn">
+                <i class="fa-regular fa-bell"></i>
+              </button>
+              <button class="SwitchTeheme">
+                <i class="fa-solid fa-moon"></i>
+              </button>
+              <button class="UserAccountBtn">
+                <i class="fa fa-user"></i>
+              </button>
+            </div>
+
+            <div class="userInfoCard">
+              <div class="CardHeader">
+                <i class="fa fa-user"></i>
+                <div class="info">
+                  <h4 class="userName">علیرضا نوری</h4>
+                  <h4 class="cartBox">موجودی: 0 تومان</h4>
+                </div>
+              </div>
+              <div class="CardBody">
+                <ul>
+                  <li>
+                    <a href="index.html"><i class="fa fa-home"></i> پیشخوان</a>
+                  </li>
+                  <li>
+                    <a href="my-courses.html"><i class="fa fa-folder"></i> دوره های من</a>
+                  </li>
+                  <li>
+                    <a href="account-content.html"><i class="fa-regular fa-user"></i>جزئیات حساب</a>
+                  </li>
+                  <li>
+                    <a href="tickets.html"
+                      ><i class="fa fa-ticket"></i> تیکت های پشتیبانی</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="CardFooter">
+                <button class="exit-Btn">
+                  <i class="fa fa-external-link"></i> خروج
+                </button>
+              </div>
+            </div>
+            <div class="notification_dropdown">
+              <div class="notification_header">
+                <h4>اعلان ها</h4>
+              </div>
+              <div class="notification_body">
+                <p>اعلان جدیدی وجود ندارد.</p>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="main">
+          <h4 class="welcome_title"><span class="welcom_text"></span> عزیز؛ خوش اومدی🙌</h4>
+          <section class="my-account-contents">
+            <div class="content_box my_courses">
+              <i class="fa-solid fa-wallet"></i>
+              <div class="box-content">
+                <span class="box_title">دوره های ثبت نام شده</span>
+                <span class="box_desc allCourse_label">27 دوره</span>
+              </div>
+            </div>
+            <div class="content_box my_cash_courses">
+              <i class="fa-solid fa-dollar-sign"></i>
+              <div class="box-content">
+                <span class="box_title">دوره های نقدی</span>
+                <span class="box_desc noFree_course_label">13 دوره</span>
+              </div>
+            </div>
+            <div class="content_box my_free_courses">
+              <i class="fa-solid fa-rocket"></i>
+              <div class="box-content">
+                <span class="box_title">دوره های رایگان</span>
+                <span class="box_desc free_course_label">14 دوره</span>
+              </div>
+            </div>
+          </section>
+          <span
+            class="you_donthave_course"
+            style="
+              color: var(--TextLightColor);
+              text-align: center;
+              margin-top: 50px;
+              display: none;
+            "
+            >شما در هیچ دوره ای ثبت نام نکرده اید</span
+          >
+          <section class="last_seen_courses_container">
+
+            <div class="course_box">
+              <div class="course_box_header">
+                <a href="">
+                  <img
+                    src="	https://sabzlearn.ir/wp-content/uploads/2023/08/nodeJs-min-768x432.jpg"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <div class="course_box_body">
+                <a href="">آموزش حرفه ای NodeJS بدون پیش نیاز</a>
+              </div>
+              <div class="course_box_footer">
+                <div class="course_seen_time_label">
+                  <span>میزان مشاهده</span>
+                  <span>5%</span>
+                </div>
+                <div class="range_label">
+                  <span class="rang_percent"></span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </section>
+    </div>
+    <script src="../js/my-account/index.js" type="module"></script>
+    <script src="../js/my-account/my_courses.js" type="module"></script>
+    <script src="../js/exit.js" type="module"></script>
+  </body>
+</html>

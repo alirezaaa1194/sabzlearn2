@@ -1,0 +1,202 @@
+@import "css\ modules/fonts.css";
+@import "css\ modules/reset.css";
+@import "./index.css";
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primaryLightColor) !important;
+  overflow-x: hidden;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.logo-box img {
+  width: 110px;
+  margin: 0 20px;
+}
+.logo-box .logo-title {
+  font-family: CasaBelanca;
+  color: var(--TextLightColor);
+  font-size: 3rem;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 25px 30px;
+  border-radius: 1rem;
+  background-color: rgb(var(--Warning-bg-color));
+  font-family: IranSans;
+  width: 29%;
+}
+.form_header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.form-title {
+  font-family: CasaBelanca;
+  color: var(--TextLightColor);
+  font-size: 1.7rem;
+}
+.form-question {
+  color: var(--SecondTextLightColor);
+  font-size: 1.1rem;
+  /* margin: 10px 0; */
+}
+.form-question a {
+  color: var(--hoverGreenColor);
+  text-decoration: none;
+}
+.input-box {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.input-box input {
+  width: 100%;
+  height: 100%;
+  padding: 12px 20px 12px 50px;
+  border: 1px solid var(--borderColor);
+  background-color: var(--cancel_btn);
+  color: var(--SecondTextLightColor);
+  border-radius: 0.75rem;
+  outline: none;
+  font-size: 1.1rem;
+  font-family: IranSans;
+}
+/* .input-box input */
+.input-box i {
+  position: absolute;
+  left: 20px;
+  font-size: 20px;
+  color: var(--SecondTextLightColor);
+}
+input:focus {
+  border: 1px solid var(--reply_background);
+  color: var(--TextLightColor);
+}
+input:focus ~ i {
+  color: var(--TextLightColor);
+}
+.input-box input::placeholder {
+  color: var(--SecondTextLightColor) !important;
+}
+button {
+  width: 100%;
+  font-family: IranSans;
+  padding: 12px 20px;
+  border-radius: 0.75rem;
+  font-size: 20px;
+  border: none;
+  background-color: var(--hoverGreenColor);
+  cursor: pointer;
+  color: #fff;
+}
+button:hover {
+  background-color: rgb(34 197 94);
+}
+.login_other_way_box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+.dont_forget_me_box {
+  display: flex;
+}
+#dont_forget_me_input {
+  display: none;
+}
+.label_cursor {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 0.125rem;
+  background-color: var(--primaryLightColor);
+}
+#dont_forget_me_input:checked ~ .dont_forget_me_label > .label_cursor {
+  background-color: rgb(14 165 233);
+}
+.dont_forget_me_label span {
+  cursor: pointer;
+  user-select: none;
+  color: var(--TextLightColor);
+  font-size: 0.9rem;
+}
+.dont_forget_me_label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.login_other_way_box a {
+  color: var(--SecondTextLightColor);
+  font-size: 0.9rem;
+}
+.messageBox {
+  padding: 16px;
+  border-radius: 10px;
+  background-color: rgb(var(--Warning-bg-color));
+  font-family: IranSans;
+  position: fixed;
+  top: 20px;
+  right: -100%;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+}
+.messageBox p {
+  color: var(--TextLightColor);
+}
+.messageBox span {
+  display: inline-block;
+  width: 100%;
+  height: 5px;
+  background-color: red;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+}
+@keyframes Error {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    justify-content: flex-start;
+  }
+  .form {
+    width: 80%;
+    gap: 10px;
+  }
+  .input-box input {
+    font-size: 0.9rem;
+  }
+  .input-box i {
+    font-size: 1rem;
+  }
+  button {
+    width: 100%;
+    font-family: IranSans;
+    padding: 9px 20px;
+  }
+}

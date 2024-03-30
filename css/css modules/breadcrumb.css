@@ -1,0 +1,76 @@
+/* start bradcrumb */
+.breadcrumb {
+  border-radius: 1rem;
+  width: 100%;
+  background-color: rgb(var(--Warning-bg-color));
+  overflow-y: hidden;
+  margin: 28px 0;
+}
+.breadcrumb ul {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+  overflow-x: auto;
+  overflow-y: hidden !important;
+}
+.breadcrumb ul::-webkit-scrollbar {
+  height: 3px !important;
+}
+.breadcrumb ul li {
+  text-wrap: nowrap !important;
+  padding: 12px 40px;
+  position: relative;
+}
+
+.breadcrumb ul li::before {
+  content: "";
+  height: 67%;
+  width: 5px;
+  background-color: var(--primaryLightColor);
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: -5px;
+  transform: rotate(35deg);
+}
+.breadcrumb ul li::after {
+  content: "";
+  height: 68%;
+  width: 5px;
+  background-color: var(--primaryLightColor);
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  bottom: -5px;
+  transform: rotate(-35deg);
+}
+.breadcrumb ul li:last-child:before {
+  display: none;
+}
+.breadcrumb ul li:last-child:after {
+  display: none;
+}
+.breadcrumb ul a {
+  color: var(--TextLightColor);
+  font-size: 1rem;
+}
+.breadcrumb ul a i {
+  font-size: 22px;
+}
+.breadcrumb ul li:last-child a {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+/* finish bradcrumb  */
+@media screen and (max-width: 1000px) {
+  .breadcrumb {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .breadcrumb {
+    margin-top: 0;
+  }
+}

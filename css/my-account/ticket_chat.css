@@ -1,0 +1,72 @@
+.send_ticket_container {
+  width: 100%;
+  border-radius: 1rem;
+  background-color: var(--session_accordion_body_bg);
+  padding: 15px !important;
+}
+.send_ticket_container_header {
+  width: 100%;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.send_ticket_container_header span {
+  font-size: 1.25rem;
+  color: var(--TextLightColor);
+  font-weight: bold;
+}
+.chats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 15px;
+}
+.ticket_chat {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  width: 70%;
+}
+.pm_header {
+  display: flex;
+  flex-direction: column;
+}
+.sender_name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--TextLightColor);
+}
+.send_date {
+  font-size: 0.75rem;
+  color: var(--SecondTextLightColor);
+}
+.pm_main {
+  color: var(--TextLightColor);
+}
+.Me {
+  background-color: var(--comment_background);
+  border-radius: 1rem 1rem 0 1rem;
+}
+.them {
+  background-color: rgb(78 129 251 / 0.2);
+  border-radius: 1rem 1rem 1rem 0;
+  align-self: flex-end;
+}
+.them .pm_header {
+  align-self: flex-end;
+}
+@media screen and (max-width: 1000px) {
+  .ticket_chat {
+    width: 90%;
+  }
+  .pm_main{
+    font-size: .98rem;
+  }
+  .chats {
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    padding: 15px 0;
+  }
+}

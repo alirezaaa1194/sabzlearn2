@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="theme-color" content="#2ED573" />
+    <link rel="icon" href="images/favicon.png" sizes="192x192" />
+    <link rel="stylesheet" href="vendor/plyr js/plyr.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/course.css" />
+    <title></title>
+  </head>
+  <body>
+    <!-- start header -->
+    <site-header></site-header>
+    <!-- finish header -->
+<message-box></message-box>
+    <!-- start main -->
+    <main>
+      <!-- start bradcrumb -->
+      <div class="breadcrumb">
+        <ul>
+          <li>
+            <a href="http://127.0.0.1:5500/frontend"><i class="fa fa-home"></i></a>
+          </li>
+          <li><a href="http://127.0.0.1:5500/frontend/courses.html">دوره ها</a></li>
+          <li><a href="" class="breadcrumb_category_name"></a></li>
+          <li><a href="" class="breadcrumb_course_name"></a></li>
+        </ul>
+      </div>
+      <!-- finish bradcrumb -->
+
+      <!-- start summary course info -->
+      <div class="summary_course_info">
+        <div class="introduction_course_info">
+          <h1 class="course_name_label"></h1>
+          <p class="summary_course_description"> </p>
+          <div class="course_offer_timer_box">
+            <h3 class="course_offer_label">
+              <span class="course_offer_percent_label"></span>
+            </h3>
+            <div class="course_time_labels">
+              <span class="course_offer_time_label">0</span>
+              <span class="course_offer_text_label">روز</span>
+              <span class="course_offer_time_label">4</span>
+              <span class="course_offer_text_label">ساعت</span>
+              <span class="course_offer_time_label">42</span>
+              <span class="course_offer_text_label">دقیقه</span>
+              <span class="course_offer_time_label second_label">20</span>
+              <span class="course_offer_text_label">ثانیه</span>
+            </div>
+          </div>
+          <div class="course_price_box">
+            <!-- <a href="#course_sessions" class="course_see_link">
+              <i class="fa-solid fa-play"></i>
+              <span>مشاهده دوره</span>
+            </a>
+            <a href="" class="course_buy_link">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>شرکت در دوره</span>
+            </a> -->
+            <div class="course_price">
+              <span class="origin_course_price"></span>
+              <span class="offered_course_price"></span>
+            </div>
+          </div>
+        </div>
+        <div class="introduction_video_box">
+          <video class="player" id="player2"></video>
+        </div>
+      </div>
+      <!-- finish summary course info -->
+
+      <!-- start origin course info -->
+      <div class="container">
+        <div class="right_blogInfo_section">
+          <!-- start main course info -->
+
+          <div class="course_info_parts">
+            <div class="course_info_part">
+              <i class="fa-solid fa-info"></i>
+              <div class="course_info_labels">
+                <span class="course_info_label_title">وضعیت دوره</span>
+                <span class="course_info_label_value course_status_label"></span>
+              </div>
+            </div>
+            <div class="course_info_part">
+              <i class="fa-regular fa-clock"></i>
+              <div class="course_info_labels">
+                <span class="course_info_label_title">مدت زمان دوره</span>
+                <span class="course_info_label_value course_time_label"></span>
+              </div>
+            </div>
+            <div class="course_info_part">
+              <i class="fa-solid fa-shield-halved"></i>
+              <div class="course_info_labels">
+                <span class="course_info_label_title">آخرین بروزرسانی</span>
+                <span class="course_info_label_value course_lastUpdate_label"></span>
+              </div>
+            </div>
+            <div class="course_info_part">
+              <i class="fa-solid fa-user-group"></i>
+              <div class="course_info_labels">
+                <span class="course_info_label_title">روش پشتیبانی</span>
+                <span class="course_info_label_value course_supportWay_label"></span>
+              </div>
+            </div>
+            <div class="course_info_part">
+              <i class="fa-solid fa-briefcase"></i>
+              <div class="course_info_labels">
+                <span class="course_info_label_title">پیش نیاز</span>
+                <span class="course_info_label_value course_preNeed_label"></span>
+              </div>
+            </div>
+            <div class="course_info_part">
+              <i class="fa-solid fa-video"></i>
+              <div class="course_info_labels">
+                <span class="course_info_label_title">نوع مشاهده</span>
+                <span class="course_info_label_value course_wathWay_label">آنلاین</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- start teacher info section -->
+          <div
+            class="course_achievement_container course_achievement_container1"
+          >
+            <div class="course_students_box">
+              <div class="course_student">
+                <i class="fa-solid fa-user-group"></i>
+                <div class="section_info">
+                  <span class="student_count  course_studentCount_label"></span>
+                  <span>دانشجو</span>
+                </div>
+              </div>
+
+              <div class="course_star">
+                <i class="fa-solid fa-star"></i>
+                <div class="section_info">
+                  <span>5.0</span>
+                  <span>رضایت</span>
+                </div>
+              </div>
+            </div>
+            <div class="course_complete_range_box">
+              <div class="range_labels">
+                <span>درصد تکمیل دوره</span>
+                <span>75%</span>
+              </div>
+              <div class="range">
+                <div class="completed_bar"></div>
+              </div>
+            </div>
+          </div>
+          <div class="teacher_info_container teacher_info_container1">
+            <div class="teacher_profile">
+              <img
+                src=""
+                class="creator_profile"
+                alt=""
+              />
+              <div class="teacher_name">
+                <h2 class="creator_name_label"></h2>
+                <span class="teacher_job"></span>
+              </div>
+            </div>
+            <a href="" class="teacher_info_link">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>مشاهده پروفایل
+            </a>
+          </div>
+          <!-- finish teacher info section -->
+
+          <!-- finish main course info -->
+          <div class="blog_content">
+            <div class="blog_title">
+              <span></span>
+              <h2 class="section_title">توضیحات</h2>
+            </div>
+            <div class="blog_body">
+              
+              
+              <div class="blog_desc"></div>
+            </div>
+            <div class="more_btn_box">
+              <button class="more_btn">
+                مشاهده بیشتر <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+          <!-- start courese session accordion -->
+
+          <div class="accordion" id="course_sessions">
+            <div class="accordion_header">
+              <div class="blog_title">
+                <span></span>
+                <h2 class="section_title">سرفصل های دوره</h2>
+              </div>
+              <span class="course_time"></span>
+            </div>
+            <span class="dontHave_sessions_error">جلسه ای برای این دوره وجود ندارد</span>
+            <div class="accordion_main">
+
+
+              <div class="accordion_item">
+                <div class="accordion_item_header" data-target="ac-1">
+                  <span>جلسات دوره</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion_item_body" id="ac-1"></div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- finish courese session accordion -->
+          <!--start comment section -->
+          <div class="comment_container">
+            <div class="container-header">
+              <div class="container-title">
+                <div class="section_header">
+                  <span></span>
+                  <h2 class="section_title">نظرات</h2>
+                </div>
+                <button class="save-new-comment-btn">ایجاد نظر جدید</button>
+              </div>
+              <div class="form">
+                <div class="user-info">
+                  <div class="user-image">
+                    <img
+                      src="images/user.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="user-names">
+                    <p class="user-name"></p>
+                    <span class="which-comment">ثبت نظر جدید</span>
+                  </div>
+                </div>
+                <textarea placeholder="نظر خودرا بنویسید ..."></textarea>
+                <div class="bottom-btns">
+                  <button class="cancel-comment-btn">لغو</button>
+                  <button class="save-comment-btn">ثبت</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="container-main">
+              <ul class="comments">
+                <li class="comment" id="comment${comment.id}">
+                  <div class="original-comment">
+                    <div class="Author-image Author-image1">
+                      <img src="${comment.AuthorImage}" alt="" />
+                      <span class="Author-addjective Author-addjective1"
+                        >مدرس</span
+                      >
+                    </div>
+                    <div class="comment-info">
+                      <div class="comment-header-row">
+                        <div class="Author-info">
+                          <div class="Author-image Author-image2">
+                            <img src="${comment.AuthorImage}" alt="" />
+                          </div>
+                          <div class="info">
+                            <p class="Author-name">علی نوری</p>
+                            <span class="comment-date">1402/01/01</span>
+                            <span class="Author-addjective Author-addjective2"
+                              >مدرس</span
+                            >
+                          </div>
+                        </div>
+                        <button class="reply-btn" id="${comment.id}">
+                          <i class="fa fa-mail-reply"></i>
+                        </button>
+                      </div>
+                      <p class="comment-message">
+                        ابراین علاوه بر اینکه قراره کدهای HTML متن متحرک رو با
+                        کمک CSS و جاوا اسکریپت در اختیار شما بذاریم، یه سری نکات
+                        مهم برای استفاده بهینه از این قابلیت هم به شما خواهیم
+                        گفت تا همیشه مدنظر داشته باشید و تعادل رو حفظ کنید چون
+                        هدف نهایی بهبود تجربه کاربران هست.
+                      </p>
+                    </div>
+                  </div>
+
+                  <ul class="replies" id="${comment.id}">
+                    <li class="comment">
+                      <div class="original-comment">
+                        <div class="Author-image Author-image1">
+                          <img src="${reply.AuthorImage}" alt="" />
+                          <span
+                            class="Author-addjective Author-addjective1 teacher"
+                            >مدرس</span
+                          >
+                        </div>
+                        <div class="comment-info">
+                          <div class="comment-header-row">
+                            <div class="Author-info">
+                              <div class="Author-image Author-image2">
+                                <img src="${reply.AuthorImage}" alt="" />
+                              </div>
+                              <div class="info">
+                                <p class="Author-name"></p>
+                                <span class="comment-date">1402/01/01</span>
+                                <span
+                                  class="Author-addjective Author-addjective2 teacher"
+                                  >مدرس</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <p class="comment-message">
+                            ابراین علاوه بر اینکه قراره کدهای HTML متن متحرک رو
+                            با کمک CSS و جاوا اسکریپت در اختیار شما بذاریم، یه
+                            سری نکات مهم برای استفاده بهینه از این قابلیت هم به
+                            شما خواهیم گفت تا همیشه مدنظر داشته باشید و تعادل رو
+                            حفظ کنید چون هدف نهایی بهبود تجربه کاربران هست.
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+
+
+              <div class="moreComment_box">
+                <button class="more_comment_btn">
+                  <span class="more_comment_text">مشاهده بیشتر</span>
+                  <span class="more_comment_loader"></span>
+                </button>
+                <span class="showen_all_label" id="showen_all_label" style="display: block;">تمام کامنت ها نمایش داده شده است.</span>
+              </div>
+            </div>
+          </div>
+          <!--end comment section -->
+        </div>
+        <aside class="left_blogInfo_section">
+          <!-- start teacher info section -->
+          <div
+            class="course_achievement_container course_achievement_container2"
+          >
+            <div class="course_students_box">
+              <div class="course_student">
+                <i class="fa-solid fa-user-group"></i>
+                <div class="section_info">
+                  <span class="student_count  course_studentCount_label">1056</span>
+                  <span>دانشجو</span>
+                </div>
+              </div>
+
+              <div class="course_star">
+                <i class="fa-solid fa-star"></i>
+                <div class="section_info">
+                  <span>5.0</span>
+                  <span>رضایت</span>
+                </div>
+              </div>
+            </div>
+            <div class="course_complete_range_box">
+              <div class="range_labels">
+                <span>درصد تکمیل دوره</span>
+                <span>75%</span>
+              </div>
+              <div class="range">
+                <div class="completed_bar"></div>
+              </div>
+            </div>
+          </div>
+          <div class="teacher_info_container teacher_info_container2">
+            <img
+              src=""
+              alt="" class="creator_profile"
+            />
+            <h2 class="creator_name_label">محمدامین سعیدی راد</h2>
+            <a href="" class="teacher_info_link creator_rol_label">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+            <p>
+              اولین کدم رو 14 سالگی زدم، حدود 9 سال پیش که با زبان ویژوال بیسیک
+              بود و بعد حدودا 2 سال تو فیلد برنامه نویسی موبایل با زبان جاوا کار
+              کردم و در نهایت با عشقی به اسم جاوا اسکریپت آشنا شدم و حدودا یه 7
+              سالی هست جاوا اسکریپت کد می‌زنم و به صورت Mern Stack فعالیت
+              می‌کنم.
+            </p>
+          </div>
+          <!-- finish teacher info section -->
+          <!-- start short link -->
+          <div class="short_link_container aside_container">
+            <div class="short_link_container_header aside_container_header">
+              <span class="title_label"></span>
+              <h3 class="container_title">لینک کوتاه:</h3>
+            </div>
+            <div class="short_link_container_main aside_container_main">
+              <div class="short_link_box">
+                <button class="copy_link_btn">
+                  <i class="fa fa-copy"></i>
+                </button>
+                <p class="short_link_text">https://sabzlearn.ir/?p=3522</p>
+              </div>
+            </div>
+          </div>
+          <!-- end short link -->
+        </aside>
+      </div>
+      <!-- finish origin course info -->
+    </main>
+    <!-- finish main -->
+    <!-- start footer -->
+    <site-footer></site-footer>
+    <!-- finish footer -->
+    <script src="vendor/plyr js/plyr.js"></script>
+    <script src="./js/header.js" type="module"></script>
+    <script src="./js/course.js" type="module"></script>
+    <script src="./js/accordion.js"></script>
+    <!-- <script src="./js/index.js" type="module"></script> -->
+    <script src="js/exit.js" type="module"></script>
+  </body>
+</html>

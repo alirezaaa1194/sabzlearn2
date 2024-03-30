@@ -1,0 +1,408 @@
+@import "css\ modules/fonts.css";
+@import "css\ modules/reset.css";
+@import "css\ modules/header.css";
+/* @import "css\ modules/index.css"; */
+@import "css\ modules/footer.css";
+
+main {
+  padding: 0 50px 100px 50px;
+  display: flex;
+  flex-direction: column;
+}
+.category_section {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+/* start category title box */
+.category_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px 0 !important;
+}
+.category_title span {
+  display: inline-block;
+  width: 40px;
+  height: 10px;
+  background-color: rgb(250 204 21);
+  border-radius: 0.125rem;
+}
+.category_title h1 {
+  font-size: 4rem;
+  font-family: CasaBelanca;
+  color: var(--TextLightColor);
+}
+/* finish category title box */
+
+/* start aside styles */
+aside {
+  width: 24%;
+  height: fit-content;
+  border-radius: 1rem;
+  border: 1px solid var(--borderColor);
+  background-color: rgb(var(--Warning-bg-color));
+  padding-bottom: 25px;
+}
+.articles_category_container_header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 25px 0 10px 0;
+}
+.container_title {
+  color: var(--TextLightColor);
+  font-size: 1.4rem;
+}
+.title_label {
+  display: inline-block;
+  width: 28px;
+  height: 8px;
+  background-color: rgb(46 213 115);
+  border-radius: 0.125rem 0 0 0.125rem;
+}
+.articles_category_list {
+  padding: 0 28px;
+}
+.articles_category_list li {
+  padding: 7px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.articles_category_list li:first-child {
+  padding-top: 0;
+}
+.articles_category_list li:last-child {
+  padding-bottom: 0;
+}
+.articles_category_list li i {
+  color: rgb(46 213 115);
+  font-size: 10px;
+  transform: rotate(180deg);
+}
+
+.articles_category_list li a {
+  color: var(--TextLightColor);
+  font-size: 0.95rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+/* finish aside styles */
+
+/* start filter blogs container styles */
+.filter_blogs_container {
+  width: 76%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* start filter_box styles */
+
+.filter_button {
+  border-radius: 1rem;
+  background-color: rgb(var(--Warning-bg-color));
+  border: 1px solid var(--borderColor);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 25px;
+  width: 100%;
+  cursor: pointer;
+}
+.filter_box_title {
+  color: var(--TextLightColor);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+.filter_box_title i {
+  font-size: 1.1rem;
+}
+.btns button {
+  padding: 10px 14px;
+  background-color: rgb(var(--Warning-bg-color));
+  border-radius: 0.5rem;
+  color: var(--SecondTextLightColor);
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.btns button.active {
+  background-color: var(--cancel_btn);
+  color: var(--TextLightColor);
+}
+
+/* finish filter_box styles */
+
+/* finish filter blogs container styles */
+
+/* start blog box styles */
+.document-Box {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.document-Card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  background-color: rgb(var(--Warning-bg-color)) !important;
+  border: 1px solid var(--borderColor);
+}
+.document-Card-header a {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.document-Card-header a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(var(--Warning-bg-color), 1),
+    rgba(var(--Warning-bg-color), 0)
+  );
+}
+.document-Card-header,
+.document-Card-header a,
+.document-Card-header a img {
+  border-radius: 1rem !important;
+}
+.document-img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 1rem !important;
+}
+.document-Card-Body {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--borderColor);
+}
+.document-desc {
+  font-size: 14px;
+  color: var(--SecondTextLightColor);
+  margin: 8px 0;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+.document-Name a {
+  font-weight: normal;
+  color: var(--TextLightColor);
+  text-decoration: none;
+  font-size: 18px;
+}
+.document-Info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  color: var(--SecondTextLightColor);
+  padding-top: 20px;
+}
+.document-Info i,
+.document-Info span {
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+.document-Card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+.document-Card-footer a {
+  color: var(--TextLightColor) !important;
+  text-decoration: none;
+}
+
+.document-Card-footer a:hover {
+  color: var(--hoverGreenColor) !important;
+}
+.document-Info a {
+  color: var(--SecondTextLightColor);
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  margin-left: 6px;
+}
+.document-Info a:hover {
+  color: var(--hoverGreenColor);
+}
+/* finish blog box styles */
+/* start filter dropdown style */
+.filter_dropDown_cover {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 1000000;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+.filter_dropDown_cover.active {
+  visibility: visible;
+  opacity: 1;
+}
+.filter_dropDown {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  bottom: -100%;
+  z-index: 10000000;
+  background-color: rgb(var(--Warning-bg-color));
+  border-radius: 1rem 1rem 0 0;
+  visibility: hidden;
+  opacity: 0;
+}
+.filter_dropDown.active {
+  bottom: 0;
+  visibility: visible;
+  opacity: 1;
+}
+.dropDown_header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 1rem 1rem 0 0;
+  background-color: var(--cancel_btn);
+  color: var(--TextLightColor);
+  font-size: 1.2rem;
+}
+.dropDown_header button {
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  color: var(--SecondTextLightColor);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.btns2 {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  background: rgb(var(--Warning-bg-color));
+}
+.responsive_sort_btn {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--reply_background);
+  padding: 15px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--SecondTextLightColor);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.responsive_sort_btn:last-child {
+  border-bottom: none;
+}
+.responsive_sort_btn i {
+  display: none;
+}
+.responsive_sort_btn.active {
+  color: var(--TextLightColor);
+  font-size: 0.95rem;
+}
+.responsive_sort_btn.active i {
+  display: block;
+}
+
+
+.see_more_btn_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.showen_all_label {
+  display: none;
+  color: var(--TextLightColor);
+}
+.see_more_btn_box button {
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  outline: none;
+  color: var(--TextLightColor);
+  background-color: var(--cancel_btn);
+  cursor: pointer;
+  font-size: 19px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.more_course_loader {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 4px solid rgb(var(--Warning-bg-color));
+  border-top-color: var(--SecondTextLightColor);
+  animation: loaderRotate 1s infinite linear;
+}
+@keyframes loaderRotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* finish filter dropdown style */
+@media screen and (max-width: 1000px) {
+  aside {
+    display: none;
+  }
+  .category_title {
+    padding: 10px 0 30px 0;
+  }
+  .category_title h1 {
+    font-size: 2.7rem;
+  }
+  .filter_blogs_container {
+    width: 100%;
+  }
+  .filter_button {
+    justify-content: center;
+  }
+  .filter_box_title {
+    cursor: pointer !important;
+  }
+  .btns {
+    display: none;
+  }
+  .filter_dropDown {
+    display: flex;
+  }
+}

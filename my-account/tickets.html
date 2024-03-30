@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="theme-color" content="#2ED573" />
+    <link rel="icon" href="../images/favicon.png" sizes="192x192" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/my-account/index.css" />
+    <link rel="stylesheet" href="../css/my-account/tickets.css" />
+    <title>تیکت ها - پنل کاربری - سبزلرن</title>
+  </head>
+  <body>
+    <div class="cover"></div>
+    <div class="dropDownAccountCover"></div>
+    <div class="notificationDropDownCover"></div>
+
+    <div class="container">
+      <aside class="menu_bar">
+        <div class="aside_header">
+          <a href="../index.html">
+            <img
+              src="	https://sabzlearn.ir/wp-content/themes/sabzlearn-theme/images/logo.webp"
+              alt=""
+              class="logo"
+            />
+            <span>سبزلرن</span>
+          </a>
+          <button class="close_menu_bar">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="aside_body">
+          <ul>
+            <li>
+              <a href="index.html" class=""
+                ><i class="fa-solid fa-house fa-fw"></i> پیشخوان</a
+              >
+            </li>
+            <li>
+              <a href="my-courses.html"
+                ><i class="fa-solid fa-folder"></i> دوره های من</a
+              >
+            </li>
+            <li>
+              <a href="tickets.html" class="active"
+                ><i class="fa-solid fa-ticket"></i> تیکت ها</a
+              >
+            </li>
+            <li>
+              <a href="account-content.html"
+                ><i class="fa-regular fa-user"></i> جزئیات حساب</a
+              >
+            </li>
+            <li>
+              <button class="exit-Btn">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> خروج
+              </button>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <section class="main_section">
+        <header class="header">
+          <div class="rightHand">
+            <button class="open_aside_btn">
+              <i class="fa-solid fa-bars"></i
+              ><span class="page_name">پیشخوان</span>
+            </button>
+            <h2 class="welcom_text1"><span class="welcom_text"></span> عزیز؛ خوش اومدی 🙌</h2>
+          </div>
+          <div class="leftHand">
+            <div class="siteSetting">
+              <button class="notification_btn">
+                <i class="fa-regular fa-bell"></i>
+              </button>
+              <button class="SwitchTeheme">
+                <i class="fa-solid fa-moon"></i>
+              </button>
+              <button class="UserAccountBtn">
+                <i class="fa fa-user"></i>
+              </button>
+            </div>
+
+            <div class="userInfoCard">
+              <div class="CardHeader">
+                <i class="fa fa-user"></i>
+                <div class="info">
+                  <h4 class="userName">علیرضا نوری</h4>
+                  <h4 class="cartBox">موجودی: 0 تومان</h4>
+                </div>
+              </div>
+              <div class="CardBody">
+                <ul>
+                  <li>
+                    <a href="index.html"><i class="fa fa-home"></i> پیشخوان</a>
+                  </li>
+                  <li>
+                    <a href="my-courses.html"><i class="fa fa-folder"></i> دوره های من</a>
+                  </li>
+                  <li>
+                    <a href="account-content.html"><i class="fa-regular fa-user"></i>جزئیات حساب</a>
+                  </li>
+                  <li>
+                    <a href="tickets.html"
+                      ><i class="fa fa-ticket"></i> تیکت های پشتیبانی</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="CardFooter">
+                <button class="exit-Btn">
+                  <i class="fa fa-external-link"></i> خروج
+                </button>
+              </div>
+            </div>
+            <div class="notification_dropdown">
+              <div class="notification_header">
+                <h4>اعلان ها</h4>
+              </div>
+              <div class="notification_body">
+                <p>اعلان جدیدی وجود ندارد.</p>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="main">
+          <h4 class="welcome_title"><span class="welcom_text"></span> عزیز؛ خوش اومدی🙌</h4>
+          <section class="my-account-contents">
+            <div class="content_box cash_labels">
+              <i class="fa-solid fa-wallet"></i>
+              <div class="box-content">
+                <span class="box_title">همه تیکت ها</span>
+                <span class="box_desc allTicket_count_label">3 عدد</span>
+              </div>
+            </div>
+            <div class="content_box my_courses">
+              <i class="fa-solid fa-rocket"></i>
+              <div class="box-content">
+                <span class="box_title">تیکت های باز</span>
+                <span class="box_desc noanswerdTicket_label">0 دوره</span>
+              </div>
+            </div>
+            <div class="content_box tickets">
+              <i class="fa-solid fa-ticket"></i>
+              <div class="box-content">
+                <span class="box_title">پاسخ داده شده</span>
+                <span class="box_desc closedTicket_Label">3 تیکت</span>
+              </div>
+            </div>
+            <a href="send_ticket.html" class="content_box account_mony">
+              <i class="fa-solid fa-plus"></i>
+              <span>تیکت جدید</span>
+            </a>
+          </section>
+          <section class="last_tickets_container">
+            <span class="you_donthave_ticket" style="color: var(--TextLightColor); text-align: center; margin-top: 50px; display: none;">هیچ تیکتی ارسال نکرده اید</span>
+            <div class="last_tickets_container_header">
+              <span>تیکت ها</span>
+            </div>
+            <div class="last_tickets_container_body">
+              <div class="tickets_box">
+                <div class="ticket_name_box">
+                  <span class="ticket_code">#9065</span>
+                  <a href="" class="ticket_name">خطا هنگام لاگین</a>
+                </div>
+                <div class="ticket_info">
+                  <span class="ticket_date">1402/09/25 (16:09)</span>
+                  <span class="ticket_departman ended">پشتیبانی</span>
+                  <span class="ticket_status ended">بسته شده</span>
+                </div>
+              </div>
+              <div class="tickets_box">
+                <div class="ticket_name_box">
+                  <span class="ticket_code">#9065</span>
+                  <a href="" class="ticket_name">خطا هنگام لاگین</a>
+                </div>
+                <div class="ticket_info">
+                  <span class="ticket_date">1402/09/25 (16:09)</span>
+                  <span class="ticket_departman ended">پشتیبانی</span>
+                  <span class="ticket_status ended">بسته شده</span>
+                </div>
+              </div>
+              <div class="tickets_box">
+                <div class="ticket_name_box">
+                  <span class="ticket_code">#9065</span>
+                  <a href="" class="ticket_name">خطا هنگام لاگین</a>
+                </div>
+                <div class="ticket_info">
+                  <span class="ticket_date">1402/09/25 (16:09)</span>
+                  <span class="ticket_departman ended">پشتیبانی</span>
+                  <span class="ticket_status ended">بسته شده</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </section>
+    </div>
+    <script src="../js/my-account/index.js" type="module"></script>
+    <script src="../js/my-account/tickets.js" type="module"></script>
+    <script src="../js/exit.js" type="module"></script>
+  </body>
+</html>

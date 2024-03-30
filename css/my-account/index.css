@@ -1,0 +1,393 @@
+@import "../css\ modules/reset.css";
+@import "../css\ modules/fonts.css";
+body {
+  background-color: var(--session_accordion_body_bg);
+}
+.container {
+  display: flex;
+  gap: 35px;
+  padding: 28px 56px;
+}
+
+/* start aside styles */
+
+aside {
+  background-color: var(--session_accordion_body_bg);
+  min-height: 100vh;
+  width: 19%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+.aside_header {
+  display: flex;
+  align-items: center;
+}
+.aside_header a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.aside_header .logo {
+  width: 80px;
+}
+.aside_header a span {
+  font-size: 2.5rem;
+  color: var(--TextLightColor);
+  font-family: CasaBelanca;
+}
+.close_menu_bar {
+  display: none;
+  background: none;
+  outline: none;
+  border: none;
+  color: var(--SecondTextLightColor);
+  font-size: 1.2rem;
+  padding: 0 20px 0 0;
+  cursor: pointer;
+}
+.aside_body {
+  padding-top: 40px;
+}
+.aside_body ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  list-style: none;
+}
+.aside_body ul li {
+  width: 100%;
+}
+.aside_body ul li a,
+.aside_body ul li button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 12px;
+  background: var(--session_accordion_body_bg);
+  border-radius: 0.5rem;
+  color: var(--TextLightColor);
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+.aside_body ul li a.active {
+  background: var(--hoverGreenColor);
+  color: #fff;
+}
+.dropDownAccountCover,
+.notificationDropDownCover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 99;
+}
+.notificationDropDownCover {
+  z-index: 100;
+}
+.notification_btn.active {
+  z-index: 101;
+}
+.dropDownAccountCover.active,
+.notificationDropDownCover.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.cover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 200;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+}
+.cover.active {
+  visibility: visible;
+  opacity: 1;
+}
+/* finish aside styles */
+/* start .main_section styles */
+.main_section {
+  background-color: var(--primaryLightColor);
+  min-height: 100vh;
+  width: 80%;
+  border-radius: 2rem;
+  padding: 40px 40px 15px 40px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.open_aside_btn {
+  display: none;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.1rem;
+  color: var(--TextLightColor);
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.welcom_text1 {
+  color: var(--TextLightColor);
+}
+.leftHand {
+  position: relative;
+}
+.userInfoCard,
+.notification_dropdown {
+  position: absolute;
+  left: 0%;
+  top: 120%;
+  display: flex;
+  flex-direction: column;
+  font-family: IranSans;
+  background-color: var(--secondDynamicCoor);
+  border-radius: 1rem;
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 100;
+}
+.notification_dropdown {
+  z-index: 101;
+}
+.userInfoCard.active {
+  visibility: visible;
+  opacity: 1;
+}
+.userInfoCard i {
+  font-size: 1rem;
+  margin-left: 10px;
+}
+.CardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid var(--reply_background);
+}
+.CardHeader i {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--primaryLightColor);
+  text-align: center;
+  line-height: 45px;
+  color: var(--TextLightColor);
+  border: 1px solid var(--primaryLightColor) !important;
+  font-size: 22px;
+  margin: 10px;
+}
+.CardHeader .info .userName {
+  color: var(--TextLightColor);
+}
+.CardHeader .info .cartBox {
+  color: var(--blueColor);
+  font-size: 12px;
+  margin: 7px 0;
+}
+.CardBody {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--reply_background) !important;
+}
+.CardBody ul {
+  list-style: none;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+}
+.CardBody ul li {
+  width: 100%;
+}
+.CardBody ul li a,
+.CardFooter button {
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  padding: 0 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: IranSans;
+  color: var(--cardTextColor) !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.CardBody ul li a:hover,
+.CardFooter button:hover {
+  background-color: var(--FerechexHoverColor) !important;
+}
+.CardFooter {
+  padding: 10px 0 0 0;
+}
+.CardFooter button {
+  font-size: 17px !important;
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: none;
+  color: var(--cardTextColor);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.siteSetting {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.siteSetting button {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  color: var(--SecondTextLightColor) !important;
+  border: none;
+  background-color: var(--session_accordion_body_bg);
+  position: relative;
+  border: 1px solid var(--borderColor) !important;
+}
+.UserAccountBtn {
+  z-index: 99;
+}
+.siteSetting button:hover {
+  cursor: pointer;
+  border: 1px solid var(--hoverBorderColor) !important;
+}
+.notification_dropdown {
+  width: 370px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--session_accordion_body_bg);
+  padding: 15px;
+  border-radius: 1rem;
+  position: absolute;
+  left: 75%;
+  top: 120%;
+  visibility: hidden;
+  opacity: 0;
+}
+.notification_dropdown.active {
+  visibility: visible;
+  opacity: 1;
+}
+.notification_header {
+  width: 100%;
+  padding-bottom: 15px;
+  color: var(--TextLightColor);
+  border-bottom: 1px solid var(--SecondTextLightColor);
+}
+.notification_header h4 {
+  font-size: 1.2rem;
+}
+.notification_body {
+  width: 100%;
+  padding-top: 15px;
+}
+.notification_body p {
+  width: 100%;
+  padding: 12px;
+  border-radius: 0.75rem;
+  background-color: var(--textarea_background);
+  color: var(--TextLightColor);
+  text-align: center;
+  font-size: 0.9rem;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px 0 !important;
+}
+.welcome_title {
+  color: var(--TextLightColor);
+  display: none;
+}
+/* finish .main_section styles */
+
+@media screen and (max-width: 1000px) {
+  aside {
+    width: auto;
+    position: fixed;
+    right: -100%;
+    top: 0;
+    z-index: 300;
+    padding: 10px 30px;
+  }
+  aside.active {
+    right: 0;
+  }
+  .dropDownAccountCover,
+  .notificationDropDownCover {
+    backdrop-filter: none !important;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .main_section {
+    width: 100%;
+    padding: 0 !important;
+    border-radius: 0;
+  }
+  .header {
+    padding: 30px 20px;
+    border-bottom: 1px solid var(--session_accordion_body_bg);
+  }
+  .open_aside_btn {
+    display: flex;
+  }
+  .close_menu_bar {
+    display: flex;
+  }
+  .welcom_text1 {
+    display: none;
+  }
+  .siteSetting {
+    gap: 15px;
+  }
+  .siteSetting button {
+    width: 50px;
+    height: 50px;
+  }
+  .siteSetting button i {
+    font-size: 1.3rem;
+  }
+  .notification_dropdown {
+    width: 300px;
+    left: 0%;
+  }
+  .main {
+    padding: 20px !important;
+  }
+  .welcome_title {
+    color: var(--TextLightColor);
+    display: block;
+  }
+  .aside_header a span {
+    font-size: 1.5rem;
+  }
+  .aside_header a img {
+    width: 60px !important;
+  }
+
+}

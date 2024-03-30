@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="theme-color" content="#2ED573" />
+    <link rel="icon" href="images/favicon.png" sizes="192x192" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/blog_category.css" />
+    <title></title>
+  </head>
+  <body>
+    <div class="filter_dropDown_cover"></div>
+    <!-- start header -->
+    <site-header></site-header>
+    <!-- finish header -->
+
+    <!-- start main -->
+    <main>
+      <div class="category_title">
+        <span></span>
+        <h1>مقالات</h1>
+      </div>
+      <div class="category_section">
+        <aside class="categories">
+          <div class="articles_category_container aside_container">
+            <div
+              class="articles_category_container_header aside_container_header"
+            >
+              <span class="title_label"></span>
+              <h3 class="container_title">دسته بندی ها</h3>
+            </div>
+            <div class="articles_category_container_main aside_container_main">
+              <ul class="articles_category_list">
+                <!-- get data from js -->
+              </ul>
+            </div>
+          </div>
+        </aside>
+        <div class="filter_blogs_container">
+          <div class="filter_box">
+            <div class="filter_button">
+              <span class="filter_box_title"
+                ><i class="fa-solid fa-arrow-down-short-wide"></i
+                ><span class="sortby_label">مرتب سازی: </span></span
+              >
+              <div class="btns">
+                <button class="sort_btn active" id="normal_blogs">عادی</button>
+                <button class="sort_btn" id="latest_blogs">جدیدترین</button>
+                <button class="sort_btn" id="oldest_blogs">قدیمی ترین</button>
+                <button class="sort_btn" id="most_comment_blogs">
+                  پرنظر ها
+                </button>
+              </div>
+            </div>
+            <div class="filter_dropDown">
+              <div class="dropDown_header">
+                <button class="close_dropDown_btn">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+                مرتب سازی بر اساس
+              </div>
+              <div class="btns2">
+                <button class="responsive_sort_btn active" id="normal_blogs">
+                  عادی <i class="fa-solid fa-check"></i>
+                </button>
+                <button class="responsive_sort_btn" id="latest_blogs">
+                  جدیدترین <i class="fa-solid fa-check"></i>
+                </button>
+                <button class="responsive_sort_btn" id="oldest_blogs">
+                  قدیمی ترین <i class="fa-solid fa-check"></i>
+                </button>
+                <button class="responsive_sort_btn" id="most_comment_blogs">
+                  پرنظر ها <i class="fa-solid fa-check"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="document-Box">
+            <!-- get data from js -->
+          </div>
+          <div class="see_more_btn_box">
+            <button style="align-self: center" class="see_more_course_btn">
+              <span class="more_course_text">مشاهده بیشتر</span>
+              <span class="more_course_loader"></span>
+            </button>
+            <span class="showen_all_label" id="showen_all_label"
+              >تمام مقالات نمایش داده شده است.</span
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- finish main -->
+    <!-- start footer -->
+    <site-footer></site-footer>
+    <!-- finish footer -->
+    <script src="./js/header.js" type="module"></script>
+    <script src="./js/blog_category.js" type="module"></script>
+    <script src="./js/test.js"></script>
+    <!-- <script src="./js/index.js" type="module"></script> -->
+    <script src="js/exit.js" type="module"></script>
+  </body>
+</html>

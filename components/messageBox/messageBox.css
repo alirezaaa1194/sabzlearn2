@@ -1,0 +1,65 @@
+.messageBox {
+  transition: 0.4s;
+  padding: 10px 20px;
+  border-radius: 7px;
+  background-color: var(--cancel_btn_hover);
+  font-family: IranSans;
+  position: fixed !important;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  top: 20px;
+  left: -100%;
+  /* right: 30px; */
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 120 !important;
+}
+.messageBox i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background: #f43f5e;
+  font-style: normal !important;
+}
+.messageBox div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.messageBox h4 {
+  color: var(--TextLightColor);
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 0;
+}
+.messageBox p {
+  font-size: 0.95rem;
+  color: var(--SecondTextLightColor);
+  margin: 0 0 10px 0;
+}
+.messageBox span {
+  display: inline-block;
+  width: calc(100% - 20px);
+  height: 5px;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  /* background-color: red; */
+}
+
+@keyframes Error {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}

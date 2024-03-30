@@ -1,0 +1,507 @@
+@import "css\ modules/fonts.css";
+@import "css\ modules/reset.css";
+@import "css\ modules/header.css";
+@import "css\ modules/footer.css";
+@import "./index.css";
+
+main {
+  padding: 0 50px 100px 50px;
+  display: flex;
+  flex-direction: column;
+}
+.category_section {
+  display: flex;
+  gap: 20px;
+}
+
+.dont_have_courses,
+.course_loader {
+  display: none;
+  color: #fff;
+}
+/* start category title box */
+.category_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px 0 !important;
+}
+.category_title span {
+  display: inline-block;
+  width: 40px;
+  height: 10px;
+  background-color: rgb(244 63 94);
+  border-radius: 0.125rem;
+}
+.category_title h1 {
+  font-size: 4rem;
+  font-family: CasaBelanca;
+  color: var(--TextLightColor);
+}
+/* finish category title box */
+
+/* start aside styles */
+aside {
+  width: 24%;
+  height: fit-content;
+  /* border-radius: 1rem; */
+  /* background-color: rgb(var(--Warning-bg-color)); */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 20px;
+  /* padding-bottom: 25px; */
+}
+.search_bar {
+  display: flex;
+  align-items: center;
+  background: rgb(var(--Warning-bg-color));
+  border-radius: 1rem;
+  border: 1px solid var(--borderColor);
+}
+.search_bar .search_box {
+  width: 80%;
+  padding: 23px 30px 23px 10px;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  background: rgb(var(--Warning-bg-color));
+  color: var(--TextLightColor);
+}
+.search_bar .search_box::placeholder {
+  color: var(--SecondTextLightColor);
+  font-size: 0.9rem;
+}
+.search_bar button {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  color: var(--SecondTextLightColor);
+  background: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 15px 0px;
+}
+
+.filter_inputs_container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.filter_input_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 30px;
+  background-color: rgb(var(--Warning-bg-color));
+  border: 1px solid var(--borderColor);
+  border-radius: 1rem;
+}
+.filter_title {
+  color: var(--TextLightColor);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+label {
+  width: 46px;
+  height: 24px;
+  border-radius: 24px;
+  background-color: var(--primaryLightColor);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  cursor: pointer;
+  position: relative;
+}
+label > span {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  height: calc(100% - 8px);
+  aspect-ratio: 1;
+  background-color: var(--cancel_btn);
+  border-radius: 50%;
+}
+input[type="checkbox"] {
+  display: none;
+}
+/* input[type="checkbox"]:checked ~ label {
+  background-color: rgb(14 165 233);
+}
+input[type="checkbox"]:checked ~ label span {
+  background-color: white;
+  right: calc(100% - 20px);
+} */
+label.active {
+  background-color: rgb(14 165 233);
+}
+label.active span {
+  background-color: white;
+  right: calc(100% - 20px);
+}
+/* finish aside styles */
+
+/* start courses_container styles */
+.filter_blogs_container {
+  width: 76%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/* start filter_box styles */
+
+.filter_button {
+  border-radius: 1rem;
+  background-color: rgb(var(--Warning-bg-color));
+  border: 1px solid var(--borderColor);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 25px;
+  width: 100%;
+  cursor: pointer;
+}
+.filter_button2 {
+  display: none;
+}
+.filter_box_title {
+  color: var(--TextLightColor);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+.filter_box_title i {
+  font-size: 1.1rem;
+}
+.btns button {
+  padding: 10px 14px;
+  background-color: rgb(var(--Warning-bg-color));
+  border-radius: 0.5rem;
+  color: var(--SecondTextLightColor);
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.btns button.active {
+  background-color: var(--cancel_btn);
+  color: var(--TextLightColor);
+}
+
+/* finish filter_box styles */
+
+/* finish courses_container styles */
+
+/* start course filter section */
+.course_filter_section {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgb(var(--Warning-bg-color));
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000000000000;
+  visibility: hidden;
+  opacity: 0;
+}
+.course_filter_section.active {
+  visibility: visible;
+  opacity: 1;
+}
+.course_filter_header {
+  width: 100%;
+  padding: 25px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--cancel_btn);
+}
+.remove_all_filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  outline: none;
+  color: rgb(239 68 68);
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 0.75rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.right_hand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.right_hand button {
+  color: var(--SecondTextLightColor);
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+}
+.right_hand span {
+  color: var(--TextLightColor);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.course_filter_main {
+  padding: 0 20px;
+  height: 100%;
+}
+.course_filter_main .filter_input_box {
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid var(--borderColor);
+  padding: 20px 0;
+}
+.course_filter_main div:last-child {
+  border-bottom: none;
+}
+.course_filter_main .filter_title {
+  font-weight: normal;
+}
+.course_filter_footer {
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  bottom: 0px;
+  left: 0;
+  background-color: rgb(var(--Warning-bg-color));
+}
+.set_filterts_btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 1rem;
+  color: #fff;
+  border: none;
+  outline: none;
+  background-color: rgb(46 213 115);
+  border-radius: 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+/* finish course filter section */
+
+/* start filter dropdown style */
+.filter_dropDown_cover {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 1000000;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+.filter_dropDown_cover.active {
+  visibility: visible;
+  opacity: 1;
+}
+.filter_dropDown {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  bottom: -100%;
+  z-index: 10000000;
+  background-color: rgb(var(--Warning-bg-color));
+  border-radius: 1rem 1rem 0 0;
+  visibility: hidden;
+  opacity: 0;
+}
+.filter_dropDown.active {
+  bottom: 0;
+  visibility: visible;
+  opacity: 1;
+}
+.dropDown_header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 1rem 1rem 0 0;
+  background-color: var(--cancel_btn);
+  color: var(--TextLightColor);
+  font-size: 1.2rem;
+}
+.dropDown_header button {
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  color: var(--SecondTextLightColor);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.btns2 {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  background: rgb(var(--Warning-bg-color));
+}
+.responsive_sort_btn {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--reply_background);
+  padding: 15px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--SecondTextLightColor);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.responsive_sort_btn:last-child {
+  border-bottom: none;
+}
+.responsive_sort_btn i {
+  display: none;
+}
+.responsive_sort_btn.active {
+  color: var(--TextLightColor);
+  font-size: 0.95rem;
+}
+.responsive_sort_btn.active i {
+  display: block;
+}
+
+.dont_have_courses {
+  display: none;
+  align-items: center;
+  gap: 20px;
+  border-radius: 1rem;
+  padding: 30px 30px;
+  background-color: rgb(239, 68, 68);
+  background-image: url(https://sabzlearn.ir/wp-content/themes/sabzlearn-theme/images/section-pattern.png);
+}
+
+.see_more_btn_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.showen_all_label {
+  display: none;
+  color: var(--TextLightColor);
+}
+.dont_have_courses i {
+  font-style: normal !important;
+  font-weight: bold;
+  border: 3px solid white;
+  width: 33px;
+  height: 33px;
+  text-align: center;
+  line-height: 29px;
+  border-radius: 10px;
+  margin-left: 17px;
+  font-size: 18px;
+  color: white;
+}
+.error_box {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.see_more_btn_box button {
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  outline: none;
+  color: var(--TextLightColor);
+  background-color: var(--cancel_btn);
+  cursor: pointer;
+  font-size: 19px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.more_course_loader {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 4px solid rgb(var(--Warning-bg-color));
+  border-top-color: var(--SecondTextLightColor);
+  animation: loaderRotate 1s infinite linear;
+}
+
+@keyframes loaderRotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* finish filter dropdown style */
+@media screen and (max-width: 1000px) {
+  .category_section {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .filter_inputs_container {
+    display: none;
+  }
+  .category_title {
+    padding: 10px 0 30px 0;
+  }
+  .category_title h1 {
+    font-size: 2.7rem;
+  }
+  .search_bar {
+    padding: 0 !important;
+  }
+  .search_box {
+    padding: 12px 20px 12px 10px !important;
+  }
+  .search_box_btn {
+    padding: 10px 0 !important;
+  }
+  .filter_box {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
+  .filter_blogs_container,
+  aside {
+    gap: 12px;
+    width: 100%;
+    position: static;
+  }
+  .filter_button {
+    justify-content: center;
+    padding: 8px 12px;
+  }
+  .filter_button2 {
+    display: flex;
+  }
+  .filter_box_title {
+    cursor: pointer !important;
+  }
+  .btns {
+    display: none;
+  }
+  .filter_dropDown {
+    display: flex;
+  }
+}
