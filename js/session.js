@@ -371,14 +371,7 @@ function questionsGenerator(comments) {
           replyToComment(e.target.id);
         });
     });
-  } else {
-    commentsContainer.insertAdjacentHTML(
-      "afterbegin",
-      `
-  <span class="dont_have_comment">کامنتی برای این دوره وجود ندارد</span>
-  `
-    );
-  }
+  } 
 }
 
 function replyToComment(id) {
