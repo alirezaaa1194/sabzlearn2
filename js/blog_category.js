@@ -11,6 +11,7 @@ let see_more_btn_box = document.querySelector(".see_more_btn_box");
 let see_more_course = document.querySelector(".see_more_course_btn");
 let more_course_text = document.querySelector(".more_course_text");
 let more_course_loader = document.querySelector(".more_course_loader");
+let course_loader = document.querySelector(".course_loader");
 
 let articles_category_list = document.querySelector(".articles_category_list");
 
@@ -22,12 +23,14 @@ let end = count;
 
 sortBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
+    course_loader.style.display='block'
     sortBtns.forEach((btn) => {
       btn.classList.remove("active");
     });
     btn.classList.add("active");
     getBlogByFilter(btn.id).then((data) => {
       documentBox.innerHTML = "";
+      course_loader.style.display='none'
       count = 3;
       start = 0;
       end = count;
@@ -47,6 +50,7 @@ sortBtns.forEach((btn) => {
 });
 ResponsivesortBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
+    course_loader.style.display='block'
     ResponsivesortBtns.forEach((btn) => {
       btn.classList.remove("active");
     });
@@ -55,6 +59,7 @@ ResponsivesortBtns.forEach((btn) => {
 
     getBlogByFilter(btn.id).then((data) => {
       documentBox.innerHTML = "";
+      course_loader.style.display='none'
       count = 3;
       start = 0;
       end = count;

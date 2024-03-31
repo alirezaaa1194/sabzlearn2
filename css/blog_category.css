@@ -373,6 +373,11 @@ aside {
   border-top-color: var(--SecondTextLightColor);
   animation: loaderRotate 1s infinite linear;
 }
+
+.course_loader {
+  display: none;
+  color: #fff;
+}
 @keyframes loaderRotate {
   100% {
     transform: rotate(360deg);

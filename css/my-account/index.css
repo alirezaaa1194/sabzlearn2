@@ -155,7 +155,7 @@ aside {
   display: flex;
   flex-direction: column;
   font-family: IranSans;
-  background-color: var(--secondDynamicCoor);
+  background-color: var(--session_accordion_body_bg);
   border-radius: 1rem;
   width: fit-content;
   height: fit-content;
@@ -196,6 +196,7 @@ aside {
   margin: 10px;
 }
 .CardHeader .info .userName {
+  font-weight: normal;
   color: var(--TextLightColor);
 }
 .CardHeader .info .cartBox {

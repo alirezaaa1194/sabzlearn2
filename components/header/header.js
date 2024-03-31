@@ -1000,9 +1000,7 @@ class Header extends HTMLElement {
             `
 
   <li class="responsiveMenuItem">
-  <a href="course.html?name=${
-    submenu.href.split("/")[2]
-  }" class="responsiveMenuLink ${this.checkMenuItem(
+  <a href="course.html?name=${submenu.href}" class="responsiveMenuLink ${this.checkMenuItem(
               submenu.href.split("/")[2]
             )}">${submenu.title}</a>
 </li>

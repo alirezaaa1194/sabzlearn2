@@ -73,6 +73,7 @@ getCourseByName("cName").then((data) => {
 });
 
 function sessionContentGenerator(course) {
+        document.querySelector('.teacher_job').innerHTML=course.creator.role
   // start breadcrumb
   breadcrumb_category_name.innerHTML = course.categoryID.title;
   breadcrumb_category_name.href = `https://alirezaaa1194.github.io/sabzlearn2/course_category.html?cat=${course.categoryID.name}&catName=${course.categoryID.title}`;
@@ -106,9 +107,9 @@ function sessionContentGenerator(course) {
         >
       </a>
     </div>
-    <span class="course_time_label">${session.time.includes(":")
-    ? session.time
-    : session.time + ":00"}</span>
+    <span class="course_time_label">${
+      session.time.includes(":") ? session.time : session.time + ":00"
+    }</span>
   </div>
 
     `
@@ -117,7 +118,7 @@ function sessionContentGenerator(course) {
     accordion_item_body.style.height = accordion_item_body.scrollHeight + "px";
 
     document.querySelectorAll(".accordion_body_list_item").forEach((item) => {
-      console.log(item);
+      // console.log(item);
       if (item.dataset.target == getQueryParams("episode")) {
         item.classList.add("active");
         document.querySelector(".accordion_main").scrollTo(0, item.offsetTop);
@@ -166,12 +167,12 @@ function sessionContentGenerator(course) {
   creator_rol_label.innerHTML = course.creator.role;
 
   fetch(
-    `https://sabzlearn-project-backend.liara.run/v1/courses/${course.shortName}/${getQueryParams(
-      "episode"
-    )}`,
+    `https://sabzlearn-project-backend.liara.run/v1/courses/${
+      course.shortName
+    }/${getQueryParams("episode")}`,
     {
       headers: {
-        Authorization: `Bearer ${getUserTokenFromcookie()}`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGU2YjBlMWQ1MTQyYjkxYWZhOWJiMyIsImlhdCI6MTcxMTgzNjEyNCwiZXhwIjoxNzE0NDI4MTI0fQ.XLOtjcvVijn-8XGFHpgGSHugT8-Ci06YkOlGur3e0g0`,
       },
     }
   )
@@ -183,7 +184,7 @@ function sessionContentGenerator(course) {
       }
     })
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       video_player.src = `https://sabzlearn-project-backend.liara.run/courses/covers/${data.session.video}`;
       video_player.poster = `https://sabzlearn-project-backend.liara.run/courses/covers/${course.cover}`;
 
@@ -371,7 +372,7 @@ function questionsGenerator(comments) {
           replyToComment(e.target.id);
         });
     });
-  } 
+  }
 }
 
 function replyToComment(id) {
@@ -389,5 +390,9 @@ cancel_btn.addEventListener("click", () => {
 });
 
 getUserInfo().then((userInfo) => {
-  userNameLabel.innerHTML = userInfo.username;
+  if (userInfo) {
+    userNameLabel.innerHTML = userInfo.name;
+  } else {
+    userNameLabel.innerHTML = 'کاربر';
+  }
 });

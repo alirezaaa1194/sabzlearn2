@@ -221,10 +221,14 @@ const dontHave_sessions_error = document.querySelector(
 const comments = document.querySelector(".comments");
 const userNameLabel = document.querySelector(".user-name");
 const course_price_box = document.querySelector(".course_price_box");
-// getUserInfo().then((userInfo) => {
-//   // userNameLabel.innerHTML = userInfo.username;
-//   userNameLabel.innerHTML = userInfo.name;
-// });
+getUserInfo().then((userInfo) => {
+  // userNameLabel.innerHTML = userInfo.username;
+  if (userInfo) {
+    userNameLabel.innerHTML = userInfo.name;
+  } else {
+    userNameLabel.innerHTML = "کاربر";
+  }
+});
 
 const video_player = document.querySelector(".player");
 const source_player = document.querySelector(".source_player");
@@ -280,11 +284,12 @@ function courseContentGenerator(course, isRegister) {
 
   course_offer_timer_box.style.display =
     course.discount || course.price == 0 ? "flex" : "none";
-  course_offer_percent_label.innerHTML = course.price>0
-    ? course.discount + "% تخفیف شگفت انگیز"
-    : course.price == 0
-    ? "100% تخفیف شگفت انگیز"
-    : "";
+  course_offer_percent_label.innerHTML =
+    course.price > 0
+      ? course.discount + "% تخفیف شگفت انگیز"
+      : course.price == 0
+      ? "100% تخفیف شگفت انگیز"
+      : "";
 
   // course_see_link.style.display = course.isUserRegisteredToThisCourse
   //   ? "flex"
@@ -423,9 +428,6 @@ function courseContentGenerator(course, isRegister) {
         video_player.src = `https://sabzlearn-project-backend.liara.run/courses/covers/${data.session.video}`;
         // alert(data.session.video)
         video_player.poster = `https://sabzlearn-project-backend.liara.run/courses/covers/${course.cover}`;
-        creator_profile[1].src =
-          "https://sabzlearn-project-backend.liara.run/v1/courses/covers/" +
-          course.creator.profile;
         const player = new Plyr("#player2", {
           controls: [
             "play",
@@ -936,27 +938,31 @@ function saveComment(courseName, commentValue) {
 
 function saveCommentAnswer(commentID, replyText) {
   if (replyText) {
-    let newAnswer = {
-      body: replyText.trim(),
-      score: 5,
-    };
-    fetch(`${mainRoute}comments/answer/${commentID}`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${getUserTokenFromcookie()}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newAnswer),
-    }).then((res) => {
-      //console.log(res);
-      if (res.status === 200) {
-        showErrorMessage("کامنت با موفقیت ثیت شد", "success");
-        closeForm();
-        commentTextarea.value = "";
-      } else {
-        showErrorMessage("خطای غیر منتظره رخ داد", "error");
-      }
-    });
+    if (isUserLogedIn()) {
+      let newAnswer = {
+        body: replyText.trim(),
+        score: 5,
+      };
+      fetch(`${mainRoute}comments/answer/${commentID}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${getUserTokenFromcookie()}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newAnswer),
+      }).then((res) => {
+        //console.log(res);
+        if (res.status === 200) {
+          showErrorMessage("کامنت با موفقیت ثیت شد", "success");
+          closeForm();
+          commentTextarea.value = "";
+        } else {
+          showErrorMessage("خطای غیر منتظره رخ داد", "error");
+        }
+      });
+    } else {
+      showErrorMessage("لطفا ابتدا در سایت لاگین کنید", "error");
+    }
   } else {
     showErrorMessage("لطفا فیلد را پرکنید", "error");
   }
