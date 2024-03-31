@@ -18,7 +18,7 @@
     <!-- start header -->
     <site-header></site-header>
     <!-- finish header -->
-<message-box></message-box>
+    <message-box></message-box>
     <!-- start main -->
     <main>
       <div class="category_title">
@@ -41,21 +41,36 @@
           <div class="filter_inputs_container">
             <div class="filter_input_box">
               <span class="filter_title">فقط دوره های رایگان</span>
-              <input type="checkbox" class="checkbox course-filter_checkbox" data-target="free-courses" id="free_course" />
+              <input
+                type="checkbox"
+                class="checkbox course-filter_checkbox"
+                data-target="free-courses"
+                id="free_course"
+              />
               <label for="free_course" class="course_filter_label">
                 <span></span>
               </label>
             </div>
             <div class="filter_input_box">
               <span class="filter_title">درحال پیش فروش</span>
-              <input type="checkbox" class="checkbox course-filter_checkbox" data-target="presell-courses" id="saling_course" />
+              <input
+                type="checkbox"
+                class="checkbox course-filter_checkbox"
+                data-target="presell-courses"
+                id="saling_course"
+              />
               <label for="saling_course" class="course_filter_label">
                 <span></span>
               </label>
             </div>
             <div class="filter_input_box buyed_course_box">
               <span class="filter_title">دوره های خریداری شده</span>
-              <input type="checkbox" class="checkbox course-filter_checkbox" data-target="my-courses" id="buyed_course" />
+              <input
+                type="checkbox"
+                class="checkbox course-filter_checkbox"
+                data-target="my-courses"
+                id="buyed_course"
+              />
               <label for="buyed_course" class="course_filter_label">
                 <span></span>
               </label>
@@ -122,11 +137,9 @@
           </div>
           <span class="course_loader">درحال لود...</span>
           <div class="Product-Grid">
-           <!-- get data from js -->
+            <!-- get data from js -->
           </div>
           <!-- finish course box -->
-
-
 
           <div class="see_more_btn_box">
             <button style="align-self: center" class="see_more_course">
@@ -138,43 +151,43 @@
             >
           </div>
 
-
-
           <!-- start course filter section -->
           <div class="course_filter_section">
-            <div class="course_filter_header">
-              <div class="right_hand">
-                <button class="close_filter_section_btn">
-                  <i class="fa-solid fa-xmark"></i>
+            <div class="course_filter_body">
+              <div class="course_filter_header">
+                <div class="right_hand">
+                  <button class="close_filter_section_btn">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                  <span>فیلتر</span>
+                </div>
+                <button class="remove_all_filter">
+                  <i class="fa-solid fa-trash-can"></i>
+                  حذف فیلتر ها
                 </button>
-                <span>فیلتر</span>
               </div>
-              <button class="remove_all_filter">
-                <i class="fa-solid fa-trash-can"></i>
-                حذف فیلتر ها
-              </button>
-            </div>
-            <div class="course_filter_main">
-              <div class="filter_input_box">
-                <span class="filter_title">فقط دوره های رایگان</span>
-                <input type="checkbox" class="checkbox" id="free_course2" />
-                <label for="free_course" class="course_filter_label">
-                  <span></span>
-                </label>
-              </div>
-              <div class="filter_input_box">
-                <span class="filter_title">درحال پیش فروش</span>
-                <input type="checkbox" class="checkbox" id="saling_course2" />
-                <label for="saling_course" class="course_filter_label">
-                  <span></span>
-                </label>
-              </div>
-              <div class="filter_input_box buyed_course_box">
-                <span class="filter_title">دوره های خریداری شده</span>
-                <input type="checkbox" class="checkbox" id="buyed_course2" />
-                <label for="buyed_course" class="course_filter_label">
-                  <span></span>
-                </label>
+              <div class="course_filter_main">
+                <div class="filter_input_box">
+                  <span class="filter_title">فقط دوره های رایگان</span>
+                  <input type="checkbox" class="checkbox" id="free_course2" />
+                  <label for="free_course" class="course_filter_label">
+                    <span></span>
+                  </label>
+                </div>
+                <div class="filter_input_box">
+                  <span class="filter_title">درحال پیش فروش</span>
+                  <input type="checkbox" class="checkbox" id="saling_course2" />
+                  <label for="saling_course" class="course_filter_label">
+                    <span></span>
+                  </label>
+                </div>
+                <div class="filter_input_box buyed_course_box">
+                  <span class="filter_title">دوره های خریداری شده</span>
+                  <input type="checkbox" class="checkbox" id="buyed_course2" />
+                  <label for="buyed_course" class="course_filter_label">
+                    <span></span>
+                  </label>
+                </div>
               </div>
             </div>
             <div class="course_filter_footer">

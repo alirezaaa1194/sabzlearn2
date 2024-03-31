@@ -252,6 +252,7 @@ input[type="checkbox"] {
   top: 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   z-index: 1000000000000;
   visibility: hidden;
   opacity: 0;
@@ -302,7 +303,7 @@ input[type="checkbox"] {
 }
 .course_filter_main {
   padding: 0 20px;
-  height: calc(100% - 176px);
+  /* height: calc(100% - 176px); */
 }
 .course_filter_main .filter_input_box {
   border: none;
