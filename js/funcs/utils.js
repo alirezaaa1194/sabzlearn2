@@ -22,7 +22,8 @@ export const logOut = (userToken) => {
 
 export const redirectToLoginPage = () => {
   if (!isUserLogedIn()) {
-    location.href = "https://alirezaaa1194.github.io/sabzlearn2/loginBy_email.html";
+    location.href =
+      "https://alirezaaa1194.github.io/sabzlearn2/loginBy_email.html";
   }
 };
 export const redirectToPannel = () => {
@@ -118,7 +119,7 @@ export const getAllCategories = async () => {
 };
 
 export const getFilteredCourses = async (filterName) => {
-  console.log(filterName);
+  //console.log(filterName);
   switch (filterName) {
     case "free-courses":
       return getAllCourses().then((data) => {
@@ -140,7 +141,7 @@ export const getFilteredCourses = async (filterName) => {
 
     case "all_course":
       return getAllCourses().then((data) => {
-        console.log(data);
+        //console.log(data);
         return data;
       });
       break;
@@ -247,7 +248,12 @@ export function myCourseGenerator(courses, container) {
 
 export const isUserRegisteredToThisCourse = (courseId) => {
   return getUserInfo().then((res) => {
-    let ishave = res.courses.some((course) => course._id === courseId);
-    return ishave
+    if (res) {
+      let ishave = res.courses.some((course) => course._id === courseId);
+      return ishave;
+    }
+    else{
+      return false
+    }
   });
 };

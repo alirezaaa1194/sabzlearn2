@@ -316,11 +316,14 @@ header {
 }
 .OpenBtn,
 .closeBtn {
-  font-size: 27px;
+  font-size: 1.2rem;
   background: none;
   border: none;
   color: var(--SecondTextLightColor);
   cursor: pointer;
+}
+.OpenBtn {
+  font-size: 1.4rem;
 }
 .navbar2 {
   position: fixed;
@@ -329,7 +332,8 @@ header {
   max-width: 350px;
   height: 100vh;
   overflow-y: scroll;
-  background-color: var(--secondDynamicCoor);
+  /* background-color: var(--secondDynamicCoor); */
+  background-color: var(--session_accordion_body_bg);
   right: -100%;
   top: 0;
   display: flex;
@@ -347,10 +351,10 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-  border-bottom: 1px solid var(--hoverBorderColor);
+  border-bottom: 1px solid var(--reply_background);
 }
 .websiteTitle {
-  font-size: 30px;
+  font-size: 1.5rem;
   font-family: CasaBelanca;
   margin: 0 10px;
   color: var(--SecondTextLightColor);
@@ -361,12 +365,13 @@ header {
 .navBody {
   width: 100%;
   height: fit-content;
-  background-color: var(--secondDynamicCoor);
+  /* background-color: var(--secondDynamicCoor); */
+  background-color: var(--session_accordion_body_bg);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 1px solid var(--hoverBorderColor);
+  border-bottom: 1px solid var(--reply_background);
 }
 .navBody .searchBox2 {
   position: relative;
@@ -423,7 +428,9 @@ header {
   width: 100%;
   display: flex;
   flex-direction: column-reverse;
-  background-color: var(--secondDynamicCoor);
+  gap: 7px;
+  /* background-color: var(--secondDynamicCoor); */
+  background-color: var(--session_accordion_body_bg);
   list-style: none;
   padding: 20px 0;
 }
@@ -467,14 +474,15 @@ header {
 .responsiveMenuItem a {
   text-decoration: none;
   color: var(--SecondTextLightColor);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-family: IranSans;
   cursor: pointer;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.responsiveMenuItem a:hover,  .responsiveMenuItem a.show{
+.responsiveMenuItem a:hover,
+.responsiveMenuItem a.show {
   color: var(--hoverGreenColor) !important;
 }
 .responsiveMenuItem a::before {
@@ -500,7 +508,8 @@ header {
   height: 45px;
   border-radius: 10px;
   color: var(--SecondTextLightColor);
-  background-color: var(--secondDynamicCoor);
+  /* background-color: var(--secondDynamicCoor); */
+  background-color: var(--session_accordion_body_bg);
 
   border: 1px solid var(--hoverBorderColor) !important;
   outline: none;
@@ -528,7 +537,7 @@ header {
   display: flex;
   flex-direction: column;
   font-family: IranSans;
-  background-color: var(--secondDynamicCoor);
+  background-color: var(--session_accordion_body_bg);
   border-radius: 1rem;
   width: fit-content;
   height: fit-content;
@@ -562,6 +571,7 @@ header {
   margin: 10px;
 }
 .CardHeader .info .userName {
+  font-weight: normal;
   color: var(--TextLightColor);
 }
 .CardHeader .info .cartBox {
@@ -618,6 +628,9 @@ header {
 }
 
 @media screen and (max-width: 1000px) {
+  header {
+    padding: 15px 16px;
+  }
   .NavigationBar {
     display: none;
   }
@@ -649,7 +662,7 @@ header {
     justify-content: center;
   }
   .LogoBox2 a img {
-    width: 85px;
+    width: 75px;
   }
   .SiteSetting {
     position: relative;
@@ -667,6 +680,11 @@ header {
   }
   .UserAccountBtn {
     margin: 0;
+    width: 50px;
+    height: 50px;
+  }
+  .UserAccountBtn i {
+    font-size: 20px;
   }
   .Account-Btn {
     width: fit-content;
@@ -680,6 +698,12 @@ header {
   }
   .AlertBanner {
     display: none;
+  }
+  .navBody .searchBox2 input {
+    font-size: 0.95rem;
+  }
+  .navHeader {
+    padding: 0 15px 15px 15px;
   }
 }
 

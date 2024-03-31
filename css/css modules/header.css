@@ -341,7 +341,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-  border-bottom: 1px solid var(--hoverBorderColor);
+  border-bottom: 1px solid var(--reply_background);
 }
 .websiteTitle {
   font-size: 30px;
@@ -360,7 +360,7 @@ header {
   flex-direction: column;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 1px solid var(--hoverBorderColor);
+  border-bottom: 1px solid var(--reply_background);
 }
 .navBody .searchBox2 {
   position: relative;

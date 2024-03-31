@@ -25,7 +25,7 @@ const documentBox = document.querySelector(".document-Box");
 
 window.addEventListener("load", () => {
   getAllCourses().then((data) => {
-    console.log(data);
+    //console.log(data);
     courseGenerator(new_products_container, data, 12, true);
   });
   getPopularCourses().then((data) =>
@@ -86,7 +86,7 @@ function courseSliderGenerator(container, courses, count, description) {
   // new_products_container.
   container.innerHTML = "";
   courses.slice(0, count).forEach((course) => {
-    // console.log(course);
+    // //console.log(course);
     container.insertAdjacentHTML(
       "beforeend",
       `
@@ -96,7 +96,9 @@ function courseSliderGenerator(container, courses, count, description) {
         <a href="https://alirezaaa1194.github.io/sabzlearn2/course.html?name=${
           course.shortName
         }">
-        <img src="https://sabzlearn-project-backend.liara.run/courses/covers/${course.cover}" alt="">
+        <img src="https://sabzlearn-project-backend.liara.run/courses/covers/${
+          course.cover
+        }" alt="">
         </a>
         ${
           course.discount

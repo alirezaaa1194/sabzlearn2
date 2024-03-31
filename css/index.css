@@ -1,6 +1,6 @@
 @import "css\ modules/fonts.css";
 @import "css\ modules/reset.css";
-@import "css\ modules/header.css";
+/* @import "css\ modules/header.css"; */
 @import "css\ modules/footer.css";
 .section1 {
   width: 100%;
@@ -458,6 +458,7 @@ body.dark .section6::before {
 }
 .Help-desc-Box p {
   color: var(--SecondTextLightColor);
+  font-size: 1rem;
 }
 
 .section5 .sectionTitle h2 span {
@@ -803,7 +804,7 @@ body.dark .section6::before {
     padding: 25px;
   }
   .Help-box .circle {
-    width: 150px !important;
+    width: 70px !important;
   }
   .section5 {
     padding: 25px;
@@ -859,6 +860,16 @@ body.dark .section6::before {
   }
   .section1 .sitePictureInfo {
     justify-content: center;
+  }
+  .Help-box {
+    flex-direction: column;
+  }
+  .Help-desc-Box p {
+    font-size: 0.875rem;
+    text-align: center;
+  }
+  .Help-desc-Box h3 {
+    text-align: center;
   }
 }
 @media screen and (min-width: 1440px) {

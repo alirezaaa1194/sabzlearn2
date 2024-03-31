@@ -792,21 +792,21 @@ main {
   }
   .course_price_box {
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
   }
   .course_see_link {
     width: 100%;
     justify-content: center;
     order: 2;
-    padding: 13px 28px;
-    font-size: 24px;
+    padding: 7px 28px;
+    font-size: 21px;
   }
   .course_buy_link {
     width: 100%;
     justify-content: center;
     order: 2;
-    padding: 13px 28px;
-    font-size: 24px;
+    padding: 7px 28px;
+    font-size: 21px;
   }
   .course_price {
     width: 100%;

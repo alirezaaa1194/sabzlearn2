@@ -5,6 +5,7 @@ import {
   getAllCourses,
   getAllCategories,
   getSearchedCourses,
+  isUserLogedIn
 } from "./funcs/utils.js";
 // import { courseGenerator } from "./funcs/shared.js";
 
@@ -373,6 +374,12 @@ remove_all_filter.addEventListener("click", () => {
 
 window.addEventListener("load", () => {
   createCategories();
+  const buyed_course_box = document.querySelectorAll(".buyed_course_box");
+  buyed_course_box.forEach((box) => {
+    if (!isUserLogedIn()) {
+      box.remove();
+    }
+  });
   category_name_label.innerHTML = getQueryParams("catName")
     ? getQueryParams("catName")
     : "دوره ها";
@@ -430,7 +437,7 @@ function createCategories() {
     course_category_inputs_container.innerHTML = "";
     responsive_course_category_inputs_container.innerHTML = "";
     categories.forEach((category) => {
-      //console.log(category);
+      ////console.log(category);
       let categoryCourseCount = 0;
 
       getAllCourses().then((courses) => {
@@ -700,7 +707,7 @@ see_more_course.addEventListener("click", () => {
     }
   }, 1500);
 
-  console.log(start, end);
+  //console.log(start, end);
 });
 
 function courseGenerator(container) {
@@ -709,7 +716,7 @@ function courseGenerator(container) {
     showen_all_label.style.display = "none";
     see_more_course.style.display = "block";
     for (let i = start; i < end; i++) {
-      console.log(courses[i]);
+      //console.log(courses[i]);
       container.insertAdjacentHTML(
         "beforeend",
         `
@@ -731,19 +738,25 @@ function courseGenerator(container) {
           <div class="Card-Body">
             <div class="Category-Box">
              ${
-               courses[i].categoryID
-                 ? `<a href="course_category.html?cat=${courses[i].categoryID.name}&catName=${courses[i].categoryID.title.substring(12)}">${courses[i].categoryID.title}</a>`
+               courses[i].categoryID.title
+                 ? `<a href="course_category.html?cat=${courses[i].categoryID.name}&catName=${courses[i].categoryID.title}">${courses[i].categoryID.title}</a>`
                  : ""
              }
             </div>
             <h4 class="course-Name">
-              <a href="course.html?name=${courses[i].shortName}">${courses[i].name}</a>
+              <a href="course.html?name=${courses[i].shortName}">${
+          courses[i].name
+        }</a>
             </h4>
-            <p class="course-Desc">${courses[i].description ? courses[i].description : ""}</p>
+            <p class="course-Desc">${
+              courses[i].description ? courses[i].description : ""
+            }</p>
             <div class="Course-Info">
               <div class="Teacher-Info">
                 <i class="fa fa-user"></i>
-                <a href="#">${courses[i].creator}</a>
+                <a href="#">${
+                  courses[i].creator.includes(" ") ? courses[i].creator : ""
+                }</a>
                 <i class="fa fa-clock"></i>
                 <span></span>
               </div>
@@ -756,7 +769,9 @@ function courseGenerator(container) {
           <div class="Card-Footer">
             <div class="students-Box">
               <i class="fa fa-users"></i>
-              <span class="Student-Number">${courses[i].registers}</span>
+              <span class="Student-Number">${
+                courses[i].registers ? courses[i].registers : ""
+              }</span>
             </div>
            ${
              courses[i].price && !courses[i].discount
@@ -775,7 +790,10 @@ function courseGenerator(container) {
             !courses[i].price
               ? `<h4>رایگان!</h4>`
               : `<h4>${
-                (((100 - courses[i].discount)/100)*courses[i].price).toLocaleString() + "تومان"
+                  (
+                    ((100 - courses[i].discount) / 100) *
+                    courses[i].price
+                  ).toLocaleString() + "تومان"
                 }</h4>`
           }
            </div>
@@ -799,10 +817,10 @@ function courseGenerator(container) {
       see_more_course.style.display = "none";
     }
     for (let i = start; i < coursesArray.length; i++) {
-      console.log(courses[i]);
+      //console.log(courses[i]);
 
       // courses.slice(0, count).forEach((course) => {
-      // //console.log(course);
+      // ////console.log(course);
       container.insertAdjacentHTML(
         "beforeend",
         `
@@ -825,18 +843,28 @@ function courseGenerator(container) {
             <div class="Category-Box">
              ${
                courses[i].categoryID
-                 ? `<a href="course_category.html?cat=${courses[i].categoryID.name}&catName=${courses[i].categoryID.title.substring(12)}">${courses[i].categoryID.title}</a>`
+                 ? `<a href="course_category.html?cat=${
+                     courses[i].categoryID.name || ""
+                   }&catName=${courses[i].categoryID.title || ""}">${
+                     courses[i].categoryID.title || ""
+                   }</a>`
                  : ""
              }
             </div>
             <h4 class="course-Name">
-              <a href="course.html?name=${courses[i].shortName}">${courses[i].name}</a>
+              <a href="course.html?name=${courses[i].shortName}">${
+          courses[i].name
+        }</a>
             </h4>
-            <p class="course-Desc">${courses[i].description ? courses[i].description : ""}</p>
+            <p class="course-Desc">${
+              courses[i].description ? courses[i].description : ""
+            }</p>
             <div class="Course-Info">
               <div class="Teacher-Info">
                 <i class="fa fa-user"></i>
-                <a href="#">${courses[i].creator}</a>
+                <a href="#">${
+                  courses[i].creator.includes(" ") ? courses[i].creator : ""
+                }</a>
                 <i class="fa fa-clock"></i>
                 <span></span>
               </div>
@@ -849,7 +877,9 @@ function courseGenerator(container) {
           <div class="Card-Footer">
             <div class="students-Box">
               <i class="fa fa-users"></i>
-              <span class="Student-Number">${courses[i].registers}</span>
+              <span class="Student-Number">${
+                courses[i].registers ? courses[i].registers : ""
+              }</span>
             </div>
            ${
              courses[i].price && !courses[i].discount
@@ -868,7 +898,10 @@ function courseGenerator(container) {
             !courses[i].price
               ? `<h4>رایگان!</h4>`
               : `<h4>${
-                (((100 - courses[i].discount)/100)*courses[i].price).toLocaleString() + "تومان"
+                  (
+                    ((100 - courses[i].discount) / 100) *
+                    courses[i].price
+                  ).toLocaleString() + "تومان"
                 }</h4>`
           }
            </div>

@@ -154,12 +154,9 @@ function openForm() {
 
 function closeForm() {
   form.classList.remove("active");
-  if (commentId !== null) {
-    window.scrollTo(
-      0,
-      document.querySelector(`#comment${commentId}`).offsetTop
-    );
-  }
+  // if (commentId !== null) {
+  // }
+  window.scrollTo(0, document.querySelector(`#comment${commentId}`).offsetTop);
   commentId = null;
 }
 saveCommentBtn.addEventListener("click", createNewComment);
@@ -224,10 +221,10 @@ const dontHave_sessions_error = document.querySelector(
 const comments = document.querySelector(".comments");
 const userNameLabel = document.querySelector(".user-name");
 const course_price_box = document.querySelector(".course_price_box");
-getUserInfo().then((userInfo) => {
-  // userNameLabel.innerHTML = userInfo.username;
-  userNameLabel.innerHTML = userInfo.name;
-});
+// getUserInfo().then((userInfo) => {
+//   // userNameLabel.innerHTML = userInfo.username;
+//   userNameLabel.innerHTML = userInfo.name;
+// });
 
 const video_player = document.querySelector(".player");
 const source_player = document.querySelector(".source_player");
@@ -236,6 +233,7 @@ getCourseByName("name").then((data) => {
   isUserRegisteredToThisCourse(data._id).then((res) => {
     courseContentGenerator(data, res ? true : false);
   });
+  //console.log(data);
   course_comments = data.comments;
   commentsContainer.innerHTML = "";
   getCommentGenerator(course_comments);
@@ -270,7 +268,7 @@ function courseContentGenerator(course, isRegister) {
       });
     }
   });
-  // console.log(course);
+  // //console.log(course);
   breadcrumb_category_name.innerHTML = course.categoryID.title;
   breadcrumb_category_name.href = `https://alirezaaa1194.github.io/sabzlearn2/course_category.html?cat=${course.categoryID.name}&catName=${course.categoryID.title}`;
   document.title = `${course.name} - سبزلرن`;
@@ -282,7 +280,7 @@ function courseContentGenerator(course, isRegister) {
 
   course_offer_timer_box.style.display =
     course.discount || course.price == 0 ? "flex" : "none";
-  course_offer_percent_label.innerHTML = course.discount
+  course_offer_percent_label.innerHTML = course.price>0
     ? course.discount + "% تخفیف شگفت انگیز"
     : course.price == 0
     ? "100% تخفیف شگفت انگیز"
@@ -294,8 +292,8 @@ function courseContentGenerator(course, isRegister) {
   // course_buy_link.style.display = course.isUserRegisteredToThisCourse
   //   ? "none"
   //   : "flex";
-
-  origin_course_price.style.display = course.price ? "flex" : "none";
+  origin_course_price.style.display =
+    course.price != 0 && course.discount != 0 ? "flex" : "none";
   origin_course_price.innerHTML = course.price.toLocaleString();
 
   offered_course_price.innerHTML = !course.price
@@ -351,7 +349,6 @@ function courseContentGenerator(course, isRegister) {
         courseMin += Math.floor(courseSec / 60);
         courseSec = Math.floor(courseSec % 60);
       }
-
       accordion_item_body.insertAdjacentHTML(
         "beforeend",
         `
@@ -415,17 +412,20 @@ function courseContentGenerator(course, isRegister) {
       `https://sabzlearn-project-backend.liara.run/v1/courses/${course.shortName}/${course.sessions[0]._id}`,
       {
         headers: {
-          Authorization: `Bearer ${getUserTokenFromcookie()}`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGU2YjBlMWQ1MTQyYjkxYWZhOWJiMyIsImlhdCI6MTcxMTgzNjEyNCwiZXhwIjoxNzE0NDI4MTI0fQ.XLOtjcvVijn-8XGFHpgGSHugT8-Ci06YkOlGur3e0g0`,
         },
       }
     )
       .then((res) => res.json())
       .then((data) => {
         //console.log(data);
+        // alert(data.sessions[0].video)
         video_player.src = `https://sabzlearn-project-backend.liara.run/courses/covers/${data.session.video}`;
+        // alert(data.session.video)
         video_player.poster = `https://sabzlearn-project-backend.liara.run/courses/covers/${course.cover}`;
         creator_profile[1].src =
-          "https://sabzlearn-project-backend.liara.run/v1/courses/covers/" + course.creator.profile;
+          "https://sabzlearn-project-backend.liara.run/v1/courses/covers/" +
+          course.creator.profile;
         const player = new Plyr("#player2", {
           controls: [
             "play",
@@ -493,7 +493,7 @@ more_comment_btn.addEventListener("click", () => {
     }
   }, 1500);
 
-  console.log(start, end);
+  //console.log(start, end);
 });
 
 function getCommentGenerator(comments) {
@@ -502,7 +502,7 @@ function getCommentGenerator(comments) {
       showen_all_label.style.display = "none";
       more_comment_btn.style.display = "block";
       for (let i = start; i < end; i++) {
-        // console.log(course_comments[i]);
+        // //console.log(course_comments[i]);
 
         commentsContainer.insertAdjacentHTML(
           "beforeend",
@@ -627,7 +627,7 @@ function getCommentGenerator(comments) {
         more_comment_btn.style.display = "none";
       }
       for (let i = start; i < course_comments.length; i++) {
-        console.log(course_comments[i]);
+        //console.log(course_comments[i]);
 
         commentsContainer.insertAdjacentHTML(
           "beforeend",
@@ -758,29 +758,33 @@ function getCommentGenerator(comments) {
 }
 
 function registerCourseHandler(coursePrice, courseId) {
-  fetch(`${mainRoute}courses/${courseId}/register`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${getUserTokenFromcookie()}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ price: coursePrice }),
-  }).then((res) => {
-    if (res.status == 201) {
-      showErrorMessage("باموفقیت در دوره ثبت نام شدید", "success");
-      setTimeout(() => {
-        location.reload();
-      }, 1000);
-    } else {
-      showErrorMessage("خطای غیر منتظره رخ داد", "error");
-    }
-  });
+  if (isUserLogedIn()) {
+    fetch(`${mainRoute}courses/${courseId}/register`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${getUserTokenFromcookie()}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ price: coursePrice }),
+    }).then((res) => {
+      if (res.status == 201) {
+        showErrorMessage("باموفقیت در دوره ثبت نام شدید", "success");
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+      } else {
+        showErrorMessage("خطای غیر منتظره رخ داد", "error");
+      }
+    });
+  } else {
+    showErrorMessage("لطفا ابتدا در سایت لاگین کنید", "error");
+  }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // start comment
 // function getCommentGenerator(comments) {
-//   console.log("comment", comments);
+//   //console.log("comment", comments);
 //   commentsContainer.innerHTML = "";
 //   if (comments.length) {
 //     comments.forEach((comment) => {
@@ -905,7 +909,7 @@ function saveComment(courseName, commentValue) {
         courseShortName: courseName,
         score: "5",
       };
-      // console.log(comment);
+      // //console.log(comment);
       fetch(`${mainRoute}comments`, {
         method: "POST",
         headers: {
@@ -917,6 +921,7 @@ function saveComment(courseName, commentValue) {
         if (res.status === 201) {
           showErrorMessage("کامنت با موفقیت ثبت شد", "success");
           commentTextarea.value = "";
+          closeForm();
         } else {
           showErrorMessage("خطای غیر منتظره رخ داد", "error");
         }
@@ -943,7 +948,7 @@ function saveCommentAnswer(commentID, replyText) {
       },
       body: JSON.stringify(newAnswer),
     }).then((res) => {
-      console.log(res);
+      //console.log(res);
       if (res.status === 200) {
         showErrorMessage("کامنت با موفقیت ثیت شد", "success");
         closeForm();

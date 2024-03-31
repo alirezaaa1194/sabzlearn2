@@ -4,6 +4,7 @@ import {
   getFilteredCourses,
   getSearchedCourses,
   getAllCourses,
+  isUserLogedIn,
 } from "./funcs/utils.js";
 import {
   messageBox,
@@ -20,6 +21,7 @@ const close_dropDown_btn = document.querySelector(".close_dropDown_btn");
 const sortby_label = document.querySelector(".sortby_label");
 
 const course_filter_section = document.querySelector(".course_filter_section");
+const course_filter_main = document.querySelector(".course_filter_main");
 const set_filterts_btn = document.querySelector(".set_filterts_btn");
 const filter_button2 = document.querySelector(".filter_button2");
 const close_filter_section_btn = document.querySelector(
@@ -47,7 +49,9 @@ const showen_all_label = document.querySelector(".showen_all_label");
 let count = 3;
 let start = 0;
 let end = count;
-
+course_filter_main.style.height = `calc(100% - ${
+  getComputedStyle(set_filterts_btn).height
+})`;
 sortBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     search_box_input.value = "";
@@ -247,7 +251,7 @@ checkboxInputs.forEach((ch) => {
           getFilteredCourses(ch.dataset.target).then((courses) => {
             coursesArray = courses;
             ProductGrid.innerHTML = "";
-            checkCourseLength(coursesArray)
+            checkCourseLength(coursesArray);
             courseGenerator(ProductGrid);
             start = 0;
             end = count;
@@ -258,7 +262,7 @@ checkboxInputs.forEach((ch) => {
             coursesArray = courses;
             ProductGrid.innerHTML = "";
             courseGenerator(ProductGrid);
-            checkCourseLength(coursesArray)
+            checkCourseLength(coursesArray);
 
             start = 0;
             end = count;
@@ -295,6 +299,12 @@ remove_all_filter.addEventListener("click", () => {
 });
 
 window.addEventListener("load", () => {
+  const buyed_course_box = document.querySelectorAll(".buyed_course_box");
+  buyed_course_box.forEach((box) => {
+    if (!isUserLogedIn()) {
+      box.remove();
+    }
+  });
   category_name_label.innerHTML = getQueryParams("catName")
     ? getQueryParams("catName")
     : "دوره ها";
@@ -313,8 +323,8 @@ window.addEventListener("load", () => {
   });
 
   sortBtns.forEach((btn) => {
-    if(location.search){
-      btn.classList.remove('active')
+    if (location.search) {
+      btn.classList.remove("active");
     }
     if (btn.className.includes("active") && !getQueryParams("cat")) {
       getFilteredCourses(btn.id).then((courses) => {
@@ -418,7 +428,7 @@ see_more_course.addEventListener("click", () => {
     }
   }, 1500);
 
-  console.log(start, end);
+  //console.log(start, end);
 });
 
 function courseGenerator(container) {
@@ -427,7 +437,7 @@ function courseGenerator(container) {
     showen_all_label.style.display = "none";
     see_more_course.style.display = "block";
     for (let i = start; i < end; i++) {
-      console.log(courses[i]);
+      //console.log(courses[i]);
       container.insertAdjacentHTML(
         "beforeend",
         `
@@ -450,14 +460,22 @@ function courseGenerator(container) {
             <div class="Category-Box">
              ${
                courses[i].categoryID
-                 ? `<a href="course_category.html?cat=${courses[i].categoryID.name}&catName=${courses[i].categoryID.title.substring(12)}">${courses[i].categoryID.title}</a>`
+                 ? `<a href="course_category.html?cat=${
+                     courses[i].categoryID.name
+                   }&catName=${courses[i].categoryID.title.substring(12)}">${
+                     courses[i].categoryID.title
+                   }</a>`
                  : ""
              }
             </div>
             <h4 class="course-Name">
-              <a href="course.html?name=${courses[i].shortName}">${courses[i].name}</a>
+              <a href="course.html?name=${courses[i].shortName}">${
+          courses[i].name
+        }</a>
             </h4>
-            <p class="course-Desc">${courses[i].description ? courses[i].description : ""}</p>
+            <p class="course-Desc">${
+              courses[i].description ? courses[i].description : ""
+            }</p>
             <div class="Course-Info">
               <div class="Teacher-Info">
                 <i class="fa fa-user"></i>
@@ -493,7 +511,10 @@ function courseGenerator(container) {
             !courses[i].price
               ? `<h4>رایگان!</h4>`
               : `<h4>${
-                (((100 - courses[i].discount)/100)*courses[i].price).toLocaleString() + "تومان"
+                  (
+                    ((100 - courses[i].discount) / 100) *
+                    courses[i].price
+                  ).toLocaleString() + "تومان"
                 }</h4>`
           }
            </div>
@@ -517,10 +538,10 @@ function courseGenerator(container) {
       see_more_course.style.display = "none";
     }
     for (let i = start; i < coursesArray.length; i++) {
-      console.log(courses[i]);
+      //console.log(courses[i]);
 
       // courses.slice(0, count).forEach((course) => {
-      // //console.log(course);
+      // ////console.log(course);
       container.insertAdjacentHTML(
         "beforeend",
         `
@@ -541,20 +562,30 @@ function courseGenerator(container) {
           </div>
           <div class="Card-Body">
             <div class="Category-Box">
-             ${
-               courses[i].categoryID
-                 ? `<a href="course_category.html?cat=${courses[i].categoryID.name}&catName=${courses[i].categoryID.title.substring(12)}">${courses[i].categoryID.title}</a>`
-                 : ""
-             }
+            ${
+              courses[i].categoryID
+                ? `<a href="course_category.html?cat=${
+                    courses[i].categoryID.name || ""
+                  }&catName=${courses[i].categoryID.title || ""}">${
+                    courses[i].categoryID.title || ""
+                  }</a>`
+                : ""
+            }
             </div>
             <h4 class="course-Name">
-              <a href="course.html?name=${courses[i].shortName}">${courses[i].name}</a>
+              <a href="course.html?name=${courses[i].shortName}">${
+          courses[i].name
+        }</a>
             </h4>
-            <p class="course-Desc">${courses[i].description ? courses[i].description : ""}</p>
+            <p class="course-Desc">${
+              courses[i].description ? courses[i].description : ""
+            }</p>
             <div class="Course-Info">
               <div class="Teacher-Info">
                 <i class="fa fa-user"></i>
-                <a href="#">${courses[i].creator}</a>
+                <a href="#">${
+                  courses[i].creator.includes(" ") ? courses[i].creator : ""
+                }</a>
                 <i class="fa fa-clock"></i>
                 <span></span>
               </div>
@@ -567,7 +598,9 @@ function courseGenerator(container) {
           <div class="Card-Footer">
             <div class="students-Box">
               <i class="fa fa-users"></i>
-              <span class="Student-Number">${courses[i].registers}</span>
+              <span class="Student-Number">${
+                courses[i].registers ? courses[i].registers : ""
+              }</span>
             </div>
            ${
              courses[i].price && !courses[i].discount
@@ -586,7 +619,10 @@ function courseGenerator(container) {
             !courses[i].price
               ? `<h4>رایگان!</h4>`
               : `<h4>${
-                (((100 - courses[i].discount)/100)*courses[i].price).toLocaleString() + "تومان"
+                  (
+                    ((100 - courses[i].discount) / 100) *
+                    courses[i].price
+                  ).toLocaleString() + "تومان"
                 }</h4>`
           }
            </div>

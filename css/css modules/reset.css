@@ -54,6 +54,9 @@ input,
 textarea,
 button,
 select,
+label,
+div,
+span,
 a {
   -webkit-tap-highlight-color: transparent !important;
   text-decoration: none;

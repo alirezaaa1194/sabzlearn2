@@ -154,17 +154,17 @@ see_more_course.addEventListener("click", () => {
     }
   }, 1500);
 
-  console.log(start, end);
+  //console.log(start, end);
 });
 
 function articlesGenerator(container) {
   let articles = articlesArray;
-  console.log("before", articles);
+  //console.log("before", articles);
   if (articles.length > count) {
     showen_all_label.style.display = "none";
     see_more_course.style.display = "block";
     for (let i = start; i < end; i++) {
-      // console.log(articles[i]);
+      // //console.log(articles[i]);
       container.insertAdjacentHTML(
         "beforeend",
         `
@@ -217,7 +217,7 @@ function articlesGenerator(container) {
       see_more_course.style.display = "none";
     }
     for (let i = start; i < articlesArray.length; i++) {
-      console.log(articles[i]);
+      //console.log(articles[i]);
       container.insertAdjacentHTML(
         "beforeend",
         `
@@ -226,7 +226,7 @@ function articlesGenerator(container) {
           <div class="document-Card-header">
             <a href="blog.html?bName=${articles[i].shortName}" class="">
               <img
-                src="https://sabzlearn-project-backend.liara.run/articles/covers/${articles[i].cover}"
+                src="https://sabzlearn-project-backend.liara.run/courses/covers/${articles[i].cover}"
                 alt=""
                 class="document-img"
               />
@@ -262,7 +262,7 @@ function articlesGenerator(container) {
       );
     }
   }
-  console.log("after", articles);
+  //console.log("after", articles);
 }
 
 function asideCategoryGenerator(arts) {

@@ -522,6 +522,9 @@ input[type="checkbox"] {
   flex-direction: column;
   gap: 5px;
 }
+.see_more_course{
+  display: none;
+}
 @keyframes loaderRotate {
   100% {
     transform: rotate(360deg);
@@ -541,7 +544,7 @@ input[type="checkbox"] {
     padding: 10px 0 30px 0;
   }
   .category_title h1 {
-    font-size: 2.7rem;
+    font-size: 2.4rem;
   }
   .search_bar {
     padding: 0 !important;
