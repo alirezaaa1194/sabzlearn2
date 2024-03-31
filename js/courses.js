@@ -5,7 +5,7 @@ import {
   getAllCourses,
   getAllCategories,
   getSearchedCourses,
-  isUserLogedIn
+  isUserLogedIn,
 } from "./funcs/utils.js";
 // import { courseGenerator } from "./funcs/shared.js";
 
@@ -189,7 +189,8 @@ function filterDropDownCoverHandler() {
   filter_dropDown.classList.toggle("active");
   filter_dropDown_cover.classList.toggle("active");
   if (filter_dropDown.className.includes("active")) {
-    document.body.style.overflowY = "hidden";
+    // document.body.style.overflowY = "hidden";
+    document.body.style.overflowY = "auto";
   } else {
     document.body.style.overflowY = "auto";
   }
@@ -212,7 +213,8 @@ function filterSectionHandler() {
   course_filter_section.classList.toggle("active");
 
   if (course_filter_section.className.includes("active")) {
-    document.body.style.overflowY = "hidden";
+    // document.body.style.overflowY = "hidden";
+    document.body.style.overflowY = "auto";
   } else {
     document.body.style.overflowY = "auto";
   }
