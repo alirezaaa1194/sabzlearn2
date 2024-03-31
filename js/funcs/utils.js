@@ -251,9 +251,8 @@ export const isUserRegisteredToThisCourse = (courseId) => {
     if (res) {
       let ishave = res.courses.some((course) => course._id === courseId);
       return ishave;
-    }
-    else{
-      return false
+    } else {
+      return false;
     }
   });
 };

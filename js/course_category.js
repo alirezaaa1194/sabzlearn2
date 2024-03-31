@@ -49,9 +49,7 @@ const showen_all_label = document.querySelector(".showen_all_label");
 let count = 3;
 let start = 0;
 let end = count;
-course_filter_main.style.height = `calc(100% - ${
-  getComputedStyle(set_filterts_btn).height
-})`;
+// course_filter_main.style.height = `calc(100% - 176px)`;
 sortBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     search_box_input.value = "";

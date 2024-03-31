@@ -239,6 +239,7 @@ getCourseByName("name").then((data) => {
   });
   //console.log(data);
   course_comments = data.comments;
+  course_comments.reverse();
   commentsContainer.innerHTML = "";
   getCommentGenerator(course_comments);
   blogContainerHeightHandler();

@@ -962,7 +962,11 @@ class Header extends HTMLElement {
           subMenusBox.insertAdjacentHTML(
             "afterbegin",
             `
-        <li><a href="course.html?name=${submenu.href}">${submenu.title}</a></li>
+        <li><a ${
+          menu.title != "مقالات"
+            ? `href="course.html?name=${submenu.href}"`
+            : `href="blog.html?bName=${submenu.href}"`
+        }>${submenu.title}</a></li>
         `
           );
         });
@@ -977,7 +981,15 @@ class Header extends HTMLElement {
         "afterbegin",
         `
   <li class="menuItem">
-      <a  class="menuLink">
+      <a ${
+        !menu.submenus.length && menu.title != "مقالات"
+          ? `href="course.html?name=${menu.href}"`
+          : ""
+      } ${
+          !menu.submenus.length && menu.title === "مقالات"
+            ? `href="blog_category.html"`
+            : ""
+        }  class="menuLink">
       ${menu.title} ${
           menu.submenus.length > 0 ? '<i class="fa fa-angle-down"></i>' : ""
         }
@@ -1000,7 +1012,11 @@ class Header extends HTMLElement {
             `
 
   <li class="responsiveMenuItem">
-  <a href="course.html?name=${submenu.href}" class="responsiveMenuLink ${this.checkMenuItem(
+  <a ${
+    menu.title != "مقالات"
+      ? `href="course.html?name=${submenu.href}"`
+      : `href="blog.html?bName=${submenu.href}"`
+  }  class="responsiveMenuLink ${this.checkMenuItem(
               submenu.href.split("/")[2]
             )}">${submenu.title}</a>
 </li>
@@ -1036,9 +1052,8 @@ class Header extends HTMLElement {
     if (href && location.search.includes(href)) {
       console.log("ok => ");
       return "show";
-    }
-    else{
-      return 'no'
+    } else {
+      return "no";
     }
   }
 }
