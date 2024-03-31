@@ -151,10 +151,12 @@ aside {
   font-size: 0.85rem;
   font-weight: bold;
 }
-.dont_have_courses,
-.course_loader {
+.dont_have_courses {
   display: none;
   color: #fff;
+}
+.course_loader {
+  color: var(--TextLightColor);
 }
 .course_filter_label {
   width: 46px;
@@ -301,8 +303,12 @@ input[type="checkbox"] {
   font-size: 1.3rem;
   font-weight: bold;
 }
+.course_filter_body{
+  height: 100%;
+}
 .course_filter_main {
   padding: 0 20px;
+  height: 100%;
   /* height: calc(100% - 176px); */
 }
 .course_filter_main .filter_input_box {
@@ -523,7 +529,7 @@ input[type="checkbox"] {
   flex-direction: column;
   gap: 5px;
 }
-.see_more_course{
+.see_more_course {
   display: none;
 }
 @keyframes loaderRotate {

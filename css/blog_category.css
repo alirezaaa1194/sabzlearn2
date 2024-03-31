@@ -337,7 +337,6 @@ aside {
   display: block;
 }
 
-
 .see_more_btn_box {
   display: flex;
   flex-direction: column;
@@ -376,7 +375,7 @@ aside {
 
 .course_loader {
   display: none;
-  color: #fff;
+  color: var(--TextLightColor);
 }
 @keyframes loaderRotate {
   100% {
