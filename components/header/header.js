@@ -939,9 +939,9 @@ class Header extends HTMLElement {
         "afterbegin",
         `
     <li>
-    <a href="./course_category.html?cat=${
-      menu.href.split("/")[menu.href.split("/").length - 1]
-    }&catName=${menu.title}" class="NavItem">${menu.title} ${
+    <a href="./course_category.html?cat=${menu.href}&catName=${
+          menu.title
+        }" class="NavItem">${menu.title} ${
           menu.submenus.length > 0 ? ' <i class="fa fa-angle-down"></i>' : ""
         }</a>
   </li>
@@ -983,9 +983,13 @@ class Header extends HTMLElement {
   <li class="menuItem">
       <a ${
         !menu.submenus.length && menu.title != "مقالات"
-          ? `href="course.html?name=${menu.href}"`
+          ? `href="./course_category.html?cat=${menu.href}&catName=${
+            menu.title
+          }"`
           : ""
-      } ${
+      }   
+      
+      ${
           !menu.submenus.length && menu.title === "مقالات"
             ? `href="blog_category.html"`
             : ""
