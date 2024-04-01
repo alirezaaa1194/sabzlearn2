@@ -3,7 +3,9 @@
 @import "css\ modules/header.css";
 @import "css\ modules/footer.css";
 @import "./index.css";
-
+*{
+  scroll-behavior: unset !important;
+}
 main {
   padding: 0 50px 100px 50px;
   display: flex;
