@@ -983,17 +983,15 @@ class Header extends HTMLElement {
   <li class="menuItem">
       <a ${
         !menu.submenus.length && menu.title != "مقالات"
-          ? `href="./course_category.html?cat=${menu.href}&catName=${
-            menu.title
-          }"`
+          ? `href="./course_category.html?cat=${menu.href}&catName=${menu.title}"`
           : ""
       }   
       
       ${
-          !menu.submenus.length && menu.title === "مقالات"
-            ? `href="blog_category.html"`
-            : ""
-        }  class="menuLink">
+        !menu.submenus.length && menu.title === "مقالات"
+          ? `href="blog_category.html"`
+          : ""
+      }  class="menuLink">
       ${menu.title} ${
           menu.submenus.length > 0 ? '<i class="fa fa-angle-down"></i>' : ""
         }
@@ -1020,9 +1018,9 @@ class Header extends HTMLElement {
     menu.title != "مقالات"
       ? `href="course.html?name=${submenu.href}"`
       : `href="blog.html?bName=${submenu.href}"`
-  }  class="responsiveMenuLink ${this.checkMenuItem(
-              submenu.href.split("/")[2]
-            )}">${submenu.title}</a>
+  }  class="responsiveMenuLink">${
+              submenu.title
+            }</a>
 </li>
 
   `
@@ -1051,14 +1049,6 @@ class Header extends HTMLElement {
 
   searchBoxHandler(input) {
     location.href = `https://alirezaaa1194.github.io/sabzlearn2/courses.html?s=${input.value}`;
-  }
-  checkMenuItem(href) {
-    if (href && location.search.includes(href)) {
-      console.log("ok => ");
-      return "show";
-    } else {
-      return "no";
-    }
   }
 }
 

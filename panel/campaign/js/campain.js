@@ -90,6 +90,7 @@ const createNewCampain = () => {
           title: "کمپین با موفقیت برگزار شد",
           confirmButtonText: "اوکی",
         });
+        campaignPercentInput.value = "";
         getCampaines();
       }
     });

@@ -75,14 +75,14 @@ function blogContainerHeightHandler() {
     getComputedStyle(blog_desc).height.substring(
       0,
       getComputedStyle(blog_desc).height.indexOf("px")
-    ) > 1200
-      ? "1670px"
+    ) > 600
+      ? "1000px"
       : "fit-content";
   more_btn_box.style.display =
     getComputedStyle(blog_desc).height.substring(
       0,
       getComputedStyle(blog_desc).height.indexOf("px")
-    ) > 1200
+    ) > 600
       ? "flex"
       : "none";
 }
@@ -94,7 +94,7 @@ more_btn.addEventListener("click", () => {
     more_btn.parentElement.classList.add("more");
     isMore = true;
   } else {
-    blog_content.style.height = "1670px";
+    blog_content.style.height = "1000px";
     more_btn.innerHTML = `مشاهده بیشتر <i class="fa-solid fa-chevron-down"></i>`;
     more_btn.parentElement.classList.remove("more");
     isMore = false;
@@ -127,13 +127,15 @@ let saveCommentBtn = document.querySelector(".save-comment-btn");
 let textArea = document.querySelector("textarea");
 
 let commentId = null;
+let authorName = null;
 
-let count = 3;
+let count = 10;
 let start = 0;
 let end = count;
 
 saveNewCommentBtn.addEventListener("click", () => {
   commentId = null;
+  authorName = null;
   openForm();
 });
 cancelCommentBtn.addEventListener("click", closeForm);
@@ -143,10 +145,7 @@ function openForm() {
   if (commentId === null) {
     whichCommentLabel.innerHTML = "ثبت نظر جدید";
   } else {
-    whichCommentLabel.innerHTML = `در پاسخ به نظر ${commentId.substring(
-      0,
-      4
-    )}#`;
+    whichCommentLabel.innerHTML = `در پاسخ به نظر ${authorName}`;
     window.scrollTo(0, document.querySelector(".form").offsetTop);
   }
   textArea.focus();
@@ -156,8 +155,9 @@ function closeForm() {
   form.classList.remove("active");
   // if (commentId !== null) {
   // }
-  window.scrollTo(0, document.querySelector(`#comment${commentId}`).offsetTop);
+  window.scrollTo(0, document.getElementById(`${commentId}`).offsetTop);
   commentId = null;
+  authorName = null;
 }
 saveCommentBtn.addEventListener("click", createNewComment);
 function createNewComment() {
@@ -168,8 +168,9 @@ function createNewComment() {
   }
 }
 
-function replyToComment(id) {
+function replyToComment(id, author) {
   commentId = id;
+  authorName = author;
   openForm();
 }
 const breadcrumb_category_name = document.querySelector(
@@ -234,15 +235,26 @@ const video_player = document.querySelector(".player");
 const source_player = document.querySelector(".source_player");
 
 getCourseByName("name").then((data) => {
-  isUserRegisteredToThisCourse(data._id).then((res) => {
-    courseContentGenerator(data, res ? true : false);
-  });
-  //console.log(data);
-  course_comments = data.comments;
-  course_comments.reverse();
-  commentsContainer.innerHTML = "";
-  getCommentGenerator(course_comments);
-  blogContainerHeightHandler();
+  if (isUserLogedIn()) {
+    // console.log(isUserRegisteredToThisCourse(data._id));
+    isUserRegisteredToThisCourse(data._id).then((res) => {
+      // console.log(res);
+      courseContentGenerator(data, res);
+    });
+    // console.log(data);
+    course_comments = data.comments;
+    course_comments.reverse();
+    commentsContainer.innerHTML = "";
+    getCommentGenerator(course_comments);
+    blogContainerHeightHandler();
+  } else {
+    courseContentGenerator(data, false);
+    course_comments = data.comments;
+    course_comments.reverse();
+    commentsContainer.innerHTML = "";
+    getCommentGenerator(course_comments);
+    blogContainerHeightHandler();
+  }
 });
 
 let courseHour = 0;
@@ -250,30 +262,43 @@ let courseMin = 0;
 let courseSec = 0;
 
 function courseContentGenerator(course, isRegister) {
-  isUserRegisteredToThisCourse(course._id).then((res) => {
-    if (res) {
-      course_price_box.insertAdjacentHTML(
-        "afterbegin",
-        `<a href="#course_sessions" class="course_see_link">
-      <i class="fa-solid fa-play"></i>
-      <span>مشاهده دوره</span>
-    </a>`
-      );
-    } else {
-      course_price_box.insertAdjacentHTML(
-        "afterbegin",
-        `<button href="" class="course_buy_link">
+  if (isUserLogedIn()) {
+    isUserRegisteredToThisCourse(course._id).then((res) => {
+      if (res) {
+        course_price_box.insertAdjacentHTML(
+          "afterbegin",
+          `<a href="#course_sessions" class="course_see_link">
+        <i class="fa-solid fa-play"></i>
+        <span>مشاهده دوره</span>
+      </a>`
+        );
+      } else {
+        course_price_box.insertAdjacentHTML(
+          "afterbegin",
+          `<button href="" class="course_buy_link">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>شرکت در دوره</span>
+        </button>`
+        );
+        const course_buy_link = document.querySelector(".course_buy_link");
+        course_buy_link.addEventListener("click", () => {
+          registerCourseHandler(course.price, course._id);
+        });
+      }
+    });
+  } else {
+    course_price_box.insertAdjacentHTML(
+      "afterbegin",
+      `<button href="" class="course_buy_link">
         <i class="fa-solid fa-shield-halved"></i>
         <span>شرکت در دوره</span>
       </button>`
-      );
-      const course_buy_link = document.querySelector(".course_buy_link");
-      course_buy_link.addEventListener("click", () => {
-        registerCourseHandler(course.price, course._id);
-      });
-    }
-  });
-  // //console.log(course);
+    );
+    const course_buy_link = document.querySelector(".course_buy_link");
+    course_buy_link.addEventListener("click", () => {
+      registerCourseHandler(course.price, course._id);
+    });
+  }
   breadcrumb_category_name.innerHTML = course.categoryID.title;
   breadcrumb_category_name.href = `https://alirezaaa1194.github.io/sabzlearn2/course_category.html?cat=${course.categoryID.name}&catName=${course.categoryID.title}`;
   document.title = `${course.name} - سبزلرن`;
@@ -310,10 +335,12 @@ function courseContentGenerator(course, isRegister) {
     : !course.discount
     ? course.price.toLocaleString() + "تومان"
     : "";
-
-  course_status_label.innerHTML = !course.isComplete
-    ? "درحال برگزاری"
-    : "تمام شده";
+  course_status_label.innerHTML =
+    course.status == "start"
+      ? "درحال برگزاری"
+      : course.status == "presell"
+      ? "پیش فروش"
+      : "تمام شده";
 
   course_lastUpdate_label.innerHTML = course.updatedAt.substring(0, 10);
   course_supportWay_label.innerHTML = course.support;
@@ -328,8 +355,8 @@ function courseContentGenerator(course, isRegister) {
   short_link_text.innerHTML = location.href;
 
   blog_desc.innerHTML =
-    course.description +
-    `<img src="https://sabzlearn-project-backend.liara.run/courses/covers/${course.cover}"/>`;
+    `<img src="https://sabzlearn-project-backend.liara.run/courses/covers/${course.cover}"/>` +
+    course.description;
 
   accordion_item_body.innerHTML = "";
   if (course.sessions.length > 0) {
@@ -449,13 +476,14 @@ function courseContentGenerator(course, isRegister) {
       });
   } else {
     video_player.remove();
-    document
-      .querySelector(".introduction_video_box")
-      .insertAdjacentHTML(
-        "afterbegin",
-        '<h2 style="color:red; text-align:center;">هنوز این دوره شروع نشده!</h2>'
-      );
+    document.querySelector(".introduction_video_box").insertAdjacentHTML(
+      "afterbegin",
+      // '<h2 style="color:red; text-align:center;">هنوز این دوره شروع نشده!</h2>'
+      `<img src="https://sabzlearn-project-backend.liara.run/courses/covers/${course.cover}" class="course_cover_dont_start"/>`
+    );
   }
+
+  blogContainerHeightHandler();
 }
 copy_link_btn.addEventListener("click", () => {
   navigator.clipboard.writeText(location.href);
@@ -500,6 +528,7 @@ more_comment_btn.addEventListener("click", () => {
 });
 
 function getCommentGenerator(comments) {
+  // console.log(comment);
   if (comments.length) {
     if (course_comments.length > count) {
       showen_all_label.style.display = "none";
@@ -545,10 +574,10 @@ function getCommentGenerator(comments) {
           ${
             comments[i].answerContent === null
               ? `
-          <button class="reply-btn" id="${comments[i]._id}">
-            <i class="fa fa-mail-reply"  id="${comments[i]._id}"></i>
+          <button class="reply-btn" id="${comments[i]._id}"  data-author="${comments[i].creator.name}">
+            <i class="fa fa-mail-reply"  id="${comments[i]._id}"  data-author="${comments[i].creator.name}"></i>
           </button>`
-              : `<button class="reply-btn" id="${comments[i]._id}">
+              : `<button class="reply-btn" id="${comments[i]._id}"  data-author="${comments[i].creator.name}">
         </button>`
           }
         </div>
@@ -618,7 +647,7 @@ function getCommentGenerator(comments) {
         document
           .getElementById(`${comments[i]._id}`)
           .addEventListener("click", (e) => {
-            replyToComment(e.target.id);
+            replyToComment(e.target.id, e.target.dataset.author);
           });
       }
     } else {
@@ -670,11 +699,11 @@ function getCommentGenerator(comments) {
           ${
             comments[i].answerContent === null
               ? `
-          <button class="reply-btn" id="${comments[i]._id}">
-            <i class="fa fa-mail-reply"  id="${comments[i]._id}"></i>
+          <button class="reply-btn" id="${comments[i]._id}" data-author="${comments[i].creator.name}">
+            <i class="fa fa-mail-reply"  id="${comments[i]._id}" data-author="${comments[i].creator.name}"></i>
           </button>
           `
-              : `<button class="reply-btn" id="${comments[i]._id}">
+              : `<button class="reply-btn" id="${comments[i]._id}"  data-author="${comments[i].creator.name}">
          
         </button>`
           }
@@ -743,7 +772,7 @@ function getCommentGenerator(comments) {
 
         // handle reply btn
         document
-          .getElementById(`${comments[i]._id}`)
+          .getElementById(`${comments[i].creator.name}`)
           .addEventListener("click", (e) => {
             replyToComment(e.target.id);
           });

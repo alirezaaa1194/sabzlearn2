@@ -216,9 +216,10 @@ export function getBlogByFilter(id) {
 export function myCourseGenerator(courses, container) {
   container.innerHTML = "";
   courses.forEach((course) => {
-    container.insertAdjacentHTML(
-      "beforeend",
-      `
+    if (course) {
+      container.insertAdjacentHTML(
+        "beforeend",
+        `
       <div class="course_box">
       <div class="course_box_header">
         <a href="../course.html?name=${course.shortName}">
@@ -242,17 +243,26 @@ export function myCourseGenerator(courses, container) {
       </div>
     </div>
     `
-    );
+      );
+    }
   });
 }
 
 export const isUserRegisteredToThisCourse = (courseId) => {
-  return getUserInfo().then((res) => {
-    if (res) {
-      let ishave = res.courses.some((course) => course._id === courseId);
-      return ishave;
-    } else {
-      return false;
-    }
-  });
+  if (isUserLogedIn()) {
+    return getUserInfo().then((res) => {
+      if (res.courses.length) {
+        let isHave = res.courses.some((course) => {
+          if (course) {
+            return course._id === courseId;
+          }
+        });
+        return isHave;
+      } else {
+        return false;
+      }
+    });
+  } else {
+    return false;
+  }
 };

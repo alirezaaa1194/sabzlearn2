@@ -80,22 +80,31 @@ main {
   line-height: 40px;
   /* white-space: pre-line; */
 }
+.blog_desc p {
+  text-align: justify;
+}
 .blog_desc strong {
+  text-align: justify;
   font-weight: bold;
 }
 .blog_desc h2 {
+  text-align: justify;
   font-size: 1.8rem;
   /* margin-top: 30px; */
 }
 .blog_desc h3 {
+  text-align: justify;
   font-size: 1.6rem;
 }
 .blog_desc a {
+  text-align: justify;
   display: inline-block;
   color: rgb(78 129 251);
   text-decoration: underline;
 }
-.blog_desc ul, .blog_desc ol {
+.blog_desc ul,
+.blog_desc ol {
+  text-align: justify;
   margin: 0 20px;
   padding: 0;
 }
@@ -104,13 +113,14 @@ main {
 }
 .blog_desc img {
   width: 100%;
+  height: unset;
   border-radius: 1.5rem;
 }
 
 .more_btn_box {
   width: 100%;
   padding: 90px 0 20px 0;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   background: linear-gradient(
@@ -145,8 +155,6 @@ main {
   position: relative;
   padding: 10px 0;
 }
-
-
 
 /* --------------------------------------------- */
 
@@ -262,7 +270,7 @@ main {
   color: rgb(46 213 115);
   font-size: 13px;
   transform: rotate(180deg);
- }
+}
 
 .articles_category_list li a {
   color: var(--TextLightColor);

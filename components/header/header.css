@@ -684,14 +684,16 @@ header {
     width: 50px;
     height: 50px;
   }
-  .UserAccountBtn i {
+  .UserAccountBtn i, .Responsive-login-btn i {
     font-size: 20px;
   }
   .Account-Btn {
     width: fit-content;
   }
   .Responsive-login-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .login-Btn,
   .sign-in-Btn {

@@ -46,7 +46,7 @@ const search_box_btn = document.querySelector(".search_box_btn");
 const see_more_course = document.querySelector(".see_more_course");
 const showen_all_label = document.querySelector(".showen_all_label");
 
-let count = 3;
+let count = 9;
 let start = 0;
 let end = count;
 // course_filter_main.style.height = `calc(100% - 176px)`;
@@ -440,9 +440,10 @@ function courseGenerator(container) {
     see_more_course.style.display = "block";
     for (let i = start; i < end; i++) {
       //console.log(courses[i]);
-      container.insertAdjacentHTML(
-        "beforeend",
-        `
+      if (courses[i]) {
+        container.insertAdjacentHTML(
+          "beforeend",
+          `
           
           <div class="Product-Card">
           <div class="Card-header">
@@ -472,8 +473,8 @@ function courseGenerator(container) {
             </div>
             <h4 class="course-Name">
               <a href="course.html?name=${courses[i].shortName}">${
-          courses[i].name
-        }</a>
+            courses[i].name
+          }</a>
             </h4>
             <p class="course-Desc">${
               courses[i].description ? courses[i].description : ""
@@ -529,7 +530,8 @@ function courseGenerator(container) {
     
     
           `
-      );
+        );
+      }
     }
   } else {
     if (coursesArray.length) {
@@ -544,9 +546,10 @@ function courseGenerator(container) {
 
       // courses.slice(0, count).forEach((course) => {
       // ////console.log(course);
-      container.insertAdjacentHTML(
-        "beforeend",
-        `
+      if (courses[i]) {
+        container.insertAdjacentHTML(
+          "beforeend",
+          `
           
           <div class="Product-Card">
           <div class="Card-header">
@@ -576,8 +579,8 @@ function courseGenerator(container) {
             </div>
             <h4 class="course-Name">
               <a href="course.html?name=${courses[i].shortName}">${
-          courses[i].name
-        }</a>
+            courses[i].name
+          }</a>
             </h4>
             <p class="course-Desc">${
               courses[i].description ? courses[i].description : ""
@@ -637,7 +640,8 @@ function courseGenerator(container) {
     
     
           `
-      );
+        );
+      }
       // });
     }
   }

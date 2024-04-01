@@ -26,7 +26,7 @@ export function courseGenerator(container, courses, count, description) {
              course.categoryID
                ? `<a href="course_category.html?cat=${
                    course.categoryID.name
-                 }&catName=${course.categoryID.title.substring(12)}">${
+                 }&catName=${course.categoryID.title}">${
                    course.categoryID.title
                  }</a>`
                : ""

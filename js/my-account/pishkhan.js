@@ -24,7 +24,9 @@ getUserInfo().then((data) => {
   if (data.courses.length) {
     myCourseGenerator(data.courses, last_seen_courses_container);
     data.courses.forEach((course) => {
-      coursePrice += course.price;
+      if (course) {
+        coursePrice += course.price;
+      }
     });
     myCoursePrice_label.innerHTML = coursePrice.toLocaleString() + "تومان";
   } else {
@@ -32,7 +34,13 @@ getUserInfo().then((data) => {
     last_seen_courses_container.innerHTML = "";
     you_donthave_course.style.display = "block";
   }
-  myCourse_label.innerHTML = data.courses.length + " دوره";
+  let lengthCourseUserRegister = 0;
+  data.courses.forEach((course) => {
+    if (course) {
+      lengthCourseUserRegister++;
+    }
+  });
+  myCourse_label.innerHTML = lengthCourseUserRegister + " دوره";
 });
 
 // get userTickets
@@ -54,7 +62,7 @@ fetch(`${mainRoute}tickets/user`, {
 function myTicketsGenerator(tickets) {
   console.log(tickets);
   last_tickets_container_body.innerHTML = "";
-  tickets.slice(0,3).forEach((ticket) => {
+  tickets.slice(0, 3).forEach((ticket) => {
     last_tickets_container_body.insertAdjacentHTML(
       "beforeend",
       `

@@ -111,7 +111,7 @@ function courseSliderGenerator(container, courses, count, description) {
         <div class="Category-Box">
           <a href="course_category.html?cat=${
             course.categoryID.name
-          }&catName=${course.categoryID.title.substring(12)}">${
+          }&catName=${course.categoryID.title}">${
         course.categoryID.title
       }</a>
         </div>

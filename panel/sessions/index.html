@@ -21,7 +21,7 @@
       <div id="sidebar" class="col-2">
         <div class="sidebar-header">
           <div class="sidebar-logo">
-            <a href="#"><img src="img/logo.png" alt="Logo" /></a>
+            <a href="#"><img src="../../images/logo.webp" alt="Logo" /></a>
           </div>
 
           <div class="sidebar-menu-btn">
@@ -129,9 +129,7 @@
                     </a>
                   </div>
                   <div class="home-profile-name">
-                    <a href="#" id="admin-name" class="admin-name-label"
-                      >احسان خورمهر</a
-                    >
+                    <a href="#" id="admin-name" class="admin-name-label"></a>
                     <ul class="dropDown_info">
                       <li>
                         <a href="../EditAdmin/index.html"
@@ -140,6 +138,11 @@
                       </li>
                       <li>
                         <a href="#" class="logout_btn"><span>خروج</span></a>
+                      </li>
+                      <li>
+                        <a href="../../index.html" target="_blank"
+                          ><span>نمایش سایت</span></a
+                        >
                       </li>
                     </ul>
                   </div>
@@ -184,14 +187,7 @@
               <div class="col-6">
                 <div class="price input">
                   <label class="input-title" style="display: block">دوره</label>
-                  <select class="select course_select_box">
-                    <option>دوره جی اس</option>
-                    <option>دوره جی اس</option>
-                    <option>دوره جی اس</option>
-                    <option>دوره جی اس</option>
-                    <option>دوره جی اس</option>
-                    <option>دوره جی اس</option>
-                  </select>
+                  <select class="select course_select_box"></select>
                   <span class="error-message text-danger"></span>
                 </div>
               </div>
@@ -206,16 +202,31 @@
               <div class="col-6">
                 <div class="price input">
                   <label for="free">رایگان</label>
-                  <input type="radio" class="session_free_price_input" name="radio" id="free" />
+                  <input
+                    type="radio"
+                    class="session_free_price_input"
+                    name="radio"
+                    id="free"
+                  />
 
                   <label for="noFree">غیر رایگان</label>
-                  <input type="radio" checked class="session_noFree_price_input" name="radio" id="noFree" />
+                  <input
+                    type="radio"
+                    checked
+                    class="session_noFree_price_input"
+                    name="radio"
+                    id="noFree"
+                  />
                 </div>
               </div>
               <div class="col-6">
                 <div class="bottom-form">
                   <div class="submit-btn">
-                    <input type="submit" class="insert_sesson_btn" value="افزودن" />
+                    <input
+                      type="submit"
+                      class="insert_sesson_btn"
+                      value="افزودن"
+                    />
                   </div>
                 </div>
               </div>
@@ -235,37 +246,12 @@
                     <tr>
                       <th>شناسه</th>
                       <th>نام</th>
-                      <th>دوره</th>
                       <th>قیمت</th>
                       <th>مدت زمان</th>
                       <th>حذف</th>
                     </tr>
                   </thead>
-                  <tbody class="sessionsContainer">
-                    <tr>
-                      <td>تست</td>
-                      <td>امروز</td>
-                      <td>قدیر</td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn btn-primary"
-                          id="edit-btn"
-                        >
-                          ویرایش
-                        </button>
-                      </td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn btn-danger"
-                          id="delete-btn"
-                        >
-                          حذف
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
+                  <tbody class="sessionsContainer"></tbody>
                 </table>
               </div>
             </div>

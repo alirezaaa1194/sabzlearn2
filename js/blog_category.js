@@ -17,7 +17,7 @@ let articles_category_list = document.querySelector(".articles_category_list");
 
 let articlesArray = [];
 
-let count = 3;
+let count = 9;
 let start = 0;
 let end = count;
 
@@ -31,7 +31,7 @@ sortBtns.forEach((btn) => {
     getBlogByFilter(btn.id).then((data) => {
       documentBox.innerHTML = "";
       course_loader.style.display='none'
-      count = 3;
+      count = 9;
       start = 0;
       end = count;
       articlesArray = data;
@@ -60,7 +60,7 @@ ResponsivesortBtns.forEach((btn) => {
     getBlogByFilter(btn.id).then((data) => {
       documentBox.innerHTML = "";
       course_loader.style.display='none'
-      count = 3;
+      count = 9;
       start = 0;
       end = count;
       articlesArray = data;

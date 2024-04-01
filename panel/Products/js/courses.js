@@ -166,9 +166,25 @@ submitBtn.addEventListener("click", (e) => {
       },
       body: formDate,
     }).then((res) => {
-      getAllCourses().then((res) => {
-        coursesGenerator(res);
-      });
+      if (res.status == 201) {
+        Swal.fire({
+          icon: "success",
+          title: "دوره با موفقیت اضافه شد",
+          confirmButtonText: "اوکی",
+        }).then(() => {
+          courseName_input.value = "";
+          courseShortName_input.value = "";
+          coursePrice_input.value = "";
+          courseDescription_input.value = "";
+          courseCategory_input.value = "دسته بندی مورد نظر را انتخاب کنید";
+          courseCover_input.value = "";
+          courseSatusElem.value = "";
+
+          getAllCourses().then((res) => {
+            coursesGenerator(res);
+          });
+        });
+      }
     });
   } else {
     Swal.fire({

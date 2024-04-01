@@ -23,7 +23,6 @@ const sessionsGenerator = (sessions) => {
     <tr>
                       <td>${session._id.substring(0, 4)}</td>
                       <td>${session.title}</td>
-                      <td>${session.course.name}</td>
                       <td>${session.free ? "رایگان" : "نقدی"}</td>
                       <td>${session.time}</td>
                       <td>
@@ -98,6 +97,7 @@ const courseSelectHandler = () => {
   });
 };
 const insertNewSession = () => {
+  insert_sesson_btn.value='درحال بارگزاری'
   let session_name_input = document.querySelector(".session_name_input");
   let session_time_input = document.querySelector(".session_time_input");
   let session_video_input = document.querySelector(".session_video_input");
@@ -139,6 +139,12 @@ const insertNewSession = () => {
           title: "جلسه با موفقیت اضافه شد",
           confirmButtonText: "اوکی",
         });
+
+        session_name_input.value = "";
+        session_time_input.value = "";
+        session_video_input.value = "";
+        insert_sesson_btn.value='افزودن'
+        course_select_box.value='دوره موردنظر را انتخاب کنید'
         getSession();
       }
     });

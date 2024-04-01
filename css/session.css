@@ -75,7 +75,8 @@ main {
   display: flex;
   gap: 12px;
 }
-.video_sourse_box button, .video_sourse_box a {
+.video_sourse_box button,
+.video_sourse_box a {
   padding: 9px 12px;
   cursor: pointer;
   font-size: 0.9rem;
@@ -86,7 +87,8 @@ main {
   align-items: center;
   gap: 7px;
 }
-.video_sourse_box button i, .video_sourse_box a i {
+.video_sourse_box button i,
+.video_sourse_box a i {
   font-size: 1.2rem;
 }
 .video_download_btn {
@@ -273,7 +275,7 @@ main {
 }
 .teacher_info_container2 p {
   text-align: center;
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
 .teacher_profile {
   display: flex;
@@ -462,6 +464,10 @@ main {
   color: var(--SecondTextLightColor) !important;
   border-radius: 0 0 0.5rem 0.5rem !important;
 }
+
+.ck-content p.ck-placeholder::before {
+  color: var(--textarea_color) !important;
+}
 .ck-blurred {
   border-color: transparent !important;
 }
@@ -595,7 +601,8 @@ main {
     display: flex;
   }
   .download_box1 button,
-  .download_box2 button,  .download_box1 a,
+  .download_box2 button,
+  .download_box1 a,
   .download_box2 a {
     justify-content: center;
     flex-grow: 1 !important;
@@ -633,11 +640,11 @@ main {
   .querstion_container {
     padding: 15px;
   }
-  .course_session_episode_name{
+  .course_session_episode_name {
     font-size: 1rem;
   }
-  .course_time_label{
-    font-size: .9rem;
+  .course_time_label {
+    font-size: 0.9rem;
   }
 }
 @media screen and (max-width: 1000px) and (orientation: landscape) {

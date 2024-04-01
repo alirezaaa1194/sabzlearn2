@@ -5,6 +5,8 @@ import {
   mainRoute,
   getUserInfo,
   isUserRegisteredToThisCourse,
+  isUserLogedIn,
+  getAllCourses,
 } from "./funcs/utils.js";
 import {
   messageBox,
@@ -18,6 +20,7 @@ ClassicEditor.create(document.querySelector("#editor"), {
   alignment: {
     options: ["left", "right", "justify", "center"],
   },
+  placeholder: "پرسش خودرا بپرسید...",
   toolbar: ["bold", "link", "alignment", "undo", "redo"],
   language: "fa",
 }).then((newEditor) => {
@@ -73,7 +76,7 @@ getCourseByName("cName").then((data) => {
 });
 
 function sessionContentGenerator(course) {
-        document.querySelector('.teacher_job').innerHTML=course.creator.role
+  document.querySelector(".teacher_job").innerHTML = course.creator.role;
   // start breadcrumb
   breadcrumb_category_name.innerHTML = course.categoryID.title;
   breadcrumb_category_name.href = `https://alirezaaa1194.github.io/sabzlearn2/course_category.html?cat=${course.categoryID.name}&catName=${course.categoryID.title}`;
@@ -185,6 +188,11 @@ function sessionContentGenerator(course) {
     })
     .then((data) => {
       // console.log(data);
+
+      // console.log(data.session);
+
+      redirectUserToCoursePage(data.session);
+
       video_player.src = `https://sabzlearn-project-backend.liara.run/courses/covers/${data.session.video}`;
       video_player.poster = `https://sabzlearn-project-backend.liara.run/courses/covers/${course.cover}`;
 
@@ -211,9 +219,12 @@ function sessionContentGenerator(course) {
       // creator_profile[index].src = 'https://sabzlearn-project-backend.liara.run/v1/courses/covers/'+ course.creator.profile;
       video_download_btn.href = `https://sabzlearn-project-backend.liara.run/courses/covers/${data.session.video}`;
       course_episode_count_label.innerHTML = data.sessions.length;
-      course_status_label.innerHTML = !course.isComplete
-        ? "درحال برگزاری"
-        : "تمام شده";
+      course_status_label.innerHTML =
+        course.status == "start"
+          ? "درحال برگزاری"
+          : course.status == "presell"
+          ? "پیش فروش"
+          : "تمام شده";
     });
 
   session_episode_number.innerHTML = getQueryParams("epNum");
@@ -223,6 +234,7 @@ window.addEventListener("load", () => {
   if (!location.search) {
     location.href = "courses.html";
   }
+
   getCourseByName("cName").then((res) => {
     isUserRegisteredToThisCourse(res._id).then((res) => {
       if (res) {
@@ -393,6 +405,25 @@ getUserInfo().then((userInfo) => {
   if (userInfo) {
     userNameLabel.innerHTML = userInfo.name;
   } else {
-    userNameLabel.innerHTML = 'کاربر';
+    userNameLabel.innerHTML = "کاربر";
   }
 });
+
+function redirectUserToCoursePage(session) {
+  getAllCourses().then((courses) => {
+    let mainCourse = courses.find((course) => course._id == session.course);
+    // console.log(mainCourse);
+    if (!session.free) {
+      if (!isUserLogedIn()) {
+        location.href = `course.html?name=${mainCourse.shortName}`;
+      } else {
+        isUserRegisteredToThisCourse(mainCourse._id).then((res) => {
+          if (!res) {
+            location.href = `course.html?name=${mainCourse.shortName}`;
+          }
+        });
+      }
+    }
+  });
+  // console.log(session.free);
+}
