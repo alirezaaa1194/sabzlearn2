@@ -171,6 +171,8 @@ function filterSectionHandler() {
   } else {
     document.body.style.overflowY = "auto";
   }
+
+  window.scrollTo(0, 0);
 }
 
 filter_button2.addEventListener("click", filterSectionHandler);
