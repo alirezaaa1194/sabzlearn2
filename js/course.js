@@ -153,9 +153,9 @@ function openForm() {
 
 function closeForm() {
   form.classList.remove("active");
-  // if (commentId !== null) {
-  // }
-  window.scrollTo(0, document.getElementById(`${commentId}`).offsetTop);
+  if (commentId !== null) {
+    window.scrollTo(0, document.getElementById(`${commentId}`).offsetTop);
+  }
   commentId = null;
   authorName = null;
 }
@@ -772,9 +772,9 @@ function getCommentGenerator(comments) {
 
         // handle reply btn
         document
-          .getElementById(`${comments[i].creator.name}`)
+          .getElementById(`${comments[i]._id}`)
           .addEventListener("click", (e) => {
-            replyToComment(e.target.id);
+            replyToComment(e.target.id, e.target.dataset.author);
           });
       }
     }
