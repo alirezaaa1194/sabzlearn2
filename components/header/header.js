@@ -960,7 +960,7 @@ class Header extends HTMLElement {
         subMenusBox.innerHTML = "";
         menu.submenus.forEach((submenu) => {
           subMenusBox.insertAdjacentHTML(
-            "afterbegin",
+            "beforeend",
             `
         <li><a ${
           menu.title != "مقالات"
@@ -1010,7 +1010,7 @@ class Header extends HTMLElement {
         menu.submenus.forEach((submenu) => {
           //console.log(submenu);
           menuItem.querySelector(".responsiveSubmenu").insertAdjacentHTML(
-            "beforeend",
+            "afterbegin",
             `
 
   <li class="responsiveMenuItem">
