@@ -201,10 +201,10 @@ export function getBlogByFilter(id) {
         return data.slice(0, data.length);
         break;
       case "latest_blogs":
-        return data.slice(0, 5);
+        return data;
         break;
       case "oldest_blogs":
-        return data.slice(data.length - 5, data.length);
+        return data.reverse();
         break;
       case "most_comment_blogs":
         return data;
