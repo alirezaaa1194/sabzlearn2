@@ -115,9 +115,10 @@ window.addEventListener("load", () => {
     });
   }
 });
+/*
 window.addEventListener("resize", () => {
   blogContainerHeightHandler();
-});
+});*/
 let form = document.querySelector(".form");
 let saveNewCommentBtn = document.querySelector(".save-new-comment-btn");
 let cancelCommentBtn = document.querySelector(".cancel-comment-btn");
