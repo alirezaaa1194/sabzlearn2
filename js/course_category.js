@@ -465,7 +465,7 @@ function courseGenerator(container) {
                courses[i].categoryID
                  ? `<a href="course_category.html?cat=${
                      courses[i].categoryID.name
-                   }&catName=${courses[i].categoryID.title.substring(12)}">${
+                   }&catName=${courses[i].categoryID.title}">${
                      courses[i].categoryID.title
                    }</a>`
                  : ""
