@@ -733,9 +733,9 @@ body.dark .section6::before {
     flex-wrap: wrap;
   }
   .Info-butto-Box a {
-    padding: 7px 12px;
+    padding: 10px 25px;
     margin: 10px 0;
-    font-size: 14px;
+    font-size: 15px;
   }
   .Whois-Sabzlearn-Link i {
     width: 38px;
@@ -870,6 +870,9 @@ body.dark .section6::before {
   }
   .Help-desc-Box h3 {
     text-align: center;
+  }
+  .Slogan-Desc-Text{
+    font-size: 19px;
   }
 }
 @media screen and (min-width: 1440px) {

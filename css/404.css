@@ -14,6 +14,9 @@
   justify-content: center;
   gap: 20px;
 }
+svg {
+  width: 50%;
+}
 .container h2 {
   color: var(--TextLightColor);
 }
@@ -24,11 +27,23 @@
   color: var(--TextLightColor);
   background-color: rgb(46 213 115);
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border: none;
   outline: none;
   cursor: pointer;
+  text-align: center;
 }
 .container a:hover {
   background-color: rgb(34 197 94);
+}
+@media screen and (max-width: 1000px) {
+  svg {
+    width: 90%;
+  }
+  .container h2{
+    font-size: 1rem;
+  }
+  .container a{
+    width: 90%;
+  }
 }

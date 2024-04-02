@@ -230,7 +230,7 @@ export function myCourseGenerator(courses, container) {
         </a>
       </div>
       <div class="course_box_body">
-        <a href="../course.js?name=${course.shortName}">${course.name}</a>
+        <a href="../course.html?name=${course.shortName}">${course.name}</a>
       </div>
       <div class="course_box_footer">
         <div class="course_seen_time_label">
