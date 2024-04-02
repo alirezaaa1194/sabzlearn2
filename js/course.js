@@ -689,12 +689,12 @@ function getCommentGenerator(comments) {
                 i
               ].creator.createdAt.substring(0, 10)}</span>
               <span class="Author-addjective Author-addjective2">${
-                comments[i].role == "USER"
-                  ? "کاربر"
-                  : comments[i].role == "ADMIN"
-                  ? "مدیر"
-                  : "مدرس"
-              }</span>
+          comments[i].creator.role == "USER"
+            ? "کاربر"
+            : comments[i].creator.role == "ADMIN"
+            ? "مدیر"
+            : "مدرس"
+        }</span>
             </div>
           </div>
           ${
