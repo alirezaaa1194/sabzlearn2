@@ -37,7 +37,7 @@ export const checkPhonePattern = (phoneNumber) => {
   return regEx.test(phoneNumber);
 };
 export const checkEmailPattern = (email) => {
-  let regEx = new RegExp(/^(\w+)(@+)(\w{1,})(\.\w+)$/, "g");
+  let regEx = new RegExp(/^([\w.\d]+)(@+)(\w{1,})(\.\w+)$/, "g");
   return regEx.test(email);
 };
 export let mainRoute = `https://sabzlearn-project-backend.liara.run/v1/`;
