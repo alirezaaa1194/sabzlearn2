@@ -12,6 +12,7 @@ main {
   flex-direction: column;
 }
 .category_section {
+  width: 100%;
   display: flex;
   gap: 20px;
 }

@@ -390,5 +390,10 @@ aside {
   .aside_header a img {
     width: 60px !important;
   }
+}
 
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1400px;
+  }
 }

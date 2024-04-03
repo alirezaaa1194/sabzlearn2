@@ -1,4 +1,5 @@
 .account_content {
+  width: 100%;
   display: flex;
   gap: 30px;
   min-height: 100vh;

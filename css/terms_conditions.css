@@ -27,9 +27,10 @@ main {
 }
 .container_main {
   padding: 60px 0px 40px 0px;
+  text-align: justify;
 }
 .container_main p {
-  font-size: 1.12rem;
+  font-size: 1rem;
 }
 .container_main strong {
   font-weight: bold;
