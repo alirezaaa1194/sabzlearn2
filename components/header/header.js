@@ -507,10 +507,11 @@ class Header extends HTMLElement {
         .classList.remove("active");
       this.shadowRoot.querySelector(".Account-Btn").classList.remove("hidden");
     }
-
-    this.getUserInfo().then((data) => {
-      this.userName_label.innerHTML = data.name;
-    });
+    if (this.isUserLogedIn()) {
+      this.getUserInfo().then((data) => {
+        this.userName_label.innerHTML = data.name;
+      });
+    }
 
     this.getMenus().then((data) => {
       this.menusGenerator(data);
@@ -1018,9 +1019,7 @@ class Header extends HTMLElement {
     menu.title != "مقالات"
       ? `href="course.html?name=${submenu.href}"`
       : `href="blog.html?bName=${submenu.href}"`
-  }  class="responsiveMenuLink">${
-              submenu.title
-            }</a>
+  }  class="responsiveMenuLink">${submenu.title}</a>
 </li>
 
   `
@@ -1033,18 +1032,20 @@ class Header extends HTMLElement {
   }
 
   insertPanelLink() {
-    this.getUserInfo().then((data) => {
-      if (data.role === "ADMIN") {
-        this.NavigationBar.insertAdjacentHTML(
-          "afterbegin",
-          `<li><a href="./panel/main">پنل مدیریت</a></li>`
-        );
-        this.menubar.insertAdjacentHTML(
-          "afterbegin",
-          `<li class="menuItem"><a href="./panel/main" class="menuLink">پنل مدیریت</a></li>`
-        );
-      }
-    });
+    if (this.isUserLogedIn()) {
+      this.getUserInfo().then((data) => {
+        if (data.role === "ADMIN") {
+          this.NavigationBar.insertAdjacentHTML(
+            "afterbegin",
+            `<li><a href="./panel/main">پنل مدیریت</a></li>`
+          );
+          this.menubar.insertAdjacentHTML(
+            "afterbegin",
+            `<li class="menuItem"><a href="./panel/main" class="menuLink">پنل مدیریت</a></li>`
+          );
+        }
+      });
+    }
   }
 
   searchBoxHandler(input) {

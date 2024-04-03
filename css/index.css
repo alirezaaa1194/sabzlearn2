@@ -11,7 +11,7 @@
 }
 section {
   position: relative !important;
-  overflow: hidden !important;
+  /* overflow: hidden !important; */
 }
 section div {
   position: relative !important;
@@ -24,7 +24,7 @@ section div {
   border-radius: 50%;
   position: absolute;
   z-index: 1;
-  left: -10%;
+  left: -5%;
   top: 50%;
   transform: translateY(-50%);
   background-color: var(--blueColor);

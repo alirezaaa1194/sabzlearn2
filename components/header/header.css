@@ -684,7 +684,8 @@ header {
     width: 50px;
     height: 50px;
   }
-  .UserAccountBtn i, .Responsive-login-btn i {
+  .UserAccountBtn i,
+  .Responsive-login-btn i {
     font-size: 20px;
   }
   .Account-Btn {
@@ -717,7 +718,7 @@ header {
 }
 @media screen and (min-width: 1440px) {
   header {
-    width: 100%;
+    width: 1400px;
   }
   .AlertBanner {
     width: 100%;
