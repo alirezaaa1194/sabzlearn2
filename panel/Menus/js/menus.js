@@ -1,8 +1,8 @@
-import { getUserTokenFromcookie, mainRoute } from "../../../js/funcs/utils.js";
+import { getUserTokenFromcookie, baseUrl } from "../../../js/funcs/utils.js";
 let menuId = -1;
 const insertMenu_btn = document.querySelector(".insertMenu_btn");
 const getMenus = async () => {
-  let res = await fetch(`${mainRoute}menus/all`);
+  let res = await fetch(`${baseUrl}menus/all`);
   let data = await res.json();
   menusTemplateGenerator(data);
   showParentMenuForInsertNewMenu(data);
@@ -44,7 +44,7 @@ const removeMenusHandler = (id) => {
     cancelButtonText: "خیر",
   }).then((res) => {
     if (res.isConfirmed) {
-      let res = fetch(`${mainRoute}menus/${id}`, {
+      let res = fetch(`${baseUrl}menus/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -97,7 +97,7 @@ const insertNewMenu = () => {
 
     menuId != -1 ? (newMenuInfo.parent = menuId) : "";
 
-    let res = fetch(`${mainRoute}menus`, {
+    let res = fetch(`${baseUrl}menus`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${getUserTokenFromcookie()}`,

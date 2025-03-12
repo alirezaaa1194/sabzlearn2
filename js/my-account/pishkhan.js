@@ -1,7 +1,7 @@
 import {
   getUserInfo,
   getUserTokenFromcookie,
-  mainRoute,
+  baseUrl,
   myCourseGenerator,
 } from "../funcs/utils.js";
 let myCoursePrice_label = document.querySelector(".myCoursePrice_label");
@@ -44,7 +44,7 @@ getUserInfo().then((data) => {
 });
 
 // get userTickets
-fetch(`${mainRoute}tickets/user`, {
+fetch(`${baseUrl}tickets/user`, {
   headers: {
     Authorization: `Bearer ${getUserTokenFromcookie()}`,
   },

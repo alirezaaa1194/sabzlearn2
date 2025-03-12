@@ -1,7 +1,7 @@
 import {
   getUserInfo,
   getUserTokenFromcookie,
-  mainRoute,
+  baseUrl,
   myCourseGenerator,
 } from "../funcs/utils.js";
 

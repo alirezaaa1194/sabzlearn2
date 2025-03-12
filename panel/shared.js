@@ -2,7 +2,7 @@ import {
   isUserLogedIn,
   getUserInfo,
   getUserTokenFromcookie,
-  mainRoute,
+  baseUrl,
   logOut,
 } from "../js/funcs/utils.js";
 
@@ -82,7 +82,7 @@ homeNotificationModal.addEventListener("mouseleave", () => {
 });
 
 function updateNotificationHandler(id) {
-  fetch(`${mainRoute}notifications/see/${id}`, {
+  fetch(`${baseUrl}notifications/see/${id}`, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${getUserTokenFromcookie()}`,

@@ -1,5 +1,5 @@
 import {
-  mainRoute,
+  baseUrl,
   getUserTokenFromcookie,
   getAllCourses,
 } from "../../../js/funcs/utils.js";
@@ -7,7 +7,7 @@ import {
 let courseId = -1;
 const insert_sesson_btn = document.querySelector(".insert_sesson_btn");
 const getSession = async () => {
-  let res = await fetch(`${mainRoute}courses/sessions`);
+  let res = await fetch(`${baseUrl}courses/sessions`);
   let data = await res.json();
   sessionsGenerator(data);
 };
@@ -56,7 +56,7 @@ const deleteSessionHandler = (id) => {
     cancelButtonText: "خیر",
   }).then((res) => {
     if (res.isConfirmed) {
-      fetch(`${mainRoute}courses/sessions/${id}`, {
+      fetch(`${baseUrl}courses/sessions/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -127,7 +127,7 @@ const insertNewSession = () => {
         : ""
     );
 
-    fetch(`${mainRoute}courses/${courseId}/sessions`, {
+    fetch(`${baseUrl}courses/${courseId}/sessions`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${getUserTokenFromcookie()}`,

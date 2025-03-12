@@ -1,7 +1,7 @@
 import {
   getUserInfo,
   getUserTokenFromcookie,
-  mainRoute,
+  baseUrl,
 } from "../funcs/utils.js";
 let allTicket_count_label = document.querySelector(".allTicket_count_label");
 let noanswerdTicket_label = document.querySelector(".noanswerdTicket_label");
@@ -9,7 +9,7 @@ let closedTicket_Label = document.querySelector(".closedTicket_Label");
 
 let last_tickets_container = document.querySelector(".last_tickets_container");
 
-fetch(`${mainRoute}tickets/user`, {
+fetch(`${baseUrl}tickets/user`, {
   headers: {
     Authorization: `Bearer ${getUserTokenFromcookie()}`,
   },
@@ -54,7 +54,7 @@ function myTicketsGenerator(tickets) {
                     10
                   )} (${ticket.createdAt.substring(12, 19)})</span>
                   <span class="ticket_departman ended">${
-                    ticket.departmentID
+                    ticket.departmentID.title
                   }</span>
                   <span class="ticket_status ${
                     ticket.answer ? "answered" : "ended"

@@ -1,4 +1,4 @@
-import { getUserTokenFromcookie, mainRoute } from "../../../js/funcs/utils.js";
+import { getUserTokenFromcookie, baseUrl } from "../../../js/funcs/utils.js";
 let usersArray = [];
 let userId = null;
 const name_input = document.querySelector(".name_input");
@@ -9,7 +9,7 @@ const phone_input = document.querySelector(".phone_input");
 const submit_user_btn = document.querySelector(".submit_user_btn");
 const getUsersFromDB = () => {
   // const users_container=document.querySelector('.users_container')
-  fetch(`${mainRoute}users`, {
+  fetch(`${baseUrl}users`, {
     headers: {
       Authorization: `Bearer ${getUserTokenFromcookie()}`,
     },
@@ -118,7 +118,7 @@ const banUserHandler = (id) => {
     cancelButtonText: "خیر",
   }).then((res) => {
     if (res.isConfirmed) {
-      fetch(`${mainRoute}users/${id}`, {
+      fetch(`${baseUrl}users/${id}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -142,7 +142,7 @@ const deleteUserHandler = (id) => {
     cancelButtonText: "خیر",
   }).then((res) => {
     if (res.isConfirmed) {
-      fetch(`${mainRoute}users/${id}`, {
+      fetch(`${baseUrl}users/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -173,7 +173,7 @@ const userEditHandler = () => {
         password: password_input.value.trim(),
         phone: phone_input.value.trim(),
       };
-      fetch(`${mainRoute}users/${userId}`, {
+      fetch(`${baseUrl}users/${userId}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -206,7 +206,7 @@ const userEditHandler = () => {
         password: password_input.value.trim(),
         confirmPassword: password_input.value.trim(),
       };
-      fetch(`${mainRoute}auth/register`, {
+      fetch(`${baseUrl}auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -252,7 +252,7 @@ const changeRollHandler = (userId, userRoll) => {
         id: userId,
       };
 console.log(newUserRole);
-      fetch(`${mainRoute}users/role`, {
+      fetch(`${baseUrl}users/role`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,

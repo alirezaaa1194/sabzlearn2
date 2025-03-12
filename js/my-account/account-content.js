@@ -1,4 +1,4 @@
-import { getUserInfo, mainRoute, updateUser } from "../funcs/utils.js";
+import { getUserInfo, baseUrl, updateUser } from "../funcs/utils.js";
 import {
   messageBox,
   showErrorMessage,

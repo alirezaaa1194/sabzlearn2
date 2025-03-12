@@ -440,6 +440,13 @@ function courseGenerator(container) {
     see_more_course.style.display = "block";
     for (let i = start; i < end; i++) {
       //console.log(courses[i]);
+
+      const descs = document.createElement("div");
+
+    descs.innerHTML = courses[i].description;
+
+    descs.querySelectorAll("img").forEach((img) => img.remove());
+
       if (courses[i]) {
         container.insertAdjacentHTML(
           "beforeend",
@@ -448,7 +455,7 @@ function courseGenerator(container) {
           <div class="Product-Card">
           <div class="Card-header">
             <a href="course.html?name=${courses[i].shortName}">
-            <img src="https://sabzlearn-project-backend.liara.run/courses/covers/${
+            <img src="${
               courses[i].cover
             }" alt="">
             </a>
@@ -476,9 +483,9 @@ function courseGenerator(container) {
             courses[i].name
           }</a>
             </h4>
-            <p class="course-Desc">${
-              courses[i].description ? courses[i].description : ""
-            }</p>
+            <div class="course-Desc">${
+              courses[i].description ? descs.innerHTML : ""
+            }</div>
             <div class="Course-Info">
               <div class="Teacher-Info">
                 <i class="fa fa-user"></i>
@@ -546,6 +553,12 @@ function courseGenerator(container) {
 
       // courses.slice(0, count).forEach((course) => {
       // ////console.log(course);
+
+      const descs = document.createElement("div");
+
+    descs.innerHTML = courses[i].description;
+
+    descs.querySelectorAll("img").forEach((img) => img.remove());
       if (courses[i]) {
         container.insertAdjacentHTML(
           "beforeend",
@@ -554,7 +567,7 @@ function courseGenerator(container) {
           <div class="Product-Card">
           <div class="Card-header">
             <a href="course.html?name=${courses[i].shortName}">
-            <img src="https://sabzlearn-project-backend.liara.run/courses/covers/${
+            <img src="${
               courses[i].cover
             }" alt="">
             </a>
@@ -582,9 +595,9 @@ function courseGenerator(container) {
             courses[i].name
           }</a>
             </h4>
-            <p class="course-Desc">${
-              courses[i].description ? courses[i].description : ""
-            }</p>
+            <div class="course-Desc">${
+              courses[i].description ? descs.innerHTML : ""
+            }</div>
             <div class="Course-Info">
               <div class="Teacher-Info">
                 <i class="fa fa-user"></i>

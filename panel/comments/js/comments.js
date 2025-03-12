@@ -1,7 +1,7 @@
-import { mainRoute, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
+import { baseUrl, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
 let commentsArray = [];
 const getComments = async () => {
-  let res = await fetch(`${mainRoute}comments`);
+  let res = await fetch(`${baseUrl}comments`);
   let data = await res.json();
   commentsArray = data;
   commentsGenerator(data);
@@ -105,7 +105,7 @@ const answerCommentHandler = async (id) => {
     confirmButtonText: "ارسال",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`${mainRoute}comments/answer/${id}`, {
+      fetch(`${baseUrl}comments/answer/${id}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -133,7 +133,7 @@ const acceptCommentHandler = async (id) => {
     cancelButtonText: "خیر",
   }).then((res) => {
     if (res.isConfirmed) {
-      fetch(`${mainRoute}comments/accept/${id}`, {
+      fetch(`${baseUrl}comments/accept/${id}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -157,7 +157,7 @@ const rejectCommentHandler = async (id) => {
     cancelButtonText: "خیر",
   }).then((res) => {
     if (res.isConfirmed) {
-      fetch(`${mainRoute}comments/reject/${id}`, {
+      fetch(`${baseUrl}comments/reject/${id}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -181,7 +181,7 @@ const removeCommentHandler = async (id) => {
     cancelButtonText: "خیر",
   }).then((res) => {
     if (res.isConfirmed) {
-      fetch(`${mainRoute}comments/${id}`, {
+      fetch(`${baseUrl}comments/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,

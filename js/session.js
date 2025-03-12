@@ -1,17 +1,5 @@
-import {
-  getCourseByName,
-  getQueryParams,
-  getUserTokenFromcookie,
-  mainRoute,
-  getUserInfo,
-  isUserRegisteredToThisCourse,
-  isUserLogedIn,
-  getAllCourses,
-} from "./funcs/utils.js";
-import {
-  messageBox,
-  showErrorMessage,
-} from "../components/messageBox/messageBox.js";
+import { getCourseByName, getQueryParams, getUserTokenFromcookie, baseUrl, getUserInfo, isUserRegisteredToThisCourse, isUserLogedIn, getAllCourses } from "./funcs/utils.js";
+import { messageBox, showErrorMessage } from "../components/messageBox/messageBox.js";
 window.customElements.define("message-box", messageBox);
 let editor = null;
 
@@ -27,22 +15,14 @@ ClassicEditor.create(document.querySelector("#editor"), {
   editor = newEditor;
 });
 
-const breadcrumb_category_name = document.querySelector(
-  ".breadcrumb_category_name"
-);
-const breadcrumb_course_name = document.querySelector(
-  ".breadcrumb_course_name"
-);
+const breadcrumb_category_name = document.querySelector(".breadcrumb_category_name");
+const breadcrumb_course_name = document.querySelector(".breadcrumb_course_name");
 const course_name_label = document.querySelector(".course_name_label");
 const video_player = document.querySelector("#player");
-const session_episode_number = document.querySelector(
-  ".session_episode_number"
-);
+const session_episode_number = document.querySelector(".session_episode_number");
 const session_episode_name = document.querySelector(".session_episode_name");
 const video_download_btn = document.querySelector(".video_download_btn");
-const course_episode_count_label = document.querySelector(
-  ".course_episode_count_label"
-);
+const course_episode_count_label = document.querySelector(".course_episode_count_label");
 const course_timeInfo_label = document.querySelector(".course_timeInfo_label");
 const course_status_label = document.querySelector(".course_status_label");
 
@@ -92,27 +72,16 @@ function sessionContentGenerator(course) {
       `
     
 
-    <div class="accordion_body_list_item" id="${session._id}" data-target="${
-        session._id
-      }">
+    <div class="accordion_body_list_item" id="${session._id}" data-target="${session._id}">
     <div class="session_name">
       <span class="session_seen_status"></span>
-      <a ${
-        (!session.isUserRegisteredToThisCourse && !session.free) ||
-        !session.free
-          ? ""
-          : `href="session.html?cName=${course.shortName}&episode=${
-              session._id
-            }&epNum=${index + 1}"`
-      } class="accordio_list_top_section">
+      <a ${(!session.isUserRegisteredToThisCourse && !session.free) || !session.free ? "" : `href="session.html?cName=${course.shortName}&episode=${session._id}&epNum=${index + 1}"`} class="accordio_list_top_section">
         <span class="course_session_episode_name"
           >${session.title}</span
         >
       </a>
     </div>
-    <span class="course_time_label">${
-      session.time.includes(":") ? session.time : session.time + ":00"
-    }</span>
+    <span class="course_time_label">${session.time.includes(":") ? session.time : session.time + ":00"}</span>
   </div>
 
     `
@@ -132,9 +101,7 @@ function sessionContentGenerator(course) {
   });
 
   course.sessions.forEach((session) => {
-    let time = session.time.includes(":")
-      ? session.time.split(":")
-      : (session.time + ":0").split(":");
+    let time = session.time.includes(":") ? session.time.split(":") : (session.time + ":0").split(":");
     // let time = session.time.split(":");
 
     if (time.length === 3) {
@@ -156,12 +123,7 @@ function sessionContentGenerator(course) {
     }
   });
 
-  course_timeInfo_label.innerHTML =
-    courseHour.toString().padStart(2, 0) +
-    ":" +
-    courseMin.toString().padStart(2, 0) +
-    ":" +
-    courseSec.toString().padStart(2, 0);
+  course_timeInfo_label.innerHTML = courseHour.toString().padStart(2, 0) + ":" + courseMin.toString().padStart(2, 0) + ":" + courseSec.toString().padStart(2, 0);
 
   creator_name_label.forEach((label, index) => {
     label.innerHTML = course.creator.name;
@@ -169,32 +131,30 @@ function sessionContentGenerator(course) {
 
   creator_rol_label.innerHTML = course.creator.role;
 
-  fetch(
-    `https://sabzlearn-project-backend.liara.run/v1/courses/${
-      course.shortName
-    }/${getQueryParams("episode")}`,
-    {
-      headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGU2YjBlMWQ1MTQyYjkxYWZhOWJiMyIsImlhdCI6MTcxMTgzNjEyNCwiZXhwIjoxNzE0NDI4MTI0fQ.XLOtjcvVijn-8XGFHpgGSHugT8-Ci06YkOlGur3e0g0`,
-      },
-    }
-  )
+  fetch(`https://sabzlearn-backend-ochre.vercel.app/v1/courses/${course.shortName}/${getQueryParams("episode")}`, {
+    headers: {
+      Authorization: `Bearer ${getUserTokenFromcookie()}`,
+    },
+  })
     .then((res) => {
-      if (res.status != 400) {
-        return res.json();
-      } else {
+      console.log(res.status);
+
+      if (res.status === 403) {
         location.href = "index.html";
+      } else {
+        return res.json();
       }
+
+      // if (res.status != 400) {
+      // } else {
+      //   location.href = "index.html";
+      // }
     })
     .then((data) => {
-      // console.log(data);
-
-      // console.log(data.session);
-
       redirectUserToCoursePage(data.session);
 
-      video_player.src = `https://sabzlearn-project-backend.liara.run/courses/covers/${data.session.video}`;
-      video_player.poster = `https://sabzlearn-project-backend.liara.run/courses/covers/${course.cover}`;
+      video_player.src = `${data.session.video}`;
+      video_player.poster = `${course.cover}`;
 
       const player = new Plyr("#player", {
         controls: [
@@ -216,15 +176,9 @@ function sessionContentGenerator(course) {
 
       document.title = `${data.session.title} - سبزلرن`;
       session_episode_name.innerHTML = data.session.title;
-      // creator_profile[index].src = 'https://sabzlearn-project-backend.liara.run/v1/courses/covers/'+ course.creator.profile;
-      video_download_btn.href = `https://sabzlearn-project-backend.liara.run/courses/covers/${data.session.video}`;
+      video_download_btn.href = `${data.session.video}`;
       course_episode_count_label.innerHTML = data.sessions.length;
-      course_status_label.innerHTML =
-        course.status == "start"
-          ? "درحال برگزاری"
-          : course.status == "presell"
-          ? "پیش فروش"
-          : "تمام شده";
+      course_status_label.innerHTML = course.status == "start" ? "درحال برگزاری" : course.status == "presell" ? "پیش فروش" : "تمام شده";
     });
 
   session_episode_number.innerHTML = getQueryParams("epNum");
@@ -260,7 +214,7 @@ send_btn.addEventListener("click", () => {
                 course: courseId,
               };
 
-              fetch(`${mainRoute}tickets`, {
+              fetch(`${baseUrl}tickets`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -288,7 +242,7 @@ send_btn.addEventListener("click", () => {
 });
 
 function getQuestions() {
-  fetch(`${mainRoute}tickets/user`, {
+  fetch(`${baseUrl}tickets/user`, {
     headers: {
       Authorization: `Bearer ${getUserTokenFromcookie()}`,
     },
@@ -304,7 +258,8 @@ function questionsGenerator(comments) {
 
   if (comments.length) {
     document.querySelector(".about_this_question_label").style.display = "none";
-    comments.forEach((comment) => {
+    const filteredTickets = comments.filter((comment) => comment.departmentID.title === "پشتیبانی");
+    filteredTickets.forEach((comment) => {
       commentsContainer.insertAdjacentHTML(
         "beforeend",
         `
@@ -322,10 +277,7 @@ function questionsGenerator(comments) {
             </div>
             <div class="info">
               <p class="Author-name">${comment.user}</p>
-              <span class="comment-date">${comment.createdAt.substring(
-                0,
-                10
-              )}</span>
+              <span class="comment-date">${comment.createdAt.substring(0, 10)}</span>
               <span class="Author-addjective Author-addjective2">دانشجو</span>
             </div>
           </div>
@@ -341,7 +293,7 @@ function questionsGenerator(comments) {
       );
 
       if (comment._id) {
-        fetch(`${mainRoute}tickets/answer/${comment._id}`, {
+        fetch(`${baseUrl}tickets/answer/${comment._id}`, {
           headers: {
             Authorization: `Bearer ${getUserTokenFromcookie()}`,
           },
@@ -378,21 +330,16 @@ function questionsGenerator(comments) {
 
       // answerContent
       // handle reply btn
-      document
-        .getElementById(`${comment._id}`)
-        .addEventListener("click", (e) => {
-          replyToComment(e.target.id);
-        });
+      document.getElementById(`${comment._id}`).addEventListener("click", (e) => {
+        replyToComment(e.target.id);
+      });
     });
   }
 }
 
 function replyToComment(id) {
   commentId = id;
-  window.scrollTo(
-    100,
-    document.querySelector(".querstion_container").offsetTop
-  );
+  window.scrollTo(100, document.querySelector(".querstion_container").offsetTop);
   whichCommentLabel.innerHTML = `درپاسخ به پرسش #${id.substring(0, 4)}`;
 }
 cancel_btn.addEventListener("click", () => {

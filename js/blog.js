@@ -1,6 +1,6 @@
 import {
   getQueryParams,
-  mainRoute,
+  baseUrl,
   getBlogByFilter,
   getArticles,
 } from "./funcs/utils.js";
@@ -69,7 +69,7 @@ window.addEventListener("load", () => {
   getArticle();
 });
 function getArticle() {
-  fetch(`${mainRoute}articles/${getQueryParams("bName")}`)
+  fetch(`${baseUrl}articles/${getQueryParams("bName")}`)
     .then((data) => data.json())
     .then((info) => {
       blogGenerator(info);
@@ -89,7 +89,7 @@ function blogGenerator(blogInfo) {
   blogCreator_name.innerHTML = blogInfo.creator.name;
   blogCreated_date.innerHTML = blogInfo.creator.createdAt.substring(0, 10);
 
-  blogCover.src = `https://sabzlearn-project-backend.liara.run/courses/covers/${blogInfo.cover}`;
+  blogCover.src = `${blogInfo.cover}`;
 
   blog_items.innerHTML = blogInfo.body;
   blogContainerHeightHandler()

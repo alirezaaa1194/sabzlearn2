@@ -7,7 +7,7 @@ import {
   saveUserTokenIncookies,
   getUserTokenFromcookie,
   isUserLogedIn,
-  mainRoute,
+  baseUrl,
   checkPhonePattern,
   checkEmailPattern,
   redirectToPannel,
@@ -53,7 +53,7 @@ const register = () => {
     } else if (password_input.value.length < 8) {
       showErrorMessage("رمز عبور باید بیشتر از 8 حرف باشد", "error");
     } else {
-      fetch(`${mainRoute}auth/register`, {
+      fetch(`${baseUrl}auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newUserDatas),
@@ -90,7 +90,7 @@ const login = () => {
     password: passwordInput.value.trim(),
   };
 
-  fetch(`https://sabzlearn-project-backend.liara.run/v1/auth/login`, {
+  fetch(`https://sabzlearn-backend-ochre.vercel.app/v1/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userInfos),

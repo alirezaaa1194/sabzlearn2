@@ -1,17 +1,6 @@
-import {
-  getCourseByName,
-  getQueryParams,
-  getUserInfo,
-  getUserTokenFromcookie,
-  mainRoute,
-  isUserLogedIn,
-  isUserRegisteredToThisCourse,
-} from "./funcs/utils.js";
+import { getCourseByName, getQueryParams, getUserInfo, getUserTokenFromcookie, baseUrl, isUserLogedIn, isUserRegisteredToThisCourse } from "./funcs/utils.js";
 
-import {
-  messageBox,
-  showErrorMessage,
-} from "../components/messageBox/messageBox.js";
+import { messageBox, showErrorMessage } from "../components/messageBox/messageBox.js";
 window.customElements.define("message-box", messageBox);
 // start blog content code
 const blog_content = document.querySelector(".blog_content");
@@ -71,20 +60,8 @@ function blogContainerHeightHandler() {
   // }
   // alert( getComputedStyle(blog_desc).height.substring(0, getComputedStyle(blog_desc).height.indexOf('px')))
 
-  blog_content.style.height =
-    getComputedStyle(blog_desc).height.substring(
-      0,
-      getComputedStyle(blog_desc).height.indexOf("px")
-    ) > 600
-      ? "1000px"
-      : "fit-content";
-  more_btn_box.style.display =
-    getComputedStyle(blog_desc).height.substring(
-      0,
-      getComputedStyle(blog_desc).height.indexOf("px")
-    ) > 600
-      ? "flex"
-      : "none";
+  blog_content.style.height = getComputedStyle(blog_desc).height.substring(0, getComputedStyle(blog_desc).height.indexOf("px")) > 600 ? "1000px" : "fit-content";
+  more_btn_box.style.display = getComputedStyle(blog_desc).height.substring(0, getComputedStyle(blog_desc).height.indexOf("px")) > 600 ? "flex" : "none";
 }
 
 more_btn.addEventListener("click", () => {
@@ -174,34 +151,20 @@ function replyToComment(id, author) {
   authorName = author;
   openForm();
 }
-const breadcrumb_category_name = document.querySelector(
-  ".breadcrumb_category_name"
-);
-const breadcrumb_course_name = document.querySelector(
-  ".breadcrumb_course_name"
-);
+const breadcrumb_category_name = document.querySelector(".breadcrumb_category_name");
+const breadcrumb_course_name = document.querySelector(".breadcrumb_course_name");
 
 const course_name_label = document.querySelector(".course_name_label");
-const summary_course_description = document.querySelector(
-  ".summary_course_description"
-);
-const course_offer_timer_box = document.querySelector(
-  ".course_offer_timer_box"
-);
-const course_offer_percent_label = document.querySelector(
-  ".course_offer_percent_label"
-);
+const summary_course_description = document.querySelector(".summary_course_description");
+const course_offer_timer_box = document.querySelector(".course_offer_timer_box");
+const course_offer_percent_label = document.querySelector(".course_offer_percent_label");
 const origin_course_price = document.querySelector(".origin_course_price");
 const offered_course_price = document.querySelector(".offered_course_price");
 
 const course_status_label = document.querySelector(".course_status_label");
 const course_time_label = document.querySelector(".course_time_label");
-const course_lastUpdate_label = document.querySelector(
-  ".course_lastUpdate_label"
-);
-const course_supportWay_label = document.querySelector(
-  ".course_supportWay_label"
-);
+const course_lastUpdate_label = document.querySelector(".course_lastUpdate_label");
+const course_supportWay_label = document.querySelector(".course_supportWay_label");
 const course_preNeed_label = document.querySelector(".course_preNeed_label");
 
 const creator_profile = document.querySelectorAll(".creator_profile");
@@ -211,15 +174,11 @@ const creator_rol_label = document.querySelector(".creator_rol_label");
 const copy_link_btn = document.querySelector(".copy_link_btn");
 const short_link_text = document.querySelector(".short_link_text");
 
-const course_studentCount_label = document.querySelectorAll(
-  ".course_studentCount_label"
-);
+const course_studentCount_label = document.querySelectorAll(".course_studentCount_label");
 const accordion_item_body = document.querySelector(".accordion_item_body");
 const course_time = document.querySelector(".course_time");
 const accordion_main = document.querySelector(".accordion_main");
-const dontHave_sessions_error = document.querySelector(
-  ".dontHave_sessions_error"
-);
+const dontHave_sessions_error = document.querySelector(".dontHave_sessions_error");
 const comments = document.querySelector(".comments");
 const userNameLabel = document.querySelector(".user-name");
 const course_price_box = document.querySelector(".course_price_box");
@@ -262,7 +221,7 @@ let courseHour = 0;
 let courseMin = 0;
 let courseSec = 0;
 
-function courseContentGenerator(course, isRegister) {
+async function courseContentGenerator(course, isRegister) {
   if (isUserLogedIn()) {
     isUserRegisteredToThisCourse(course._id).then((res) => {
       if (res) {
@@ -309,14 +268,8 @@ function courseContentGenerator(course, isRegister) {
   course_name_label.innerHTML = course.name;
   summary_course_description.innerHTML = course.description;
 
-  course_offer_timer_box.style.display =
-    course.discount || course.price == 0 ? "flex" : "none";
-  course_offer_percent_label.innerHTML =
-    course.price > 0
-      ? course.discount + "% تخفیف شگفت انگیز"
-      : course.price == 0
-      ? "100% تخفیف شگفت انگیز"
-      : "";
+  course_offer_timer_box.style.display = (course.discount || course.price == 0) && !(await isUserRegisteredToThisCourse(course._id)) ? "flex" : "none";
+  course_offer_percent_label.innerHTML = course.price > 0 ? course.discount + "% تخفیف شگفت انگیز" : course.price == 0 ? "100% تخفیف شگفت انگیز" : "";
 
   // course_see_link.style.display = course.isUserRegisteredToThisCourse
   //   ? "flex"
@@ -324,24 +277,16 @@ function courseContentGenerator(course, isRegister) {
   // course_buy_link.style.display = course.isUserRegisteredToThisCourse
   //   ? "none"
   //   : "flex";
-  origin_course_price.style.display =
-    course.price != 0 && course.discount != 0 ? "flex" : "none";
+  origin_course_price.style.display = course.price != 0 && course.discount != 0 && !(await isUserRegisteredToThisCourse(course._id)) ? "flex" : "none";
   origin_course_price.innerHTML = course.price.toLocaleString();
 
-  offered_course_price.innerHTML = !course.price
-    ? "رایگان"
-    : course.discount
-    ? (((100 - course.discount) / 100) * course.price).toLocaleString() +
-      "تومان"
-    : !course.discount
-    ? course.price.toLocaleString() + "تومان"
-    : "";
-  course_status_label.innerHTML =
-    course.status == "start"
-      ? "درحال برگزاری"
-      : course.status == "presell"
-      ? "پیش فروش"
-      : "تمام شده";
+  offered_course_price.innerHTML = !course.price ? "رایگان" : course.discount ? (((100 - course.discount) / 100) * course.price).toLocaleString() + "تومان" : !course.discount ? course.price.toLocaleString() + "تومان" : "";
+
+  if (await isUserRegisteredToThisCourse(course._id)) {
+    offered_course_price.style.display = "none";
+  }
+
+  course_status_label.innerHTML = course.status == "start" ? "درحال برگزاری" : course.status == "presell" ? "پیش فروش" : "تمام شده";
 
   course_lastUpdate_label.innerHTML = course.updatedAt.substring(0, 10);
   course_supportWay_label.innerHTML = course.support;
@@ -355,16 +300,12 @@ function courseContentGenerator(course, isRegister) {
   creator_rol_label.innerHTML = course.creator.role;
   short_link_text.innerHTML = location.href;
 
-  blog_desc.innerHTML =
-    `<img src="https://sabzlearn-project-backend.liara.run/courses/covers/${course.cover}"/>` +
-    course.description;
+  blog_desc.innerHTML = `<img src="${course.cover}"/>` + course.description;
 
   accordion_item_body.innerHTML = "";
   if (course.sessions.length > 0) {
     course.sessions.forEach((session, index) => {
-      let time = session.time.includes(":")
-        ? session.time.split(":")
-        : (session.time + ":").split(":");
+      let time = session.time.includes(":") ? session.time.split(":") : (session.time + ":").split(":");
 
       if (time.length === 3) {
         courseHour += +time[0];
@@ -389,16 +330,8 @@ function courseContentGenerator(course, isRegister) {
       
 
       <div class="accordion_body_list_item">
-                    <a ${
-                      !isRegister && !session.free
-                        ? ""
-                        : `href="session.html?cName=${
-                            course.shortName
-                          }&episode=${session._id}&epNum=${index + 1}"`
-                    } class="accordio_list_top_section">
-                      <span class="course_session_episode_number">${
-                        index + 1
-                      }</span>
+                    <a ${!isRegister && !session.free ? "" : `href="session.html?cName=${course.shortName}&episode=${session._id}&epNum=${index + 1}"`} class="accordio_list_top_section">
+                      <span class="course_session_episode_number">${index + 1}</span>
                       <span class="course_session_episode_name"
                         >${session.title}</span
                       >
@@ -408,15 +341,7 @@ function courseContentGenerator(course, isRegister) {
                         >${session.free ? "جلسه رایگان" : "جلسه نقدی"}</span
                       >
                       <span class="course_session_price_time"
-                        ><span class="course_time_label">${
-                          session.time.includes(":")
-                            ? session.time
-                            : session.time + ":00"
-                        }</span><i class="fa-solid ${
-          !isRegister && !session.free
-            ? "fa-lock lock_icon"
-            : "fa-play play_icon"
-        }"></i></span
+                        ><span class="course_time_label">${session.time.includes(":") ? session.time : session.time + ":00"}</span><i class="fa-solid ${!isRegister && !session.free ? "fa-lock lock_icon" : "fa-play play_icon"}"></i></span
                       >
                     </div>
                   </div>
@@ -428,35 +353,22 @@ function courseContentGenerator(course, isRegister) {
     dontHave_sessions_error.style.display = "block";
   }
 
-  course_time.innerHTML =
-    courseHour.toString().padStart(2, 0) +
-    ":" +
-    courseMin.toString().padStart(2, 0) +
-    ":" +
-    courseSec.toString().padStart(2, 0);
+  course_time.innerHTML = courseHour.toString().padStart(2, 0) + ":" + courseMin.toString().padStart(2, 0) + ":" + courseSec.toString().padStart(2, 0);
 
-  course_time_label.innerHTML =
-    courseHour.toString().padStart(2, 0) +
-    ":" +
-    courseMin.toString().padStart(2, 0) +
-    ":" +
-    courseSec.toString().padStart(2, 0);
-  if (course.sessions.length) {
-    fetch(
-      `https://sabzlearn-project-backend.liara.run/v1/courses/${course.shortName}/${course.sessions[0]._id}`,
-      {
-        headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNGU2YjBlMWQ1MTQyYjkxYWZhOWJiMyIsImlhdCI6MTcxMTgzNjEyNCwiZXhwIjoxNzE0NDI4MTI0fQ.XLOtjcvVijn-8XGFHpgGSHugT8-Ci06YkOlGur3e0g0`,
-        },
-      }
-    )
+  course_time_label.innerHTML = courseHour.toString().padStart(2, 0) + ":" + courseMin.toString().padStart(2, 0) + ":" + courseSec.toString().padStart(2, 0);
+  const isUserRegistered = await isUserRegisteredToThisCourse(course._id);
+  if (course.sessions.length && isUserRegistered) {
+    fetch(`https://sabzlearn-backend-ochre.vercel.app/v1/courses/${course.shortName}/${course.sessions[0]._id}`, {
+      headers: {
+        Authorization: `Bearer ${getUserTokenFromcookie()}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
-        //console.log(data);
         // alert(data.sessions[0].video)
-        video_player.src = `https://sabzlearn-project-backend.liara.run/courses/covers/${data.session.video}`;
+        video_player.src = `${data.session.video}`;
         // alert(data.session.video)
-        video_player.poster = `https://sabzlearn-project-backend.liara.run/courses/covers/${course.cover}`;
+        video_player.poster = `${course.cover}`;
         const player = new Plyr("#player2", {
           controls: [
             "play",
@@ -480,7 +392,7 @@ function courseContentGenerator(course, isRegister) {
     document.querySelector(".introduction_video_box").insertAdjacentHTML(
       "afterbegin",
       // '<h2 style="color:red; text-align:center;">هنوز این دوره شروع نشده!</h2>'
-      `<img src="https://sabzlearn-project-backend.liara.run/courses/covers/${course.cover}" class="course_cover_dont_start"/>`
+      `<img src="${course.cover}" class="course_cover_dont_start"/>`
     );
   }
 
@@ -544,13 +456,7 @@ function getCommentGenerator(comments) {
     <div class="original-comment">
       <div class="Author-image Author-image1">
         <img src="images/user.png" alt="">
-        <span class="Author-addjective Author-addjective1">${
-          comments[i].creator.role == "USER"
-            ? "کاربر"
-            : comments[i].creator.role == "ADMIN"
-            ? "مدیر"
-            : "مدرس"
-        }</span>
+        <span class="Author-addjective Author-addjective1">${comments[i].creator.role == "USER" ? "کاربر" : comments[i].creator.role == "ADMIN" ? "مدیر" : "مدرس"}</span>
       </div>
       <div class="comment-info">
         <div class="comment-header-row">
@@ -560,16 +466,8 @@ function getCommentGenerator(comments) {
             </div>
             <div class="info">
               <p class="Author-name">${comments[i].creator.name}</p>
-              <span class="comment-date">${comments[
-                i
-              ].creator.createdAt.substring(0, 10)}</span>
-              <span class="Author-addjective Author-addjective2">${
-                comments[i].role == "USER"
-                  ? "کاربر"
-                  : comments[i].role == "ADMIN"
-                  ? "مدیر"
-                  : "مدرس"
-              }</span>
+              <span class="comment-date">${comments[i].creator.createdAt.substring(0, 10)}</span>
+              <span class="Author-addjective Author-addjective2">${comments[i].role == "USER" ? "کاربر" : comments[i].role == "ADMIN" ? "مدیر" : "مدرس"}</span>
             </div>
           </div>
           ${
@@ -594,9 +492,7 @@ function getCommentGenerator(comments) {
         );
 
         if (comments[i].answerContent) {
-          let replyContainer = document.getElementById(
-            `replies${comments[i]._id}`
-          );
+          let replyContainer = document.getElementById(`replies${comments[i]._id}`);
           replyContainer.innerHTML = "";
           replyContainer.insertAdjacentHTML(
             "beforeend",
@@ -605,13 +501,7 @@ function getCommentGenerator(comments) {
     <div class="original-comment">
       <div class="Author-image Author-image1">
         <img src="images/user.png" alt="">
-        <span class="Author-addjective Author-addjective1 teacher">${
-          comments[i].answerContent.creator.role == "USER"
-            ? "کاربر"
-            : comments[i].answerContent.creator.role == "ADMIN"
-            ? "مدیر"
-            : "مدرس"
-        }</span>
+        <span class="Author-addjective Author-addjective1 teacher">${comments[i].answerContent.creator.role == "USER" ? "کاربر" : comments[i].answerContent.creator.role == "ADMIN" ? "مدیر" : "مدرس"}</span>
       </div>
       <div class="comment-info">
         <div class="comment-header-row">
@@ -620,19 +510,9 @@ function getCommentGenerator(comments) {
               <img src="images/user.png" alt="">
             </div>
             <div class="info">
-              <p class="Author-name">${
-                comments[i].answerContent.creator.name
-              }</p>
-              <span class="comment-date">${comments[
-                i
-              ].answerContent.createdAt.substring(0, 10)}</span>
-              <span class="Author-addjective Author-addjective2 teacher">${
-                comments[i].answerContent.creator.role == "USER"
-                  ? "کاربر"
-                  : comments[i].answerContent.creator.role == "ADMIN"
-                  ? "مدیر"
-                  : "مدرس"
-              }</span>
+              <p class="Author-name">${comments[i].answerContent.creator.name}</p>
+              <span class="comment-date">${comments[i].answerContent.createdAt.substring(0, 10)}</span>
+              <span class="Author-addjective Author-addjective2 teacher">${comments[i].answerContent.creator.role == "USER" ? "کاربر" : comments[i].answerContent.creator.role == "ADMIN" ? "مدیر" : "مدرس"}</span>
             </div>
           </div>
         </div>
@@ -645,11 +525,9 @@ function getCommentGenerator(comments) {
         }
 
         // handle reply btn
-        document
-          .getElementById(`${comments[i]._id}`)
-          .addEventListener("click", (e) => {
-            replyToComment(e.target.id, e.target.dataset.author);
-          });
+        document.getElementById(`${comments[i]._id}`).addEventListener("click", (e) => {
+          replyToComment(e.target.id, e.target.dataset.author);
+        });
       }
     } else {
       if (course_comments.length) {
@@ -669,13 +547,7 @@ function getCommentGenerator(comments) {
     <div class="original-comment">
       <div class="Author-image Author-image1">
         <img src="images/user.png" alt="">
-        <span class="Author-addjective Author-addjective1">${
-          comments[i].creator.role == "USER"
-            ? "کاربر"
-            : comments[i].creator.role == "ADMIN"
-            ? "مدیر"
-            : "مدرس"
-        }</span>
+        <span class="Author-addjective Author-addjective1">${comments[i].creator.role == "USER" ? "کاربر" : comments[i].creator.role == "ADMIN" ? "مدیر" : "مدرس"}</span>
       </div>
       <div class="comment-info">
         <div class="comment-header-row">
@@ -685,16 +557,8 @@ function getCommentGenerator(comments) {
             </div>
             <div class="info">
               <p class="Author-name">${comments[i].creator.name}</p>
-              <span class="comment-date">${comments[
-                i
-              ].creator.createdAt.substring(0, 10)}</span>
-              <span class="Author-addjective Author-addjective2">${
-          comments[i].creator.role == "USER"
-            ? "کاربر"
-            : comments[i].creator.role == "ADMIN"
-            ? "مدیر"
-            : "مدرس"
-        }</span>
+              <span class="comment-date">${comments[i].creator.createdAt.substring(0, 10)}</span>
+              <span class="Author-addjective Author-addjective2">${comments[i].creator.role == "USER" ? "کاربر" : comments[i].creator.role == "ADMIN" ? "مدیر" : "مدرس"}</span>
             </div>
           </div>
           ${
@@ -721,9 +585,7 @@ function getCommentGenerator(comments) {
         );
 
         if (comments[i].answerContent) {
-          let replyContainer = document.getElementById(
-            `replies${comments[i]._id}`
-          );
+          let replyContainer = document.getElementById(`replies${comments[i]._id}`);
           replyContainer.innerHTML = "";
           replyContainer.insertAdjacentHTML(
             "beforeend",
@@ -732,13 +594,7 @@ function getCommentGenerator(comments) {
     <div class="original-comment">
       <div class="Author-image Author-image1">
         <img src="images/user.png" alt="">
-        <span class="Author-addjective Author-addjective1 teacher">${
-          comments[i].answerContent.creator.role == "USER"
-            ? "کاربر"
-            : comments[i].answerContent.creator.role == "ADMIN"
-            ? "مدیر"
-            : "مدرس"
-        }</span>
+        <span class="Author-addjective Author-addjective1 teacher">${comments[i].answerContent.creator.role == "USER" ? "کاربر" : comments[i].answerContent.creator.role == "ADMIN" ? "مدیر" : "مدرس"}</span>
       </div>
       <div class="comment-info">
         <div class="comment-header-row">
@@ -747,19 +603,9 @@ function getCommentGenerator(comments) {
               <img src="images/user.png" alt="">
             </div>
             <div class="info">
-              <p class="Author-name">${
-                comments[i].answerContent.creator.name
-              }</p>
-              <span class="comment-date">${comments[
-                i
-              ].answerContent.createdAt.substring(0, 10)}</span>
-              <span class="Author-addjective Author-addjective2 teacher">${
-                comments[i].answerContent.creator.role == "USER"
-                  ? "کاربر"
-                  : comments[i].answerContent.creator.role == "ADMIN"
-                  ? "مدیر"
-                  : "مدرس"
-              }</span>
+              <p class="Author-name">${comments[i].answerContent.creator.name}</p>
+              <span class="comment-date">${comments[i].answerContent.createdAt.substring(0, 10)}</span>
+              <span class="Author-addjective Author-addjective2 teacher">${comments[i].answerContent.creator.role == "USER" ? "کاربر" : comments[i].answerContent.creator.role == "ADMIN" ? "مدیر" : "مدرس"}</span>
             </div>
           </div>
         </div>
@@ -772,11 +618,9 @@ function getCommentGenerator(comments) {
         }
 
         // handle reply btn
-        document
-          .getElementById(`${comments[i]._id}`)
-          .addEventListener("click", (e) => {
-            replyToComment(e.target.id, e.target.dataset.author);
-          });
+        document.getElementById(`${comments[i]._id}`).addEventListener("click", (e) => {
+          replyToComment(e.target.id, e.target.dataset.author);
+        });
       }
     }
   } else {
@@ -792,7 +636,7 @@ function getCommentGenerator(comments) {
 
 function registerCourseHandler(coursePrice, courseId) {
   if (isUserLogedIn()) {
-    fetch(`${mainRoute}courses/${courseId}/register`, {
+    fetch(`${baseUrl}courses/${courseId}/register`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -943,7 +787,7 @@ function saveComment(courseName, commentValue) {
         score: "5",
       };
       // //console.log(comment);
-      fetch(`${mainRoute}comments`, {
+      fetch(`${baseUrl}comments`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -974,7 +818,7 @@ function saveCommentAnswer(commentID, replyText) {
         body: replyText.trim(),
         score: 5,
       };
-      fetch(`${mainRoute}comments/answer/${commentID}`, {
+      fetch(`${baseUrl}comments/answer/${commentID}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,

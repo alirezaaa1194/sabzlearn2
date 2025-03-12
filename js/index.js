@@ -86,7 +86,12 @@ function courseSliderGenerator(container, courses, count, description) {
   // new_products_container.
   container.innerHTML = "";
   courses.slice(0, count).forEach((course) => {
-    // //console.log(course);
+    const descs = document.createElement("div");
+
+    descs.innerHTML = course.description;
+
+    descs.querySelectorAll("img").forEach((img) => img.remove());
+
     container.insertAdjacentHTML(
       "beforeend",
       `
@@ -96,7 +101,7 @@ function courseSliderGenerator(container, courses, count, description) {
         <a href="https://alirezaaa1194.github.io/sabzlearn2/course.html?name=${
           course.shortName
         }">
-        <img src="https://sabzlearn-project-backend.liara.run/courses/covers/${
+        <img src="${
           course.cover
         }" alt="">
         </a>
@@ -120,7 +125,7 @@ function courseSliderGenerator(container, courses, count, description) {
             course.shortName
           }">${course.name}</a>
         </h4>
-        <p class="course-Desc">${description ? course.description : ""}</p>
+       <div class="course-Desc">${description ? descs.innerHTML : ""}</div>
         <div class="Course-Info">
           <div class="Teacher-Info">
             <i class="fa fa-user"></i>
@@ -187,7 +192,7 @@ function articlesGenerator(articles, container) {
         <div class="document-Card-header">
           <a href="https://alirezaaa1194.github.io/sabzlearn2/blog.html?bName=${article.shortName}" class="">
             <img
-              src="https://sabzlearn-project-backend.liara.run/courses/covers/${article.cover}"
+              src="${article.cover}"
               alt=""
               class="document-img"
             />

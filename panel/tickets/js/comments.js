@@ -1,7 +1,7 @@
-import { mainRoute, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
+import { baseUrl, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
 let commentsArray = [];
 const getComments = async () => {
-  let res = await fetch(`${mainRoute}tickets`, {
+  let res = await fetch(`${baseUrl}tickets`, {
     headers: {
       Authorization: `Bearer ${getUserTokenFromcookie()}`,
     },
@@ -28,8 +28,8 @@ const commentsGenerator = (comments) => {
       <td>${comment.course || "--"}</td>
       <td>${comment.user}</td>
       <td>${comment.createdAt.slice(0, 10)}</td>
-      <td>${comment.departmentID}</td>
-      <td>${comment.departmentSubID}</td>
+      <td>${comment.departmentID.title}</td>
+      <td>${comment.departmentSubID.title}</td>
       <td>
           <button type='button'class='btn btn-primary edit-btn show_comment_btn' id="${
             comment._id
@@ -97,7 +97,7 @@ const answerCommentHandler = async (id) => {
     confirmButtonText: "ارسال",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`${mainRoute}tickets/answer`, {
+      fetch(`${baseUrl}tickets/answer`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,

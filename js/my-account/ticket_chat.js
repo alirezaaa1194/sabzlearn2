@@ -1,8 +1,4 @@
-import {
-  getUserTokenFromcookie,
-  getQueryParams,
-  mainRoute,
-} from "../funcs/utils.js";
+import { getUserTokenFromcookie, getQueryParams, baseUrl } from "../funcs/utils.js";
 let chatsContainer = document.querySelector(".chats");
 
 window.addEventListener("load", () => {
@@ -10,15 +6,14 @@ window.addEventListener("load", () => {
 });
 
 function chatGenerator() {
-  fetch(`${mainRoute}tickets/answer/${getQueryParams("tId")}`, {
+  fetch(`${baseUrl}tickets/answer/${getQueryParams("tId")}`, {
     headers: {
       Authorization: `Bearer ${getUserTokenFromcookie()}`,
     },
   })
     .then((res) => {
       if (res.status === 404) {
-        chatsContainer.innerHTML =
-          '<span style="text-align:center; color: var(--TextLightColor);">هنوز پاسخ داده نشده. لطفا منتظر بمانید.<span>';
+        chatsContainer.innerHTML = '<span style="text-align:center; color: var(--TextLightColor);">هنوز پاسخ داده نشده. لطفا منتظر بمانید.<span>';
       } else {
         return res.json();
       }
@@ -34,7 +29,7 @@ function chatGenerator() {
       </div>
 
       <div class="ticket_chat them">
-        <p class="pm_main">${data.answer}</p>
+      ${data.answer ? `<p class="pm_main">${data.answer}</p>` : `<span style="text-align:center; color: var(--TextLightColor);">هنوز پاسخ داده نشده. لطفا منتظر بمانید.<span>`}
       </div>
 
 

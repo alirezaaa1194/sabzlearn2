@@ -2,7 +2,7 @@ import {
   isUserLogedIn,
   getUserInfo,
   getUserTokenFromcookie,
-  mainRoute,
+  baseUrl,
   getAllCourses,
   getAllCategories,
 } from "../../../js/funcs/utils.js";
@@ -94,7 +94,7 @@ function deleteCourseHandler(course) {
     cancelButtonText: "خیر",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`${mainRoute}courses/${course._id}`, {
+      fetch(`${baseUrl}courses/${course._id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -159,7 +159,7 @@ submitBtn.addEventListener("click", (e) => {
     );
     formDate.append("cover", courseCover_input.files[0]);
 
-    fetch(`${mainRoute}courses`, {
+    fetch(`${baseUrl}courses`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${getUserTokenFromcookie()}`,

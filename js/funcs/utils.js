@@ -40,12 +40,11 @@ export const checkEmailPattern = (email) => {
   let regEx = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, "g");
   return regEx.test(email);
 };
-export let mainRoute = `https://sabzlearn-project-backend.liara.run/v1/`;
 
 export const getUserInfo = async () => {
   if (isUserLogedIn()) {
     const userToken = getUserTokenFromcookie();
-    const userInfo = await fetch(`${mainRoute}auth/me`, {
+    const userInfo = await fetch(`${baseUrl}auth/me`, {
       headers: {
         Authorization: `Bearer ${userToken}`,
       },
@@ -65,7 +64,7 @@ export const updateUser = () => {
   };
   const userToken = getUserTokenFromcookie();
 
-  return fetch(`${mainRoute}users/`, {
+  return fetch(`${baseUrl}users/`, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${userToken}`,
@@ -77,27 +76,27 @@ export const updateUser = () => {
 };
 
 export const getAllCourses = async () => {
-  const allCourses = await fetch(`${mainRoute}courses`);
+  const allCourses = await fetch(`${baseUrl}courses`);
   const courses = await allCourses.json();
   return courses;
 };
 export const getPopularCourses = async () => {
-  const allCourses = await fetch(`${mainRoute}courses/popular`);
+  const allCourses = await fetch(`${baseUrl}courses/popular`);
   const courses = await allCourses.json();
   return courses;
 };
 export const getPresellCourses = async () => {
-  const allCourses = await fetch(`${mainRoute}courses/presell`);
+  const allCourses = await fetch(`${baseUrl}courses/presell`);
   const courses = await allCourses.json();
   return courses;
 };
 export const getMenus = async () => {
-  const allMenus = await fetch(`${mainRoute}menus`);
+  const allMenus = await fetch(`${baseUrl}menus`);
   const menus = await allMenus.json();
   return menus;
 };
 export const getArticles = async () => {
-  const allArticles = await fetch(`${mainRoute}articles`);
+  const allArticles = await fetch(`${baseUrl}articles`);
   const articles = await allArticles.json();
   return articles;
 };
@@ -108,12 +107,12 @@ export const getQueryParams = (qName) => {
 };
 
 export const getCourseByCategory = async (catName) => {
-  const getCourse = await fetch(`${mainRoute}courses/category/${catName}`);
+  const getCourse = await fetch(`${baseUrl}courses/category/${catName}`);
   const parseCourse = await getCourse.json();
   return parseCourse;
 };
 export const getAllCategories = async () => {
-  const getCat = await fetch(`${mainRoute}category`);
+  const getCat = await fetch(`${baseUrl}category`);
   const parseCat = await getCat.json();
   return parseCat;
 };
@@ -188,7 +187,7 @@ export const getCourseByName = async (name) => {
   let courseName = null;
   if (getQueryParams(name)) {
     courseName = getQueryParams(name);
-    const getCourse = await fetch(`${mainRoute}courses/${courseName}`);
+    const getCourse = await fetch(`${baseUrl}courses/${courseName}`);
     const parseCourse = await getCourse.json();
     return parseCourse;
   }
@@ -224,7 +223,7 @@ export function myCourseGenerator(courses, container) {
       <div class="course_box_header">
         <a href="../course.html?name=${course.shortName}">
           <img
-            src="https://sabzlearn-project-backend.liara.run/courses/covers/${course.cover}"
+            src="${course.cover}"
             alt=""
           />
         </a>
@@ -266,3 +265,6 @@ export const isUserRegisteredToThisCourse = (courseId) => {
     return false;
   }
 };
+export let baseUrl = `https://sabzlearn-backend-ochre.vercel.app/v1/`;
+// export let mainRoute = `https://alirezaaa1194.github.io/sabzlearn2`;
+export let mainRoute = `http://127.0.0.1:5501`;

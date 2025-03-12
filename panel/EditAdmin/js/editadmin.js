@@ -1,4 +1,4 @@
-import { mainRoute, getUserInfo, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
+import { baseUrl, getUserInfo, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
 const name_input = document.querySelector(".name_input");
 const userName_input = document.querySelector(".userName_input");
 const email_input = document.querySelector(".email_input");
@@ -44,7 +44,7 @@ const userInfoUpdateHandler = () => {
           password: password_input.value.trim(),
           phone: phone_input.value.trim(),
         };
-        fetch(`${mainRoute}users/`, {
+        fetch(`${baseUrl}users/`, {
           method: "PUT",
           headers: {
             Authorization: `Bearer ${getUserTokenFromcookie()}`,

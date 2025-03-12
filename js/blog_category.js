@@ -178,7 +178,7 @@ function articlesGenerator(container) {
           <div class="document-Card-header">
             <a href="blog.html?bName=${articles[i].shortName}" class="">
               <img
-                src="https://sabzlearn-project-backend.liara.run/courses/covers/${articles[i].cover}"
+                src="${articles[i].cover}"
                 alt=""
                 class="document-img"
               />
@@ -231,7 +231,7 @@ function articlesGenerator(container) {
           <div class="document-Card-header">
             <a href="blog.html?bName=${articles[i].shortName}" class="">
               <img
-                src="https://sabzlearn-project-backend.liara.run/courses/covers/${articles[i].cover}"
+                src="${articles[i].cover}"
                 alt=""
                 class="document-img"
               />

@@ -1,6 +1,6 @@
-import { mainRoute, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
+import { baseUrl, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
 const getLastUsers = async () => {
-  let res = await fetch(`${mainRoute}infos/p-admin`, {
+  let res = await fetch(`${baseUrl}infos/p-admin`, {
     headers: {
       Authorization: `Bearer ${getUserTokenFromcookie()}`,
     },

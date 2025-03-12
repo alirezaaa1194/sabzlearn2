@@ -1,4 +1,4 @@
-import { mainRoute, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
+import { baseUrl, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
 
 const categoriesContainer = document.querySelector(".categoriesContainer");
 const category_name_input = document.querySelector(".category_name_input");
@@ -9,7 +9,7 @@ let categories = [];
 let isEdit = false;
 let categoryId = null;
 const getCategories = async () => {
-  let res = await fetch(`${mainRoute}category`);
+  let res = await fetch(`${baseUrl}category`);
   let data = await res.json();
   categories = data;
   categoriesGenerator(data);
@@ -70,7 +70,7 @@ const deleteCategoryHandler = (id) => {
     cancelButtonText: "خیر",
   }).then((res) => {
     if (res.isConfirmed) {
-      fetch(`${mainRoute}category/${id}`, {
+      fetch(`${baseUrl}category/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -91,7 +91,7 @@ const editCategoryHandler = () => {
       title: category_title_input.value.trim(),
       name: category_name_input.value.trim(),
     };
-    fetch(`${mainRoute}category/${categoryId}`, {
+    fetch(`${baseUrl}category/${categoryId}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -117,7 +117,7 @@ const editCategoryHandler = () => {
       title: category_title_input.value.trim(),
       name: category_name_input.value.trim(),
     };
-    fetch(`${mainRoute}category`, {
+    fetch(`${baseUrl}category`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${getUserTokenFromcookie()}`,

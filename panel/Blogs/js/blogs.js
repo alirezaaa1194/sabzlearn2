@@ -1,4 +1,4 @@
-import { mainRoute, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
+import { baseUrl, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
 let editor = null;
 ClassicEditor.create(document.querySelector("#editor"), {
   language: "fa",
@@ -7,7 +7,7 @@ ClassicEditor.create(document.querySelector("#editor"), {
 });
 let categoryId = -1;
 const getArticles = async () => {
-  let res = await fetch(`${mainRoute}articles`, {
+  let res = await fetch(`${baseUrl}articles`, {
     headers: {
       Authorization: `Bearer ${getUserTokenFromcookie()}`,
     },
@@ -61,7 +61,7 @@ const deleteArticleHandler = (id) => {
     cancelButtonText: "خیر",
   }).then((res) => {
     if (res.isConfirmed) {
-      fetch(`${mainRoute}articles/${id}`, {
+      fetch(`${baseUrl}articles/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -77,7 +77,7 @@ const deleteArticleHandler = (id) => {
   });
 };
 const categoryHandler = async () => {
-  let res = await fetch(`${mainRoute}category`);
+  let res = await fetch(`${baseUrl}category`);
   let data = await res.json();
   const category_select_input = document.querySelector(
     ".category_select_input"
@@ -120,7 +120,7 @@ const insertNewArticke = () => {
     formData.append("categoryID", categoryId);
     formData.append("cover", article_cover_input.files[0]);
 
-    fetch(`${mainRoute}articles`, {
+    fetch(`${baseUrl}articles`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${getUserTokenFromcookie()}`,

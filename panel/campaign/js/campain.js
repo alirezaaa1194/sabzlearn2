@@ -1,9 +1,9 @@
-import { mainRoute, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
+import { baseUrl, getUserTokenFromcookie } from "../../../js/funcs/utils.js";
 
 const campaignPercentInput = document.getElementById("campaign-percent-input");
 const campaignPercentBtn = document.getElementById("campaign-percent-btn");
 const getCampaines = async () => {
-  let res = await fetch(`${mainRoute}offs`, {
+  let res = await fetch(`${baseUrl}offs`, {
     headers: {
       Authorization: `Bearer ${getUserTokenFromcookie()}`,
     },
@@ -52,7 +52,7 @@ const deleteCampainHandler = (id) => {
     cancelButtonText: "خیر",
   }).then((res) => {
     if (res.isConfirmed) {
-      fetch(`${mainRoute}offs/${id}`, {
+      fetch(`${baseUrl}offs/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${getUserTokenFromcookie()}`,
@@ -76,7 +76,7 @@ campaignPercentBtn.addEventListener("click", (e) => {
 });
 const createNewCampain = () => {
   if (campaignPercentInput.value) {
-    fetch(`${mainRoute}offs/all`, {
+    fetch(`${baseUrl}offs/all`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${getUserTokenFromcookie()}`,

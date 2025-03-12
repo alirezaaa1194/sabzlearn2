@@ -3,7 +3,7 @@ import {
   showErrorMessage,
 } from "../../components/messageBox/messageBox.js";
 
-import { getUserTokenFromcookie, mainRoute } from "../funcs/utils.js";
+import { getUserTokenFromcookie, baseUrl } from "../funcs/utils.js";
 window.customElements.define("message-box", messageBox);
 let ticket_departman = document.querySelector(".ticket_departman");
 let ticket_subject = document.querySelector(".ticket_subject");
@@ -13,7 +13,7 @@ let send_btn = document.querySelector(".send_btn");
 let departmentID = null;
 let departmentSubID = "63b688c5516a30a651e98156";
 
-fetch("https://sabzlearn-project-backend.liara.run/v1/tickets/departments")
+fetch("https://sabzlearn-backend-ochre.vercel.app/v1/tickets/departments")
   .then((data) => data.json())
   .then((departments) => {
     departments.forEach((department) => {
@@ -43,7 +43,7 @@ send_btn.addEventListener("click", () => {
       body: ticket_txt.value,
     };
 
-    fetch(`${mainRoute}tickets`, {
+    fetch(`${baseUrl}tickets`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

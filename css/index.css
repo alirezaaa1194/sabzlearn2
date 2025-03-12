@@ -279,7 +279,7 @@ body.dark .section6::before {
   color: var(--TextLightColor);
   text-decoration: none;
 }
-.course-Desc {
+.course-Desc{
   color: var(--SecondTextLightColor);
   font-size: 0.8rem;
   width: 100%;
@@ -287,6 +287,8 @@ body.dark .section6::before {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  max-height: 4.8em;
+  line-height: 1.6em;
 }
 .Course-Info {
   width: 100%;
@@ -420,35 +422,19 @@ body.dark .section6::before {
 }
 
 .Help-box1 .circle {
-  background: conic-gradient(
-    from 90deg,
-    rgb(78, 129, 251),
-    rgba(78, 129, 251, 0)
-  ); /* گرادیانت مدور */
+  background: conic-gradient(from 90deg, rgb(78, 129, 251), rgba(78, 129, 251, 0)); /* گرادیانت مدور */
   transform: rotate(45deg);
 }
 .Help-box2 .circle {
-  background: conic-gradient(
-    from 90deg,
-    rgba(46, 213, 115, 0),
-    rgb(46, 213, 115)
-  ); /* گرادیانت مدور */
+  background: conic-gradient(from 90deg, rgba(46, 213, 115, 0), rgb(46, 213, 115)); /* گرادیانت مدور */
   transform: rotate(255deg);
 }
 .Help-box3 .circle {
-  background: conic-gradient(
-    from 90deg,
-    rgba(234, 179, 8, 0),
-    rgb(234, 179, 8)
-  ); /* گرادیانت مدور */
+  background: conic-gradient(from 90deg, rgba(234, 179, 8, 0), rgb(234, 179, 8)); /* گرادیانت مدور */
   transform: rotate(-255deg);
 }
 .Help-box4 .circle {
-  background: conic-gradient(
-    from 90deg,
-    rgba(244, 63, 94, 0),
-    rgb(244, 63, 94)
-  ); /* گرادیانت مدور */
+  background: conic-gradient(from 90deg, rgba(244, 63, 94, 0), rgb(244, 63, 94)); /* گرادیانت مدور */
   transform: rotate(-45deg);
 }
 .Help-desc-Box h3 {
@@ -546,11 +532,7 @@ body.dark .section6::before {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to top,
-    rgb(var(--Warning-bg-color)),
-    rgba(0, 0, 0, 0)
-  );
+  background: linear-gradient(to top, rgb(var(--Warning-bg-color)), rgba(0, 0, 0, 0));
 }
 .document-Card-header,
 .document-Card-header a,
@@ -627,8 +609,7 @@ body.dark .section6::before {
   justify-content: space-between;
   border-radius: 1rem;
   padding: 25px 50px;
-  background-image: url(https://sabzlearn.ir/wp-content/themes/sabzlearn-theme/images/section-pattern.png),
-    linear-gradient(to bottom right, #502ed6, #cd2f6a, #ffe354);
+  background-image: url(https://sabzlearn.ir/wp-content/themes/sabzlearn-theme/images/section-pattern.png), linear-gradient(to bottom right, #502ed6, #cd2f6a, #ffe354);
 }
 .Instagram-title h2 {
   margin: 10px 0;
@@ -871,7 +852,7 @@ body.dark .section6::before {
   .Help-desc-Box h3 {
     text-align: center;
   }
-  .Slogan-Desc-Text{
+  .Slogan-Desc-Text {
     font-size: 19px;
   }
 }

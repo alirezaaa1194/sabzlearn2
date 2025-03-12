@@ -1,7 +1,13 @@
 export function courseGenerator(container, courses, count, description) {
   container.innerHTML = "";
+
   courses.slice(0, count).forEach((course) => {
-    // console.log(course);
+    const descs = document.createElement("div");
+
+    descs.innerHTML = course.description;
+
+    descs.querySelectorAll("img").forEach((img) => img.remove());
+
     container.insertAdjacentHTML(
       "beforeend",
       `
@@ -9,33 +15,19 @@ export function courseGenerator(container, courses, count, description) {
         <div class="Product-Card">
         <div class="Card-header">
           <a href="course.html?name=${course.shortName}">
-          <img src="https://sabzlearn-project-backend.liara.run/courses/covers/${
-            course.cover
-          }" alt="">
+          <img src="${course.cover}" alt="">
           </a>
-          ${
-            course.discount
-              ? `<span class="free-lable">${course.discount}%</span>`
-              : ""
-          }
+          ${course.discount ? `<span class="free-lable">${course.discount}%</span>` : ""}
           ${!course.price ? `<span class="free-lable">100%</span>` : ""}
         </div>
         <div class="Card-Body">
           <div class="Category-Box">
-           ${
-             course.categoryID
-               ? `<a href="course_category.html?cat=${
-                   course.categoryID.name
-                 }&catName=${course.categoryID.title}">${
-                   course.categoryID.title
-                 }</a>`
-               : ""
-           }
+           ${course.categoryID ? `<a href="course_category.html?cat=${course.categoryID.name}&catName=${course.categoryID.title}">${course.categoryID.title}</a>` : ""}
           </div>
           <h4 class="course-Name">
             <a href="course.html?name=${course.shortName}">${course.name}</a>
           </h4>
-          <p class="course-Desc">${description ? course.description : ""}</p>
+          <div class="course-Desc">${description ? descs.innerHTML : ""}</div>
           <div class="Course-Info">
             <div class="Teacher-Info">
               <i class="fa fa-user"></i>
@@ -57,23 +49,13 @@ export function courseGenerator(container, courses, count, description) {
          ${
            course.price && !course.discount
              ? `
-         <h4 class="Course-Price">${
-           course.price.toLocaleString() + "تومان "
-         }</h4>
+         <h4 class="Course-Price">${course.price.toLocaleString() + "تومان "}</h4>
          `
              : `
          
          <div class="price-Box">
-         <h6 class="Course-Price">${
-           course.price ? course.price.toLocaleString() + "تومان" : ""
-         }</h6>
-        ${
-          !course.price
-            ? `<h4>رایگان!</h4>`
-            : `<h4>${
-                (((100 - course.discount)/100)*course.price).toLocaleString() + "تومان"
-              }</h4>`
-        }
+         <h6 class="Course-Price">${course.price ? course.price.toLocaleString() + "تومان" : ""}</h6>
+        ${!course.price ? `<h4>رایگان!</h4>` : `<h4>${(((100 - course.discount) / 100) * course.price).toLocaleString() + "تومان"}</h4>`}
          </div>
   
          

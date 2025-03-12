@@ -931,8 +931,6 @@ class Header extends HTMLElement {
   }
 
   menusGenerator(menus) {
-    //start NavigationBar
-    // //console.log(menus);
     this.NavigationBar.innerHTML = "";
 
     menus.forEach((menu) => {
@@ -943,12 +941,12 @@ class Header extends HTMLElement {
     <a href="./course_category.html?cat=${menu.href}&catName=${
           menu.title
         }" class="NavItem">${menu.title} ${
-          menu.submenus.length > 0 ? ' <i class="fa fa-angle-down"></i>' : ""
+          menu?.submenus?.length > 0 ? ' <i class="fa fa-angle-down"></i>' : ""
         }</a>
   </li>
     `
       );
-      if (menu.submenus.length > 0) {
+      if (menu?.submenus?.length > 0) {
         const menusBox = this.shadowRoot.querySelector(".NavItem");
         // menusBox.querySelector('.SubMenu').innerHTML = "";
         menusBox.parentElement.insertAdjacentHTML(
@@ -983,18 +981,18 @@ class Header extends HTMLElement {
         `
   <li class="menuItem">
       <a ${
-        !menu.submenus.length && menu.title != "مقالات"
+        !menu?.submenus?.length && menu.title != "مقالات"
           ? `href="./course_category.html?cat=${menu.href}&catName=${menu.title}"`
           : ""
       }   
       
       ${
-        !menu.submenus.length && menu.title === "مقالات"
+        !menu?.submenus?.length && menu.title === "مقالات"
           ? `href="blog_category.html"`
           : ""
       }  class="menuLink">
       ${menu.title} ${
-          menu.submenus.length > 0 ? '<i class="fa fa-angle-down"></i>' : ""
+          menu?.submenus?.length > 0 ? '<i class="fa fa-angle-down"></i>' : ""
         }
     </a>
  </li>
@@ -1002,13 +1000,13 @@ class Header extends HTMLElement {
   `
       );
       const menuItem = this.shadowRoot.querySelector(".menuItem");
-      if (menu.submenus.length > 0) {
+      if (menu?.submenus?.length > 0) {
         menuItem.insertAdjacentHTML(
           "beforeend",
           `<ul class="responsiveSubmenu"></ul>`
         );
 
-        menu.submenus.forEach((submenu) => {
+        menu?.submenus?.forEach((submenu) => {
           //console.log(submenu);
           menuItem.querySelector(".responsiveSubmenu").insertAdjacentHTML(
             "afterbegin",
